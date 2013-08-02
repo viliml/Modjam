@@ -19,4 +19,9 @@ public class EntityElementalChicken extends EntityChicken implements IElementalE
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

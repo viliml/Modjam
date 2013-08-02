@@ -19,4 +19,9 @@ public class EntityElementalBat extends EntityBat implements IElementalEntity
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

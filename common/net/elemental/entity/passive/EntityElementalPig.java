@@ -19,4 +19,9 @@ private EnumBiomes biome;
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

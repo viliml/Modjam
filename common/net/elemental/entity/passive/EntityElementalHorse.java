@@ -19,4 +19,9 @@ public class EntityElementalHorse extends EntityHorse implements IElementalEntit
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

@@ -19,4 +19,9 @@ public class EntityElementalCow extends EntityCow implements IElementalEntity
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

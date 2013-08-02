@@ -19,4 +19,9 @@ public class EntityElementalOcelot extends EntityOcelot implements IElementalEnt
 	{
 		return biome;
 	}
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

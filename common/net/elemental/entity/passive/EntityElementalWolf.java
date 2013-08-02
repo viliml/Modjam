@@ -19,4 +19,9 @@ public class EntityElementalWolf extends EntityWolf implements IElementalEntity
 	{
 		return biome;
 	}
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

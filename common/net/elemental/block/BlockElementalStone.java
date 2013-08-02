@@ -38,13 +38,13 @@ public class BlockElementalStone extends Block
 		int temp = 0;
 		
 		for(int i = 0; i < 4; ++i, ++temp)
-			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stone_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
-		for(int i = 4; i < 8; ++i, ++temp)
-			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "cobblestone_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
-		for(int i = 8; i < 12; ++i, ++temp)
-			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
-		for(int i = 12; i < 16; ++i, ++temp)
-			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_carved_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stone_" + GeneralHelper.ELEMENTS[i].toLowerCase());
+		for(int i = 0; i < 4; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "cobblestone_" + GeneralHelper.ELEMENTS[i].toLowerCase());
+		for(int i = 0; i < 4; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_" + GeneralHelper.ELEMENTS[i].toLowerCase());
+		for(int i = 0; i < 4; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_carved_" + GeneralHelper.ELEMENTS[i].toLowerCase());
     }
 	
 	@Override

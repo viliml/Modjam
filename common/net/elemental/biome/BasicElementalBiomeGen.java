@@ -63,4 +63,9 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 	{
 		return biome.FROZEN_BLOCK;
 	}
+	
+	public EnumBiomes getBiome()
+	{
+		return biome;
+	}
 }

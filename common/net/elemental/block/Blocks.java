@@ -46,15 +46,17 @@ public class Blocks
 		
 		elementalStoneBlock = new BlockElementalStone(ELEMENTAL_STONE_BLOCK_ID)
 			.setUnlocalizedName(ELEMENTAL_STONE_UNLOCALIZED_NAME)
-			.func_111022_d(ELEMENTAL_STONE_UNLOCALIZED_NAME);
+			.func_111022_d(ELEMENTAL_STONE_UNLOCALIZED_NAME)
+			.setHardness(1.5F)
+			.setResistance(10.0F);
 		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
 		for (int i = 0; i < 4; ++i)
 			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone: " + GeneralHelper.ELEMENTS[i]);
-		for (int i = 4; i < 8; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
-		for (int i = 8; i < 12; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
-		for (int i = 12; i < 16; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 0; i < 4; ++i)
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 4),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 0; i < 4; ++i)
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 8),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 0; i < 4; ++i)
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
 	}
 }
