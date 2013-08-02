@@ -245,6 +245,7 @@ public class ElementalTeleporter extends Teleporter
 			return false;
 		}
 	}
+	
 	public boolean makePortal(Entity entity)
 	{
 		int i = MathHelper.floor_double(entity.posX);
