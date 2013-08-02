@@ -15,7 +15,7 @@ public class ElementalConfig
 	{
 		CONFIG.load();
 		
-		Blocks.BOWL_BLOCK_ID = CONFIG.getBlock(Blocks.BOWL_BLOCK_NAME, Blocks.BOWL_BLOCK_DEFAULT_ID).getInt(Blocks.BOWL_BLOCK_DEFAULT_ID);
+		Blocks.BOWL_BLOCK_ID = CONFIG.getBlock(Blocks.BOWL_BLOCK_NAME, Blocks.BOWL_BLOCK_ID).getInt(Blocks.BOWL_BLOCK_ID);
 		
 		if (CONFIG.hasChanged())
 			CONFIG.save();

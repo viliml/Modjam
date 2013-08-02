@@ -10,18 +10,16 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class Blocks 
 {
 	public static BlockBowl bowlBlock;
-	public static int BOWL_BLOCK_ID;
-	public static final int BOWL_BLOCK_DEFAULT_ID = 4000;
+	public static int BOWL_BLOCK_ID = 4000;
 	public static final String BOWL_BLOCK_NAME = "bowlBlock";
 	public static final String BOWL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
 	public static final String BOWL_BLOCK_ACTUAL_NAME = "Elemental Bowl Block";
 	
 	public static BlockElementalPortal portalBlock;
-	public static int PORTAL_BLOCK_ID;
-	public static final int PORTAL_BLOCK_DEFAULT_ID = 4000;
-	public static final String PORTAL_BLOCK_NAME = "bowlBlock";
-	public static final String PORTAL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
-	public static final String PORTAL_BLOCK_ACTUAL_NAME = "Elemental Bowl Block";
+	public static int PORTAL_BLOCK_ID = 4001;
+	public static final String PORTAL_BLOCK_NAME = "portalBlockElemental";
+	public static final String PORTAL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + PORTAL_BLOCK_NAME;
+	public static final String PORTAL_BLOCK_ACTUAL_NAME = "Portal Block";
 	
 	public static void initBlocks()
 	{
