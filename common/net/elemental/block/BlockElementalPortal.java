@@ -3,7 +3,7 @@ package net.elemental.block;
 import java.util.Random;
 
 import net.elemental.dimension.Dimensions;
-import net.elemental.dimension.TutorialTeleporter;
+import net.elemental.dimension.ElementalTeleporter;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -142,11 +142,11 @@ public class BlockElementalPortal extends BlockBreakable
 			else if (thePlayer.dimension != Dimensions.ELEMENTAL_DIMENSION_ID)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Dimensions.ELEMENTAL_DIMENSION_ID, new TutorialTeleporter(thePlayer.mcServer.worldServerForDimension(Dimensions.ELEMENTAL_DIMENSION_ID)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Dimensions.ELEMENTAL_DIMENSION_ID, new ElementalTeleporter(thePlayer.mcServer.worldServerForDimension(Dimensions.ELEMENTAL_DIMENSION_ID)));
 			}
 			else {
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TutorialTeleporter(thePlayer.mcServer.worldServerForDimension(0)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new ElementalTeleporter(thePlayer.mcServer.worldServerForDimension(0)));
 			}
 		}
 	}
