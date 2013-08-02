@@ -1,5 +1,6 @@
 package net.elemental.lib;
 
+import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
@@ -24,17 +25,72 @@ public class ShrineHelper
 	{ // 0 = must be air, -1 = doesn't matter, -2 = center block
 		{
 			{
-				2, 1, 2
+				1, 1, 1, 1, 1
+			},
+			{
+				2, 0, 0, 0, 2
+			},
+			{
+				2, 0, 0, 0, 2
+			},
+			{
+				3, 0, 0, 0, 4
 			}
 		},
 		{
 			{
-				1, -2, 1
+				1, 1, 1, 1, 1
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
 			}
 		},
 		{
 			{
-				2, 1, 2
+				1, 1, -2, 1, 1
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
+			}
+		},
+		{
+			{
+				1, 1, 1, 1, 1
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
+			},
+			{
+				0, 0, 0, 0, 0
+			}
+		},
+		{
+			{
+				1, 1, 1, 1, 1
+			},
+			{
+				2, 0, 0, 0, 2
+			},
+			{
+				2, 0, 0, 0, 2
+			},
+			{
+				5, 0, 0, 0, 6
 			}
 		}
 	};
@@ -43,10 +99,22 @@ public class ShrineHelper
 	public static final int[][] SHRINE_BUILDING_BLOCKS = 
 	{
 		{
-			Block.blockClay.blockID, 0
+			Block.stoneBrick.blockID, 0
 		},
 		{
-			Block.blockGold.blockID, 0
+			Block.fence.blockID, 0
+		},
+		{
+			Blocks.bowlBlock.blockID, 0
+		},
+		{
+			Blocks.bowlBlock.blockID, 1
+		},
+		{
+			Blocks.bowlBlock.blockID, 2
+		},
+		{
+			Blocks.bowlBlock.blockID, 3
 		}
 	};
 	
