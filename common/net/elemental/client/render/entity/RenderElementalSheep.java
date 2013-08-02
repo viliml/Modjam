@@ -10,7 +10,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderElementalSheep extends RenderSheep
+public class RenderElementalSheep extends RenderSheep //<-- Sheep
 {
 	private static final ResourceLocation earth =
 			new ResourceLocation(Reference.MOD_ID, "textures/entity/sheepEarth.png");

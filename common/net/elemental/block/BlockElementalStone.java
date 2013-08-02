@@ -4,29 +4,55 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.elemental.lib.GeneralHelper;
+import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
 public class BlockElementalStone extends Block
 {
+	private Icon[] icons;
+	
 	public BlockElementalStone(int id)
 	{
 		super(id, Material.rock);
+		
+		icons = new Icon[16];
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta)
 	{
-		return this.blockIcon;
+		return icons[meta];
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconregistry)
+    {
+		int temp = 0;
+		
+		for(int i = 0; i < 4; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stone_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
+		for(int i = 4; i < 8; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "cobblestone_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
+		for(int i = 8; i < 12; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
+		for(int i = 12; i < 16; ++i, ++temp)
+			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_carved_" + GeneralHelper.ELEMENTS[i].toLowerCase() + ".png");
+    }
 	
 	@Override
 	public int damageDropped(int meta)
 	{
+		if(meta < 4)
+			return meta + 4;
+		
 		return meta;
 	}
 	

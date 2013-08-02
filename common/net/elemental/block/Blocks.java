@@ -24,7 +24,7 @@ public class Blocks
 	public static final String PORTAL_BLOCK_ACTUAL_NAME = "Portal Block";
 	
 	public static Block elementalStoneBlock;
-	public static int ELEMENTAL_STONE_BLOCK_ID = 200;
+	public static int ELEMENTAL_STONE_BLOCK_ID = 4002;
 	public static final String ELEMENTAL_STONE_NAME = "elementalStoneBlock";
 	public static final String ELEMENTAL_STONE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
 	public static final String ELEMENTAL_STONE_ACTUAL_NAME = "Elemental Stone";

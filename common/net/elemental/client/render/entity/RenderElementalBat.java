@@ -9,7 +9,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderElementalBat extends RenderBat
+public class RenderElementalBat extends RenderBat //<-- Bat
 {
 	private static final ResourceLocation earth =
 			new ResourceLocation(Reference.MOD_ID, "textures/entity/batEarth.png");
