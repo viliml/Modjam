@@ -23,7 +23,6 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		renderer.renderStandardBlock(block, x, y, z);
-		System.out.println("Statring bowl rendering.");
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 		float f = 1F;

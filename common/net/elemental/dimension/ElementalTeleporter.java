@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.elemental.block.Blocks;
+import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
@@ -250,12 +251,14 @@ public class ElementalTeleporter extends Teleporter
 
 	public boolean makePortal(Entity entity)
 	{
-		byte b0 = 16;
-		double d0 = -1.0D;
+		/*byte b0 = 16;
+		double d0 = -1.0D;*/
 		int i = MathHelper.floor_double(entity.posX);
-		int j = MathHelper.floor_double(entity.posY);
+		int j = MathHelper.floor_double(entity.worldObj.getHeightValue((int)entity.posX, (int)entity.posZ));
 		int k = MathHelper.floor_double(entity.posZ);
-		int l = i;
+		ShrineHelper.buildShrine(this.worldServerInstance, i, j, k);
+		entity.setPosition(entity.posX, j, entity.posZ);
+		/*int l = i;
 		int i1 = j;
 		int j1 = k;
 		int k1 = 0;
@@ -413,7 +416,6 @@ public class ElementalTeleporter extends Teleporter
 						i4 = j2 + (i3 - 1) * l5 - k2 * k5;
 						flag = l2 < 0;
 
-						/** change this block **/
 						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.blockDiamond.blockID : 0);
 					}
 				}
@@ -430,7 +432,6 @@ public class ElementalTeleporter extends Teleporter
 					i4 = j2 + (i3 - 1) * l5;
 					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
 
-					/** change these blocks **/
 					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.blockDiamond.blockID : Blocks.portalBlock.blockID, 0, 2);
 				}
 			}
@@ -444,7 +445,7 @@ public class ElementalTeleporter extends Teleporter
 					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlockId(k3, j3, i4));
 				}
 			}
-		}
+		}*/
 		return true;
 
 	}
