@@ -1,5 +1,6 @@
 package net.elemental.client.render;
 
+import net.elemental.block.BlockBowl;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCauldron;
 import net.minecraft.block.BlockFluid;
@@ -21,6 +22,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
+		renderer.renderStandardBlock(block, x, y, z);
 		System.out.println("Statring bowl rendering.");
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
@@ -43,15 +45,18 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		Icon icon = block.getBlockTextureFromSide(2);
+		System.out.println(icon);
 		f4 = 0.125F;
 		renderer.renderFaceXPos(block, (double)((float)x - 1.0F + f4), (double)y, (double)z, icon);
 		renderer.renderFaceXNeg(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, icon);
 		renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), icon);
 		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), icon);
-		Icon icon1 = BlockCauldron.func_94375_b("inner");
+		Icon icon1 = BlockBowl.func_94375_b("inner");
+		System.out.println(icon1);
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.25F), (double)z, icon1);
 		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
+		System.out.println(meta);
 		Icon content = null;
 		switch (meta)
 		{
@@ -72,6 +77,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
+		System.out.println(content);
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 15F / 16.0F), (double)z, content);
 
 		return true;
@@ -80,7 +86,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean shouldRender3DInInventory()
 	{
-		return true;
+		return false;
 	}
 
 	@Override
