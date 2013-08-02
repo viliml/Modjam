@@ -1,5 +1,6 @@
 package net.elemental.client.render;
 
+import net.elemental.client.render.block.RenderBowl;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderHandlers 

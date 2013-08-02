@@ -38,7 +38,7 @@ public class BlockBowl extends Block
 	@SuppressWarnings("rawtypes")
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB boundingBox, List list, Entity entity)
     {
-        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
         float f = 0.125F;
         setBlockBounds(0.0F, 0.0F, 0.0F, f, 5F / 16F, 1.0F);
