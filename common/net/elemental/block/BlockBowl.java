@@ -5,7 +5,8 @@ import java.util.Random;
 
 import net.elemental.block.Blocks;
 import net.elemental.client.render.RenderHandlers;
-import net.minecraft.block.BlockCauldron;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBowl extends BlockCauldron 
+public class BlockBowl extends Block
 {
 	@SideOnly(Side.CLIENT)
 	private Icon innerIcon;
@@ -30,7 +31,7 @@ public class BlockBowl extends BlockCauldron
 
 	public BlockBowl(int id) 
 	{
-		super(id);
+		super(id, Material.wood);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
@@ -49,6 +50,11 @@ public class BlockBowl extends BlockCauldron
         this.setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
         this.setBlockBoundsForItemRender();
+    }
+
+    public void setBlockBoundsForItemRender()
+    {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 	
 	@SideOnly(Side.CLIENT)

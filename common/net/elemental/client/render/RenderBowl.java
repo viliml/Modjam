@@ -2,7 +2,6 @@ package net.elemental.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCauldron;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFluid;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -58,7 +57,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		{
 		case 0:
 			//Earth
-			content = Block.dirt.getBlockTexture(world, x, y, z, 1);
+			content = Block.dirt.getIcon(1, 0);
 			break;
 		case 1:
 			//Air
@@ -81,7 +80,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean shouldRender3DInInventory()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
