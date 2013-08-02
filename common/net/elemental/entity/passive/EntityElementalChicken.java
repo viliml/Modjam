@@ -8,10 +8,9 @@ public class EntityElementalChicken extends EntityChicken implements IElementalE
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalChicken(World par1World, EnumBiomes theBiome)
+    public EntityElementalChicken(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override

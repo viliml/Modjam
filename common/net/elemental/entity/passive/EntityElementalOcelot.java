@@ -8,10 +8,9 @@ public class EntityElementalOcelot extends EntityOcelot implements IElementalEnt
 {
 	private EnumBiomes biome;
 
-	public EntityElementalOcelot(World par1World, EnumBiomes theBiome)
+	public EntityElementalOcelot(World par1World)
 	{
 		super(par1World);
-		biome = theBiome;
 	}
 	
 	@Override

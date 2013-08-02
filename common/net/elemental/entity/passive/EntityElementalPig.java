@@ -8,10 +8,9 @@ public class EntityElementalPig extends EntityPig implements IElementalEntity
 {
 private EnumBiomes biome;
 	
-    public EntityElementalPig(World par1World, EnumBiomes theBiome)
+    public EntityElementalPig(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override

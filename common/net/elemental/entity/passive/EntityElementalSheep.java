@@ -8,14 +8,19 @@ public class EntityElementalSheep extends EntitySheep implements IElementalEntit
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalSheep(World par1World, EnumBiomes theBiome)
+    public EntityElementalSheep(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     public EnumBiomes getBiome()
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome)
+	{
+		biome = theBiome;
+	}
 }

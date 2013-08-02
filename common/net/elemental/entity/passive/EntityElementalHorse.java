@@ -8,10 +8,9 @@ public class EntityElementalHorse extends EntityHorse implements IElementalEntit
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalHorse(World par1World, EnumBiomes theBiome)
+    public EntityElementalHorse(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override

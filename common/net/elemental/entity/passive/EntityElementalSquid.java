@@ -8,10 +8,9 @@ public class EntityElementalSquid extends EntitySquid implements IElementalEntit
 {
 private EnumBiomes biome;
 	
-    public EntityElementalSquid(World par1World, EnumBiomes theBiome)
+    public EntityElementalSquid(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override
@@ -19,4 +18,9 @@ private EnumBiomes biome;
     {
     	return biome;
     }
+
+	@Override
+	public void setBiome(EnumBiomes theBiome) {
+		biome = theBiome;
+	}
 }

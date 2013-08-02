@@ -8,10 +8,9 @@ public class EntityElementalCow extends EntityCow implements IElementalEntity
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalCow(World par1World, EnumBiomes theBiome)
+    public EntityElementalCow(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override

@@ -8,10 +8,9 @@ public class EntityElementalWolf extends EntityWolf implements IElementalEntity
 {
 	private EnumBiomes biome;
 
-	public EntityElementalWolf(World par1World, EnumBiomes theBiome)
+	public EntityElementalWolf(World par1World)
 	{
 		super(par1World);
-		biome = theBiome;
 	}
 		
 	@Override

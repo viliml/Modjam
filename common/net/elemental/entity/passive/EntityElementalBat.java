@@ -8,10 +8,9 @@ public class EntityElementalBat extends EntityBat implements IElementalEntity
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalBat(World par1World, EnumBiomes theBiome)
+    public EntityElementalBat(World par1World)
     {
         super(par1World);
-        biome = theBiome;
     }
     
     @Override
