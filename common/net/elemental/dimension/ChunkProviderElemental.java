@@ -190,11 +190,11 @@ public class ChunkProviderElemental implements IChunkProvider
 								{
 									if (var11 < 0.15F)
 									{
-										var14 = (byte)Block.ice.blockID;
+										var14 = var10.getFrozenBlock();
 									}
 									else
 									{
-										var14 = (byte)Block.waterStill.blockID;
+										var14 = var10.getLiquidBlock();
 									}
 								}
 								var13 = var12;

@@ -53,4 +53,14 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 		
         return biome.FOLIAGE_COLOR;
     }
+	
+	public byte getLiquidBlock()
+	{
+		return biome.LIQUID_BLOCK;
+	}
+	
+	public byte getFrozenBlock()
+	{
+		return biome.FROZEN_BLOCK;
+	}
 }

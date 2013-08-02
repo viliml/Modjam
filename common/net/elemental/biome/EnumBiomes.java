@@ -13,7 +13,10 @@ public enum EnumBiomes
 		0x996633,
 		0x996633,
 		(byte) Block.sand.blockID,
-		(byte) Block.dirt.blockID
+		(byte) Block.dirt.blockID,
+		//TODO make theese some kind of mud
+		(byte) Block.ice.blockID,
+		(byte) Block.waterStill.blockID
 	),
 	Air 
 	(
@@ -24,7 +27,9 @@ public enum EnumBiomes
 		0xFFFFFF,
 		0xFFFFFF,
 		(byte) Block.blockGold.blockID,
-		(byte) Block.blockDiamond.blockID
+		(byte) Block.blockDiamond.blockID,
+		(byte) Block.waterStill.blockID,
+		(byte) Block.ice.blockID
 	),
 	Fire 
 	(
@@ -35,7 +40,9 @@ public enum EnumBiomes
 		0xFF8800,
 		0xFF8800,
 		(byte) Block.netherrack.blockID,
-		(byte) Block.fire.blockID
+		(byte) Block.fire.blockID,
+		(byte) Block.lavaStill.blockID,
+		(byte) Block.obsidian.blockID
 	),
 	Water 
 	(
@@ -46,7 +53,9 @@ public enum EnumBiomes
 		0x0000FF,
 		0x0000FF,
 		(byte) Block.ice.blockID,
-		(byte) Block.waterMoving.blockID
+		(byte) Block.waterMoving.blockID,
+		(byte) Block.waterStill.blockID,
+		(byte) Block.ice.blockID
 	);
 	
 	public final String NAME;
@@ -57,8 +66,12 @@ public enum EnumBiomes
 	public final int GRASS_COLOR;
 	public final byte FILLER_BLOCK;
 	public final byte TOP_BLOCK;
+	public final byte LIQUID_BLOCK;
+	public final byte FROZEN_BLOCK;
 	
-	EnumBiomes(String name, int color, int water_color_multiplier, int sky_color, int foliage_color, int grass_color, byte filler_block, byte top_block)
+	EnumBiomes(String name, int color, int water_color_multiplier,
+			int sky_color, int foliage_color, int grass_color,
+			byte filler_block, byte top_block, byte liquid_block, byte frozen_block)
 	{
 		this.NAME = name;
 		this.COLOR = color;
@@ -68,5 +81,7 @@ public enum EnumBiomes
 		this.GRASS_COLOR = grass_color;
 		this.FILLER_BLOCK = filler_block;
 		this.TOP_BLOCK = top_block;
+		this.LIQUID_BLOCK = liquid_block;
+		this.FROZEN_BLOCK = frozen_block;
 	}
 }

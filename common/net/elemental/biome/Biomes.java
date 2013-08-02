@@ -1,11 +1,11 @@
 package net.elemental.biome;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Biomes 
 {
@@ -14,6 +14,7 @@ public class Biomes
 	public static int FIRE_BIOME_ID = 130;
 	public static int WATER_BIOME_ID = 131;
 	
+	//TODO change this!!!
 	public static final byte MAIN_FILLER_ID = (byte) Block.obsidian.blockID;
 	
 	public static BiomeGenBase earth_biome;
