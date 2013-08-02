@@ -15,7 +15,7 @@ public class Blocks
 	
 	public static void initBlocks()
 	{
-		bowlBlock = (BlockBowl) new BlockBowl(4000).func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
+		bowlBlock = (BlockBowl) new BlockBowl(BOWL_BLOCK_ID).func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(bowlBlock, BOWL_BLOCK_NAME);
 		LanguageRegistry.addName(bowlBlock, BOWL_BLOCK_ACTUAL_NAME);
 	}

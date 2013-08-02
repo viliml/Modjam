@@ -1,7 +1,8 @@
 package net.elemental;
 
-import net.elemental.blocks.BlockBowl;
+import net.elemental.blocks.Blocks;
 import net.elemental.common.CommonProxyElemental;
+import net.elemental.common.ElementalConfig;
 import net.elemental.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -39,6 +40,8 @@ public class Elemental
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ElementalConfig.initConfigs();
+		Blocks.initBlocks();
 	}
 	
 	@EventHandler
