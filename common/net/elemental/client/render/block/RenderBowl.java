@@ -67,7 +67,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		case 1:
 			//Air
 			//NOOP
-			break;
+			return true;
 		case 2:
 			//Fire
 			content = BlockFluid.func_94424_b("lava_still");

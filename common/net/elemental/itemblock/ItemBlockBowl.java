@@ -82,4 +82,17 @@ public class ItemBlockBowl extends ItemBlock
 	{
 		return meta == 1 ? 1 : 2;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getSpriteNumber()
+	{
+		return 1;
+	}
+	
+	@Override
+	public int getMetadata(int meta)
+    {
+        return meta;
+    }
 }

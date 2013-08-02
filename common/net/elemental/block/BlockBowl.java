@@ -34,6 +34,7 @@ public class BlockBowl extends Block
 	{
 		super(id, Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 5F / 16F, 1.0F);
 	}
 	
 	@SuppressWarnings("rawtypes")
