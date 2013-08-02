@@ -69,7 +69,8 @@ public class ElementalEventListener
         int j = MathHelper.floor_double(event.entity.boundingBox.minY);
         int k = MathHelper.floor_double(event.entity.posZ);
 		if (event.entity.worldObj.getBlockId(i, j, k) !=
-				((IElementalEntity) event.entity).getBiome().TOP_BLOCK)
+				((BasicElementalBiomeGen) event.entity.worldObj.
+						getBiomeGenForCoords((int) event.x, (int) event.z)).getBiome().TOP_BLOCK)
 		{
 			event.setResult(Result.DENY);
 			return;
