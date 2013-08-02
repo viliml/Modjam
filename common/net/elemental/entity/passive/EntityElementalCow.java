@@ -1,14 +1,14 @@
 package net.elemental.entity.passive;
 
 import net.elemental.biome.EnumBiomes;
-import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.world.World;
 
-public class EntityElementalChicken extends EntityChicken implements IElementalEntity
+public class EntityElementalCow extends EntityCow implements IElementalEntity
 {
 	private EnumBiomes biome;
 	
-    public EntityElementalChicken(World par1World, EnumBiomes theBiome)
+    public EntityElementalCow(World par1World, EnumBiomes theBiome)
     {
         super(par1World);
         biome = theBiome;

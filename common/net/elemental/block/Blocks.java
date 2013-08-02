@@ -26,7 +26,7 @@ public class Blocks
 	public static Block elementalStoneBlock;
 	public static int ELEMENTAL_STONE_BLOCK_ID = 4002;
 	public static final String ELEMENTAL_STONE_NAME = "elementalStoneBlock";
-	public static final String ELEMENTAL_STONE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
+	public static final String ELEMENTAL_STONE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_STONE_NAME;
 	public static final String ELEMENTAL_STONE_ACTUAL_NAME = "Elemental Stone";
 	
 	public static void initBlocks()
@@ -44,17 +44,17 @@ public class Blocks
 		GameRegistry.registerBlock(portalBlock, PORTAL_BLOCK_NAME);
 		LanguageRegistry.addName(portalBlock, PORTAL_BLOCK_ACTUAL_NAME);
 		
-		elementalStoneBlock = new BlockElementalStone(BOWL_BLOCK_ID)
+		elementalStoneBlock = new BlockElementalStone(ELEMENTAL_STONE_BLOCK_ID)
 			.setUnlocalizedName(ELEMENTAL_STONE_UNLOCALIZED_NAME)
 			.func_111022_d(ELEMENTAL_STONE_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 4; i < 8; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 8; i < 12; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 12; i < 16; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
 	}
 }

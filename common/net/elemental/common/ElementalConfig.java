@@ -16,8 +16,7 @@ public class ElementalConfig
 	{
 		CONFIG.load();
 		
-		Blocks.ELEMENTAL_STONE_BLOCK_ID = CONFIG.getTerrainBlock("Terrain block", Blocks.ELEMENTAL_STONE_NAME, Blocks.ELEMENTAL_STONE_BLOCK_ID, null).getInt(Blocks.ELEMENTAL_STONE_BLOCK_ID);
-		
+		Blocks.ELEMENTAL_STONE_BLOCK_ID = CONFIG.getBlock(Blocks.ELEMENTAL_STONE_NAME, Blocks.ELEMENTAL_STONE_BLOCK_ID).getInt(Blocks.ELEMENTAL_STONE_BLOCK_ID);
 		Blocks.BOWL_BLOCK_ID = CONFIG.getBlock(Blocks.BOWL_BLOCK_NAME, Blocks.BOWL_BLOCK_ID).getInt(Blocks.BOWL_BLOCK_ID);
 		Blocks.PORTAL_BLOCK_ID = CONFIG.getBlock(Blocks.PORTAL_BLOCK_NAME, Blocks.PORTAL_BLOCK_ID).getInt(Blocks.PORTAL_BLOCK_ID);
 		

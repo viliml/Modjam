@@ -1,6 +1,6 @@
 package net.elemental.client.render.entity;
 
-import net.elemental.entity.EntityElementalChicken;
+import net.elemental.entity.passive.EntityElementalChicken;
 import net.elemental.lib.Reference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderChicken;

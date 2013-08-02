@@ -3,6 +3,7 @@ package net.elemental.common;
 import net.elemental.block.Blocks;
 import net.elemental.lib.ShrineHelper;
 import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent.SpecialSpawn;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
@@ -25,5 +26,10 @@ public class ElementalEventListener
 		if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
 			return;
 		event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
+	}
+	
+	@ForgeSubscribe
+	public void elementalSpawn(SpecialSpawn event)
+	{
 	}
 }

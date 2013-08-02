@@ -15,13 +15,13 @@ public class RenderHandlers
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
 		//RenderingRegistry.registerEntityRenderingHandler(EntityElementalCaveSpider.class, new RenderElementalCaveSpider());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSpider.class, new RenderElementalSpider());
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalPig.class, new RenderElementalPig(new ModelPig(), new ModelPig(0.5F), 0.7F));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSheep.class, new RenderElementalSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalCow.class, new RenderElementalCow(new ModelCow(), 0.7F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalPig.class, new RenderElementalPig(new ModelPig(), new ModelPig(0.5F), 0.7F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalSheep.class, new RenderElementalSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalCow.class, new RenderElementalCow(new ModelCow(), 0.7F));
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalMooshroom.class, new RenderElementalMooshroom(new ModelCow(), 0.7F));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalWolf.class, new RenderElementalWolf(new ModelWolf(), new ModelWolf(), 0.5F));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalChicken.class, new RenderElementalChicken(new ModelChicken(), 0.3F));
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalOcelot.class, new RenderElementalOcelot(new ModelOcelot(), 0.4F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalWolf.class, new RenderElementalWolf(new ModelWolf(), new ModelWolf(), 0.5F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalChicken.class, new RenderElementalChicken(new ModelChicken(), 0.3F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalOcelot.class, new RenderElementalOcelot(new ModelOcelot(), 0.4F));
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSilverfish.class, new RenderElementalSilverfish());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalCreeper.class, new RenderElementalCreeper());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalEnderman.class, new RenderElementalEnderman());
@@ -33,13 +33,13 @@ public class RenderHandlers
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSlime.class, new RenderElementalSlime(new ModelSlime(16), new ModelSlime(0), 0.25F));
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalMagmaCube.class, new RenderElementalMagmaCube());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalGhast.class, new RenderElementalGhast());
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSquid.class, new RenderElementalSquid(new ModelSquid(), 0.7F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalSquid.class, new RenderElementalSquid(new ModelSquid(), 0.7F));
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalVillager.class, new RenderElementalVillager());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalIronGolem.class, new RenderElementalIronGolem());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalBat.class, new RenderElementalBat());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalDragon.class, new RenderElementalDragon());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalEnderCrystal.class, new RenderElementalEnderCrystal());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalWither.class, new RenderElementalWither());
-        //RenderingRegistry.registerEntityRenderingHandler(EntityElementalHorse.class, new RenderElementalHorse(new ModelHorse(), 0.75F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityElementalHorse.class, new RenderElementalHorse(new ModelHorse(), 0.75F));
 	}
 }

@@ -1,6 +1,6 @@
 package net.elemental.client.render.entity;
 
-import net.elemental.entity.EntityElementalSheep;
+import net.elemental.entity.passive.EntityElementalSheep;
 import net.elemental.lib.Reference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderSheep;

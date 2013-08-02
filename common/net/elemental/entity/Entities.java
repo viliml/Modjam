@@ -2,6 +2,7 @@ package net.elemental.entity;
 
 import net.elemental.Elemental;
 import net.elemental.entity.passive.*;
+import net.elemental.entity.passive.EntityElementalChicken;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class Entities {

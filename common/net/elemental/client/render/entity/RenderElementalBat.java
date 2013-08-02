@@ -1,6 +1,6 @@
 package net.elemental.client.render.entity;
 
-import net.elemental.entity.EntityElementalBat;
+import net.elemental.entity.passive.EntityElementalBat;
 import net.elemental.lib.Reference;
 import net.minecraft.client.renderer.entity.RenderBat;
 import net.minecraft.entity.Entity;
