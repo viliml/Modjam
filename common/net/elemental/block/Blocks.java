@@ -1,8 +1,10 @@
 package net.elemental.block;
 
 import net.elemental.itemblock.ItemBlockBowl;
+import net.elemental.itemblock.ItemBlockElementalStone;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -22,10 +24,10 @@ public class Blocks
 	public static final String PORTAL_BLOCK_ACTUAL_NAME = "Portal Block";
 	
 	public static Block elementalStoneBlock;
-	public static int ELEMENTAL_STONE_BLOCK_ID = 4000;
-	public static final String ELEMENTAL_STONE_NAME = "bowlBlock";
+	public static int ELEMENTAL_STONE_BLOCK_ID = 200;
+	public static final String ELEMENTAL_STONE_NAME = "elementalStoneBlock";
 	public static final String ELEMENTAL_STONE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
-	public static final String ELEMENTAL_STONE_ACTUAL_NAME = "Elemental Bowl Block";
+	public static final String ELEMENTAL_STONE_ACTUAL_NAME = "Elemental Stone";
 	
 	public static void initBlocks()
 	{
@@ -42,5 +44,17 @@ public class Blocks
 		GameRegistry.registerBlock(portalBlock, PORTAL_BLOCK_NAME);
 		LanguageRegistry.addName(portalBlock, PORTAL_BLOCK_ACTUAL_NAME);
 		
+		elementalStoneBlock = new BlockElementalStone(BOWL_BLOCK_ID)
+			.setUnlocalizedName(ELEMENTAL_STONE_UNLOCALIZED_NAME)
+			.func_111022_d(ELEMENTAL_STONE_UNLOCALIZED_NAME);
+		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
+		for (int i = 0; i < 4; ++i)
+			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 4; i < 8; ++i)
+			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 8; i < 12; ++i)
+			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 12; i < 16; ++i)
+			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
 	}
 }
