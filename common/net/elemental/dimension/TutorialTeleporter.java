@@ -3,7 +3,6 @@ package net.elemental.dimension;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 import net.elemental.block.Blocks;
 import net.elemental.lib.ShrineHelper;
@@ -20,8 +19,6 @@ import net.minecraft.world.WorldServer;
 public class TutorialTeleporter extends Teleporter
 {
 	private final WorldServer worldServerInstance;
-	/** A private Random() function in Teleporter */
-	private final Random random;
 	/** Stores successful portal placement locations for rapid lookup. */
 	private final LongHashMap destinationCoordinateCache = new LongHashMap();
 	/**
@@ -34,7 +31,6 @@ public class TutorialTeleporter extends Teleporter
 	{
 		super(worldServer);
 		this.worldServerInstance = worldServer;
-		this.random = new Random(worldServer.getSeed());
 	}
 	/**
 	 * Place an entity in a nearby portal, creating one if necessary.
