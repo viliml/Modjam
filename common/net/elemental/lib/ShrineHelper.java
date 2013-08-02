@@ -120,13 +120,8 @@ public class ShrineHelper
 		return true;
 	}
 	
-	public static boolean checkBowls(World world, int x, int y, int z)
-	{//TODO add this
-		return true;
-	}
-	
 	public static boolean canMakePortal(World world, int x, int y, int z)
 	{//more checks planned
-		return checkShrineDone(world, x, y, z) && checkBowls(world, x, y, z);
+		return checkShrineDone(world, x, y, z);
 	}
 }
