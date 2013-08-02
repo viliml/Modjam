@@ -1,6 +1,8 @@
 package net.elemental.biome;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class FireBiomeGen extends BiomeGenBase
 {
@@ -18,7 +20,27 @@ public class FireBiomeGen extends BiomeGenBase
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableWaterCreatureList.clear();
+		
+		this.setDisableRain();
 	}
 	
+	@Override
+	public int getSkyColorByTemp(float par1)
+    {
+        return Biomes.FIRE_BIOME_SKY_COLOR;
+    }
 	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public int getBiomeGrassColor()
+    {
+        return Biomes.FIRE_BIOME_GRASS_COLOR;
+    }
+
+	@Override
+    @SideOnly(Side.CLIENT)
+    public int getBiomeFoliageColor()
+    {
+        return Biomes.FIRE_BIOME_FOLIAGE_COLOR;
+    }
 }
