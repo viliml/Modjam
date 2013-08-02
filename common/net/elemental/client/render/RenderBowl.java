@@ -2,7 +2,6 @@ package net.elemental.client.render;
 
 import net.elemental.block.BlockBowl;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCauldron;
 import net.minecraft.block.BlockFluid;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -78,7 +77,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			break;
 		}
 		System.out.println(content);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 15F / 16.0F), (double)z, content);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 4F / 16.0F), (double)z, content);
 
 		return true;
 	}

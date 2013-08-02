@@ -41,20 +41,20 @@ public class BlockBowl extends Block
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
         float f = 0.125F;
-        setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, f, 5F / 16F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 5F / 16F, f);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 5F / 16F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 5F / 16F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
         setBlockBoundsForItemRender();
     }
 
     public void setBlockBoundsForItemRender()
     {
-        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 5F / 16F, 1.0F);
     }
 	
 	@SideOnly(Side.CLIENT)
