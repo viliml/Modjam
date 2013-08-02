@@ -4,6 +4,8 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.elemental.client.ClientProxyElemental;
+import net.elemental.client.render.RenderHandlers;
 import net.minecraft.block.BlockCauldron;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -60,4 +62,16 @@ public class BlockBowl extends BlockCauldron
 		list.add(new ItemStack(par1, 1, 2));
 		list.add(new ItemStack(par1, 1, 3));
 	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+	
+	@Override
+	public int getRenderType()
+    {
+        return RenderHandlers.RENDER_BOWL_RENDER_ID;
+    }
 }

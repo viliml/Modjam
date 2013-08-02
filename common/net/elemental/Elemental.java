@@ -41,6 +41,7 @@ public class Elemental
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		proxy.registerRenderThings();
 		ElementalConfig.initConfigs();
 		Blocks.initBlocks();
 	}
