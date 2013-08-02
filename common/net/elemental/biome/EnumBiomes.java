@@ -1,6 +1,5 @@
 package net.elemental.biome;
 
-import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
 
 public enum EnumBiomes 
@@ -13,7 +12,7 @@ public enum EnumBiomes
 		0x996633,
 		0x996633,
 		0x996633,
-		(byte) Blocks.elementalStoneBlock.blockID,
+		(byte) Block.sand.blockID,
 		(byte) Block.dirt.blockID,
 		//TODO make these some kind of mud
 		(byte) Block.waterStill.blockID,
@@ -27,7 +26,7 @@ public enum EnumBiomes
 		0xFFFFFF,
 		0xFFFFFF,
 		0xFFFFFF,
-		(byte) Blocks.elementalStoneBlock.blockID,
+		(byte) 0,
 		(byte) Block.web.blockID,
 		(byte) Block.waterStill.blockID,
 		(byte) Block.ice.blockID
@@ -40,7 +39,7 @@ public enum EnumBiomes
 		0xFF8800,
 		0xFF8800,
 		0xFF8800,
-		(byte) Blocks.elementalStoneBlock.blockID,
+		(byte) Block.netherrack.blockID,
 		(byte) Block.fire.blockID,
 		(byte) Block.lavaStill.blockID,
 		(byte) Block.obsidian.blockID
@@ -53,7 +52,7 @@ public enum EnumBiomes
 		0x0000FF,
 		0x0000FF,
 		0x0000FF,
-		(byte) Blocks.elementalStoneBlock.blockID,
+		(byte) Block.ice.blockID,
 		(byte) Block.waterMoving.blockID,
 		(byte) Block.waterStill.blockID,
 		(byte) Block.ice.blockID

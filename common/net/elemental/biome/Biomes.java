@@ -9,7 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Biomes 
 {
-	public static final byte MAIN_FILLER_ID = (byte) Blocks.elementalStoneBlock.blockID;
+	public static byte MAIN_FILLER_ID;
 	
 	public static int EARTH_BIOME_ID = 128;
 	public static int AIR_BIOME_ID = 129;
@@ -23,6 +23,8 @@ public class Biomes
 	
 	public static void init()
 	{
+		MAIN_FILLER_ID =  (byte) Blocks.elementalStoneBlock.blockID;
+		
 		// Initialize biomes
 		initBiomes();
 		

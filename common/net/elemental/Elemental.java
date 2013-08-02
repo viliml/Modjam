@@ -48,9 +48,9 @@ public class Elemental
 		proxy.registerRenderers();
 		ElementalConfig.initConfigs();
 		Blocks.initBlocks();
-		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 		Biomes.init();
 		Dimensions.initDimensions();
+		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 	}
 	
 	@EventHandler
