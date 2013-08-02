@@ -14,9 +14,9 @@ public enum EnumBiomes
 		0x996633,
 		(byte) Block.sand.blockID,
 		(byte) Block.dirt.blockID,
-		//TODO make theese some kind of mud
-		(byte) Block.ice.blockID,
-		(byte) Block.waterStill.blockID
+		//TODO make these some kind of mud
+		(byte) Block.waterStill.blockID,
+		(byte) Block.ice.blockID
 	),
 	Air 
 	(
@@ -26,8 +26,8 @@ public enum EnumBiomes
 		0xFFFFFF,
 		0xFFFFFF,
 		0xFFFFFF,
-		(byte) Block.blockGold.blockID,
-		(byte) Block.blockDiamond.blockID,
+		(byte) 0,
+		(byte) Block.web.blockID,
 		(byte) Block.waterStill.blockID,
 		(byte) Block.ice.blockID
 	),

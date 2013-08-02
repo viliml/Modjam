@@ -387,7 +387,7 @@ public class ChunkProviderElemental implements IChunkProvider
 		BlockSand.fallInstantly = true;
 		int var4 = par2 * 16;
 		int var5 = par3 * 16;
-		BiomeGenBase var6 = this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);
+		BasicElementalBiomeGen var6 = (BasicElementalBiomeGen) this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);
 		this.rand.setSeed(this.worldObj.getSeed());
 		long var7 = this.rand.nextLong() / 2L * 2L + 1L;
 		long var9 = this.rand.nextLong() / 2L * 2L + 1L;
@@ -405,7 +405,7 @@ public class ChunkProviderElemental implements IChunkProvider
 			int var12 = var4 + this.rand.nextInt(16) + 8;
 			int var13 = this.rand.nextInt(128);
 			int var14 = var5 + this.rand.nextInt(16) + 8;
-			new WorldGenLakes(Block.waterStill.blockID).generate(this.worldObj, this.rand, var12, var13, var14);
+			new WorldGenLakes(var6.getLiquidBlock()).generate(this.worldObj, this.rand, var12, var13, var14);
 		}
 		var6.decorate(this.worldObj, this.rand, var4, var5);
 		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.rand);
@@ -418,7 +418,7 @@ public class ChunkProviderElemental implements IChunkProvider
 				int var14 = this.worldObj.getPrecipitationHeight(var4 + var12, var5 + var13);
 				if (this.worldObj.isBlockFreezable(var12 + var4, var14 - 1, var13 + var5))
 				{
-					this.worldObj.setBlock(var12 + var4, var14 - 1, var13 + var5, Block.ice.blockID);
+					this.worldObj.setBlock(var12 + var4, var14 - 1, var13 + var5, var6.getFrozenBlock());
 				}
 				if (this.worldObj.canSnowAt(var12 + var4, var14, var13 + var5))
 				{

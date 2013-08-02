@@ -14,7 +14,7 @@ public class Biomes
 	public static int FIRE_BIOME_ID = 130;
 	public static int WATER_BIOME_ID = 131;
 	
-	//TODO change this!!!
+	//TODO change this!!! NOW!!!
 	public static final byte MAIN_FILLER_ID = (byte) Block.obsidian.blockID;
 	
 	public static BiomeGenBase earth_biome;
