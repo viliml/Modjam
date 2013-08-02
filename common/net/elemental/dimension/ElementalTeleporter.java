@@ -249,15 +249,26 @@ public class ElementalTeleporter extends Teleporter
 		}
 	}
 
+	public int getHeight(int x, int z)
+	{
+		for (int i = 256; i >= 0; --i)
+		{
+			if (!worldServerInstance.isAirBlock(x, i, z))
+				return i;
+		}
+		return 256;
+	}
+	
 	public boolean makePortal(Entity entity)
 	{
-		/*byte b0 = 16;
-		double d0 = -1.0D;*/
+		//byte b0 = 16;
+		//double d0 = -1.0D;
 		int i = MathHelper.floor_double(entity.posX);
-		int j = MathHelper.floor_double(entity.worldObj.getHeightValue((int)entity.posX, (int)entity.posZ));
 		int k = MathHelper.floor_double(entity.posZ);
-		ShrineHelper.buildShrine(this.worldServerInstance, i, j, k);
-		entity.setPosition(entity.posX, j, entity.posZ);
+		int j = getHeight(i, k);
+		
+		ShrineHelper.buildShrine(worldServerInstance, i, j, k);
+		entity.setPosition(i, j + 1, k);
 		/*int l = i;
 		int i1 = j;
 		int j1 = k;
@@ -445,7 +456,8 @@ public class ElementalTeleporter extends Teleporter
 					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlockId(k3, j3, i4));
 				}
 			}
-		}*/
+		}
+		ShrineHelper.buildShrine(worldServerInstance, i5, j5, j2);*/
 		return true;
 
 	}
