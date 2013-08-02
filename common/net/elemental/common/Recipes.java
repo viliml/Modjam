@@ -1,7 +1,7 @@
 package net.elemental.common;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.elemental.blocks.Blocks;
+import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

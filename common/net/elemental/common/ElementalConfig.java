@@ -2,7 +2,7 @@ package net.elemental.common;
 
 import java.io.File;
 
-import net.elemental.blocks.Blocks;
+import net.elemental.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.Configuration;
 

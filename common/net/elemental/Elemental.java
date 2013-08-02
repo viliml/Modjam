@@ -1,6 +1,6 @@
 package net.elemental;
 
-import net.elemental.blocks.Blocks;
+import net.elemental.block.Blocks;
 import net.elemental.common.CommonProxyElemental;
 import net.elemental.common.ElementalConfig;
 import net.elemental.common.Recipes;
