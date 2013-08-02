@@ -176,7 +176,6 @@ public class ChunkProviderElemental implements IChunkProvider
 								{
 									var14 = 0;
 
-									/** change to custom dirt **/
 									var15 = var10.fillerBlock;//
 								}
 								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
@@ -382,7 +381,7 @@ public class ChunkProviderElemental implements IChunkProvider
 	
 	public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
 	{
-		net.minecraft.block.BlockSand.fallInstantly = true;
+		BlockSand.fallInstantly = true;
 		int var4 = par2 * 16;
 		int var5 = par3 * 16;
 		BiomeGenBase var6 = this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);

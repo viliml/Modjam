@@ -7,46 +7,46 @@ public enum EnumBiomes
 	Earth 
 	(
 		"Earth biome",
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		(byte) Block.oreIron.blockID,
-		(byte) Block.oreDiamond.blockID
+		0x996633,
+		0x996633,
+		0x996633,
+		0x996633,
+		0x996633,
+		(byte) Block.sand.blockID,
+		(byte) Block.dirt.blockID
 	),
 	Air 
 	(
 		"Air biome",
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		(byte) Block.blockDiamond.blockID,
-		(byte) Block.blockIron.blockID
+		0xFFFFFF,
+		0xFFFFFF,
+		0xFFFFFF,
+		0xFFFFFF,
+		0xFFFFFF,
+		(byte) Block.blockGold.blockID,
+		(byte) Block.blockDiamond.blockID
 	),
 	Fire 
 	(
 		"Fire biome",
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		(byte) Block.glowStone.blockID,
-		(byte) Block.blockClay.blockID
+		0xFF8800,
+		0xFF8800,
+		0xFF8800,
+		0xFF8800,
+		0xFF8800,
+		(byte) Block.netherrack.blockID,
+		(byte) Block.fire.blockID
 	),
 	Water 
 	(
 		"Water biome",
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
-		0x000000,
+		0x0000FF,
+		0x0000FF,
+		0x0000FF,
+		0x0000FF,
+		0x0000FF,
 		(byte) Block.ice.blockID,
-		(byte) Block.brick.blockID
+		(byte) Block.waterMoving.blockID
 	);
 	
 	public final String NAME;

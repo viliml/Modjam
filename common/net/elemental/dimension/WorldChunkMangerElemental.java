@@ -37,7 +37,6 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 	public WorldChunkMangerElemental(long seed, WorldType worldtype)
 	{
 		this();
-		// i changed this to my GenLayerTutorial
 		GenLayer[] agenlayer = GenLayerElemental.makeTheWorld(seed);
 		this.myGenBiomes = agenlayer[0];
 		this.myBiomeIndexLayer = agenlayer[1];
