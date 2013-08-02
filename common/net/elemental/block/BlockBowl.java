@@ -75,7 +75,6 @@ public class BlockBowl extends Block
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		System.out.println(func_111023_E());
 		innerIcon = iconRegister.registerIcon(func_111023_E() + "_inner");
         topIcon = iconRegister.registerIcon(func_111023_E() + "_top");
         bottomIcon = iconRegister.registerIcon(func_111023_E() + "_bottom");

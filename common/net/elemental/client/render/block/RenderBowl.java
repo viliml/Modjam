@@ -45,18 +45,18 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		Icon icon = block.getBlockTextureFromSide(2);
-		System.out.println(icon);
+		
 		f4 = .125F;
 		renderer.renderFaceXPos(block, (double)((float)x - 1F + f4), (double)y, (double)z, icon);
 		renderer.renderFaceXNeg(block, (double)((float)x + 1F - f4), (double)y, (double)z, icon);
 		renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1F + f4), icon);
 		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1F - f4), icon);
 		Icon icon1 = BlockBowl.func_94375_b("inner");
-		System.out.println(icon1);
+		
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + .25F), (double)z, icon1);
 		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1F - .75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
-		System.out.println(meta);
+		
 		Icon content = null;
 		switch (meta)
 		{
@@ -77,7 +77,6 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
-		System.out.println(content);
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F), (double)z, content);
 
 		return true;

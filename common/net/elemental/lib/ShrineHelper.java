@@ -16,9 +16,9 @@ public class ShrineHelper
 	public static final int CENTER_BLOCK_META = 0;
 	
 	// Offset from the edge of the shrine
-	public static final int CENTER_BLOCK_X_OFFSET = 1;
+	public static final int CENTER_BLOCK_X_OFFSET = 2;
 	public static final int CENTER_BLOCK_Y_OFFSET = 0;
-	public static final int CENTER_BLOCK_Z_OFFSET = 1;
+	public static final int CENTER_BLOCK_Z_OFFSET = 2;
 	
 	// Blueprint of the shrine
 	public static final int[][][] SHRINE_BLUEPRINT =
@@ -179,13 +179,17 @@ public class ShrineHelper
                 	if (current == 0 &&
                 	   !world.isAirBlock(tempX, tempY, tempZ))
                 		return false;
-                	if (current == -1)
+                	else if (current == 0)
                 		continue;
-                	if (current == -2 &&
+                	else if (current == -1)
+                		continue;
+                	else if (current == -2 &&
                 	   (world.getBlockId(tempX, tempY, tempZ) != CENTER_BLOCK_ID ||
                 	    world.getBlockMetadata(tempX, tempY, tempZ) != CENTER_BLOCK_META))
                 		return false;
-                	else if(world.getBlockId(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][0] ||
+                	else if (current == -2)
+                		continue;
+                	else if (world.getBlockId(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][0] ||
                 			world.getBlockMetadata(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][1])
                 		return false;
                 }

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.elemental.dimension.Dimensions;
 import net.elemental.dimension.TutorialTeleporter;
-import net.elemental.lib.Reference;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;

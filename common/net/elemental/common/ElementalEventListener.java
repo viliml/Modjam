@@ -20,8 +20,10 @@ public class ElementalEventListener
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID !=
 				ShrineHelper.ACTIVATOR_ITEM_ID)
 			return;
-		if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.x, event.z))
+		if (event.entityPlayer.capabilities.isCreativeMode)
+			ShrineHelper.buildShrine(event.entityPlayer.worldObj, event.x, event.y, event.z);
+		if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
 			return;
-		event.entityPlayer.worldObj.setBlock(event.x, event.y, event.z, Blocks.portalBlock.blockID);
+		event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
 	}
 }
