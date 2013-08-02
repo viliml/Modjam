@@ -3,6 +3,7 @@ package net.elemental;
 import net.elemental.blocks.Blocks;
 import net.elemental.common.CommonProxyElemental;
 import net.elemental.common.ElementalConfig;
+import net.elemental.common.Recipes;
 import net.elemental.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -47,6 +48,7 @@ public class Elemental
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		Recipes.initRecipes();
 	}
 	
 	@EventHandler
