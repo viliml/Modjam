@@ -1,7 +1,7 @@
 Wisdom of the Elements
 ======
 
-A minecraft mod based around the 4 elements (fire, air, earth and water).
+A minecraft mod based around the 4 elements(fire, air, earth and water).
 
 Install instructions
 ======
