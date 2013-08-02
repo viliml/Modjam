@@ -29,8 +29,6 @@ public class Elemental
 	@Instance
 	public static Elemental instance;
 	
-	public static BlockBowl bowlBlock;
-	
 	@SidedProxy
 	(
 		clientSide = Reference.CLIENT_PROXY_LOCATION,
@@ -46,7 +44,6 @@ public class Elemental
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		bowlBlock = new BlockBowl(4000).func_111022_d("elemental:bowlBlock");
 	}
 	
 	@EventHandler
