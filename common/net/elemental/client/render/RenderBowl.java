@@ -53,7 +53,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
 		Icon content = null;
-		switch (meta & 3)
+		switch (meta)
 		{
 		case 0:
 			//Earth

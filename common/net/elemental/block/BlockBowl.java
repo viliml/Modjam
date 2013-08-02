@@ -32,46 +32,52 @@ public class BlockBowl extends Block
 	public BlockBowl(int id) 
 	{
 		super(id, Material.wood);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@SuppressWarnings("rawtypes")
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB boundingBox, List list, Entity entity)
     {
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
         float f = 0.125F;
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        this.setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        this.setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
         super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
-        this.setBlockBoundsForItemRender();
+        setBlockBoundsForItemRender();
     }
 
     public void setBlockBoundsForItemRender()
     {
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Icon getIcon(int side, int meta)
     {
-        return side == 1 ? this.topIcon : (side == 0 ? this.bottomIcon : this.blockIcon);
+		if (side == 1)
+			return topIcon;
+		if (side == 0)
+			return bottomIcon;
+		return blockIcon;
+        //return side == 1 ? topIcon : (side == 0 ? bottomIcon : blockIcon);
     }
 	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		this.innerIcon = iconRegister.registerIcon(this.func_111023_E() + "_inner");
-        this.topIcon = iconRegister.registerIcon(this.func_111023_E() + "_top");
-        this.bottomIcon = iconRegister.registerIcon(this.func_111023_E() + "_bottom");
-        this.blockIcon = iconRegister.registerIcon(this.func_111023_E() + "_side");
+		System.out.println(func_111023_E());
+		innerIcon = iconRegister.registerIcon(func_111023_E() + "_inner");
+        topIcon = iconRegister.registerIcon(func_111023_E() + "_top");
+        bottomIcon = iconRegister.registerIcon(func_111023_E() + "_bottom");
+        blockIcon = iconRegister.registerIcon(func_111023_E() + "_side");
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -129,6 +135,12 @@ public class BlockBowl extends Block
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
