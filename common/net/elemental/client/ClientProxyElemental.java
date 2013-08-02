@@ -5,7 +5,7 @@ import net.elemental.common.CommonProxyElemental;
 
 public class ClientProxyElemental extends CommonProxyElemental
 {
-	public void registerRenderThings()
+	public void registerRenderers()
 	{
 		RenderHandlers.initRenderers();
 	}

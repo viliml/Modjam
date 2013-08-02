@@ -1,16 +1,20 @@
 package net.elemental.blocks;
 
 import java.util.List;
+import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.elemental.client.ClientProxyElemental;
 import net.elemental.client.render.RenderHandlers;
 import net.minecraft.block.BlockCauldron;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBowl extends BlockCauldron 
 {
@@ -26,13 +30,31 @@ public class BlockBowl extends BlockCauldron
 	public BlockBowl(int id) 
 	{
 		super(id);
+		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB boundingBox, List list, Entity entity)
+    {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
+        super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
+        float f = 0.125F;
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
+        super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
+        super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
+        this.setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
+        this.setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
+        super.addCollisionBoxesToList(world, x, y, z, boundingBox, list, entity);
+        this.setBlockBoundsForItemRender();
+    }
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public Icon getIcon(int par1, int par2)
+	public Icon getIcon(int side, int meta)
     {
-        return par1 == 1 ? this.topIcon : (par1 == 0 ? this.bottomIcon : this.blockIcon);
+        return side == 1 ? this.topIcon : (side == 0 ? this.bottomIcon : this.blockIcon);
     }
 	
 	@SideOnly(Side.CLIENT)
@@ -74,4 +96,33 @@ public class BlockBowl extends BlockCauldron
     {
         return RenderHandlers.RENDER_BOWL_RENDER_ID;
     }
+	
+	@Override
+	public boolean hasComparatorInputOverride()
+    {
+        return false;
+    }
+	
+	@Override
+	public int idPicked(World world, int x, int y, int z)
+	{
+		return blockID;
+	}
+
+	@Override
+	public int idDropped(int par1, Random random, int par3)
+    {
+        return blockID;
+    }
+
+	@Override
+	public void fillWithRain(World world, int x, int y, int z)
+	{
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	{
+		return false;
+	}
 }
