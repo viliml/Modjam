@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.elemental.block.Blocks;
 import net.elemental.lib.GeneralHelper;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -29,11 +28,12 @@ public class ItemBlockBowl extends ItemBlock
 		return CreativeTabs.tabBlock;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getSubItems(int par1, CreativeTabs creativeTab, List list)
 	{
 		for(int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
 		{
-			list.add(new ItemStack(this.itemID, 0, i));
+			list.add(new ItemStack(itemID, 0, i));
 		}
 	}
 }

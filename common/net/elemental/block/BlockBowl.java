@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.elemental.block.Blocks;
 import net.elemental.client.render.RenderHandlers;
+import net.elemental.lib.GeneralHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -91,11 +92,10 @@ public class BlockBowl extends Block
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int par1, CreativeTabs tabs, List list)
 	{
-		// 4 bowls, 4 elements
-		list.add(new ItemStack(par1, 1, 0));
-		list.add(new ItemStack(par1, 1, 1));
-		list.add(new ItemStack(par1, 1, 2));
-		list.add(new ItemStack(par1, 1, 3));
+		for(int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
+		{
+			list.add(new ItemStack(blockID, 0, i));
+		}
 	}
 	
 	@Override

@@ -26,18 +26,18 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		System.out.println("Statring bowl rendering.");
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		float f = 1.0F;
+		float f = 1F;
 		int l = block.colorMultiplier(world, x, y, z);
-		float f1 = (float)(l >> 16 & 255) / 255.0F;
-		float f2 = (float)(l >> 8 & 255) / 255.0F;
-		float f3 = (float)(l & 255) / 255.0F;
+		float f1 = (float)(l >> 16 & 255) / 255F;
+		float f2 = (float)(l >> 8 & 255) / 255F;
+		float f3 = (float)(l & 255) / 255F;
 		float f4;
 
 		if (EntityRenderer.anaglyphEnable)
 		{
-			float f5 = (f1 * 30.0F + f2 * 59.0F + f3 * 11.0F) / 100.0F;
-			f4 = (f1 * 30.0F + f2 * 70.0F) / 100.0F;
-			float f6 = (f1 * 30.0F + f3 * 70.0F) / 100.0F;
+			float f5 = (f1 * 30F + f2 * 59F + f3 * 11F) / 100F;
+			f4 = (f1 * 30F + f2 * 70F) / 100F;
+			float f6 = (f1 * 30F + f3 * 70F) / 100F;
 			f1 = f5;
 			f2 = f4;
 			f3 = f6;
@@ -46,15 +46,15 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		Icon icon = block.getBlockTextureFromSide(2);
 		System.out.println(icon);
-		f4 = 0.125F;
-		renderer.renderFaceXPos(block, (double)((float)x - 1.0F + f4), (double)y, (double)z, icon);
-		renderer.renderFaceXNeg(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, icon);
-		renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), icon);
-		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), icon);
+		f4 = .125F;
+		renderer.renderFaceXPos(block, (double)((float)x - 1F + f4), (double)y, (double)z, icon);
+		renderer.renderFaceXNeg(block, (double)((float)x + 1F - f4), (double)y, (double)z, icon);
+		renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1F + f4), icon);
+		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1F - f4), icon);
 		Icon icon1 = BlockBowl.func_94375_b("inner");
 		System.out.println(icon1);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.25F), (double)z, icon1);
-		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, icon1);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + .25F), (double)z, icon1);
+		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1F - .75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
 		System.out.println(meta);
 		Icon content = null;
@@ -78,7 +78,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			break;
 		}
 		System.out.println(content);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 4F / 16.0F), (double)z, content);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F), (double)z, content);
 
 		return true;
 	}
