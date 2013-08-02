@@ -10,7 +10,6 @@ public class ElementalEventListener
 	@ForgeSubscribe
 	public void playerInteractListener(PlayerInteractEvent event)
 	{
-		ShrineHelper.buildShrine(event.entityPlayer.worldObj, event.x, event.y, event.z);
 		if (event.action != Action.RIGHT_CLICK_BLOCK)
 			return;
 		if (event.face != 1)

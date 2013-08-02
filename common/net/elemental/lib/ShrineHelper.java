@@ -140,7 +140,10 @@ public class ShrineHelper
                 	current = SHRINE_BLUEPRINT[i][j][k];
                 	
                 	if (current == 0)
+                	{
                 		world.setBlockToAir(tempX, tempY, tempZ);
+                		continue;
+                	}
                 	if (current == -1)
                 		continue;
                 	if (current == -2)
