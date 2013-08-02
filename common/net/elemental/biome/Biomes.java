@@ -1,5 +1,6 @@
 package net.elemental.biome;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -12,6 +13,8 @@ public class Biomes
 	public static int AIR_BIOME_ID = 129;
 	public static int FIRE_BIOME_ID = 130;
 	public static int WATER_BIOME_ID = 131;
+	
+	public static final byte MAIN_FILLER_ID = (byte) Block.obsidian.blockID;
 	
 	public static BiomeGenBase earth_biome;
 	public static BiomeGenBase air_biome;

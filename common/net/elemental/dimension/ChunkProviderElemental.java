@@ -2,6 +2,9 @@ package net.elemental.dimension;
 
 import java.util.List;
 import java.util.Random;
+
+import net.elemental.biome.BasicElementalBiomeGen;
+import net.elemental.biome.Biomes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -114,7 +117,7 @@ public class ChunkProviderElemental implements IChunkProvider
 								if ((d16 += d15) > 0.0D)
 								{
 									/** Main filler block fill's all the underground, replaces block stone **/
-									par3ArrayOfByte[j2 += short1] = (byte)Block.stone.blockID;//
+									par3ArrayOfByte[j2 += short1] = Biomes.MAIN_FILLER_ID;//
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
@@ -147,7 +150,7 @@ public class ChunkProviderElemental implements IChunkProvider
 		{
 			for (int var9 = 0; var9 < 16; var9++)
 			{
-				BiomeGenBase var10 = par4ArrayOfBiomeGenBase[(var9 + var8 * 16)];
+				BasicElementalBiomeGen var10 = (BasicElementalBiomeGen) par4ArrayOfBiomeGenBase[(var9 + var8 * 16)];
 				float var11 = var10.getFloatTemperature();
 				int var12 = (int)(this.stoneNoise[(var8 + var9 * 16)] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
 				int var13 = -1;
