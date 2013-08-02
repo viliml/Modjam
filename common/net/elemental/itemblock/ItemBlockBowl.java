@@ -7,10 +7,13 @@ import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -94,5 +97,16 @@ public class ItemBlockBowl extends ItemBlock
 	public int getMetadata(int meta)
     {
         return meta;
+    }
+	
+	@Override
+	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
+    {
+		if (ForgeDirection.UP.ordinal() != side)
+			return false;
+		
+		world.setBlock(x, y, z, getBlockID(), itemstack.getItemDamage(), 3);
+		
+		return true;
     }
 }
