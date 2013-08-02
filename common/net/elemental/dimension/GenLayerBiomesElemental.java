@@ -9,10 +9,10 @@ public class GenLayerBiomesElemental extends GenLayer {
 
 	protected BiomeGenBase[] allowedBiomes =
 		{
-			Biomes.earthBiome,
-			Biomes.airBiome,
-			Biomes.fireBiome,
-			Biomes.waterBiome,
+			Biomes.earth_biome,
+			Biomes.air_biome,
+			Biomes.fire_biome,
+			Biomes.water_biome,
 			};
 
 	public GenLayerBiomesElemental(long seed, GenLayer genlayer) {

@@ -1,7 +1,5 @@
 package net.elemental.lib;
 
-import net.minecraftforge.common.DimensionManager;
-
 public class Reference 
 {
 	public static final String MOD_ID = "elemental";
@@ -10,6 +8,4 @@ public class Reference
 	
 	public static final String CLIENT_PROXY_LOCATION = "net.elemental.client.ClientProxyElemental";
 	public static final String SERVER_PROXY_LOCATION = "net.elemental.common.CommonProxyElemental";
-
-	public static final int dimensionID = DimensionManager.getNextFreeDimId();
 }

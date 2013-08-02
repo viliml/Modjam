@@ -197,6 +197,6 @@ public class ShrineHelper
 	
 	public static boolean canMakePortal(World world, int x, int y, int z)
 	{//more checks planned
-		return checkShrineDone(world, x, y, z);
+		return !world.isRemote && checkShrineDone(world, x, y, z);
 	}
 }

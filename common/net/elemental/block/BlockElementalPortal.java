@@ -1,9 +1,8 @@
 package net.elemental.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
+import net.elemental.dimension.Dimensions;
 import net.elemental.dimension.TutorialTeleporter;
 import net.elemental.lib.Reference;
 import net.elemental.lib.ShrineHelper;
@@ -16,6 +15,8 @@ import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalPortal extends BlockBreakable
 {
@@ -139,10 +140,10 @@ public class BlockElementalPortal extends BlockBreakable
 			{
 				thePlayer.timeUntilPortal = 10;
 			}
-			else if (thePlayer.dimension != Reference.dimensionID)
+			else if (thePlayer.dimension != Dimensions.ELEMENTAL_DIMENSION_ID)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Reference.dimensionID, new TutorialTeleporter(thePlayer.mcServer.worldServerForDimension(Reference.dimensionID)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Dimensions.ELEMENTAL_DIMENSION_ID, new TutorialTeleporter(thePlayer.mcServer.worldServerForDimension(Dimensions.ELEMENTAL_DIMENSION_ID)));
 			}
 			else {
 				thePlayer.timeUntilPortal = 10;

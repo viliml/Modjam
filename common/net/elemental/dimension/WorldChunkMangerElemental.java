@@ -1,7 +1,6 @@
 package net.elemental.dimension;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -29,10 +28,10 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 	{
 		this.myBiomeCache = new BiomeCache(this);
 		this.myBiomesToSpawnIn = new ArrayList<BiomeGenBase>();
-		this.myBiomesToSpawnIn.add(Biomes.earthBiome);
-		this.myBiomesToSpawnIn.add(Biomes.airBiome);
-		this.myBiomesToSpawnIn.add(Biomes.fireBiome);
-		this.myBiomesToSpawnIn.add(Biomes.waterBiome);
+		this.myBiomesToSpawnIn.add(Biomes.earth_biome);
+		this.myBiomesToSpawnIn.add(Biomes.air_biome);
+		this.myBiomesToSpawnIn.add(Biomes.fire_biome);
+		this.myBiomesToSpawnIn.add(Biomes.water_biome);
 	}
 
 	public WorldChunkMangerElemental(long seed, WorldType worldtype)
@@ -65,7 +64,7 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 		BiomeGenBase biome = this.myBiomeCache.getBiomeGenAt(x, z);
 		if (biome == null)
 		{
-			return Biomes.earthBiome;
+			return Biomes.earth_biome;
 		}
 
 		return biome;
@@ -155,7 +154,7 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 				par1ArrayOfBiomeGenBase[i] = BiomeGenBase.biomeList[aint[i]];
 			} else {
 				//Change this to a biome
-				par1ArrayOfBiomeGenBase[i] = Biomes.earthBiome;
+				par1ArrayOfBiomeGenBase[i] = Biomes.earth_biome;
 			}
 		}
 
@@ -195,7 +194,7 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 					par1ArrayOfBiomeGenBase[i] = BiomeGenBase.biomeList[aint[i]];
 				} else {
 					//Change this to a biome
-					par1ArrayOfBiomeGenBase[i] = Biomes.earthBiome;
+					par1ArrayOfBiomeGenBase[i] = Biomes.earth_biome;
 				}
 			}
 
@@ -206,6 +205,7 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 	/**
 	 * checks given Chunk's Biomes against List of allowed ones
 	 */
+	@SuppressWarnings("rawtypes")
 	public boolean areBiomesViable(int par1, int par2, int par3, List par4List) {
 		IntCache.resetIntCache();
 		int l = par1 - par3 >> 2;
@@ -232,6 +232,7 @@ public class WorldChunkMangerElemental extends WorldChunkManager
 	 * biomes. Searches {par1,par2} +-par3 blocks. Strongly favors positive y
 	 * positions.
 	 */
+	@SuppressWarnings("rawtypes")
 	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random) {
 		IntCache.resetIntCache();
 		int l = par1 - par3 >> 2;

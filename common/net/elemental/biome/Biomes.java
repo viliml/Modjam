@@ -1,11 +1,10 @@
 package net.elemental.biome;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.test.Test;
+import net.minecraftforge.common.BiomeManager;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Biomes 
 {

@@ -1,6 +1,5 @@
 package net.elemental.dimension;
 
-import net.elemental.lib.Reference;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -25,7 +24,7 @@ public class WorldProviderElemental extends WorldProvider
 	/** Get Provider for dimension **/
 	public static WorldProvider getProviderForDimension(int id)
 	{
-		return DimensionManager.createProviderFor(Reference.dimensionID);
+		return DimensionManager.createProviderFor(Dimensions.ELEMENTAL_DIMENSION_ID);
 	}
 
 	/** Welcome message **/

@@ -1,10 +1,12 @@
 package net.elemental;
 
+import net.elemental.biome.Biomes;
 import net.elemental.block.Blocks;
 import net.elemental.common.CommonProxyElemental;
 import net.elemental.common.ElementalConfig;
 import net.elemental.common.ElementalEventListener;
 import net.elemental.common.Recipes;
+import net.elemental.dimension.Dimensions;
 import net.elemental.lib.Reference;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -47,6 +49,8 @@ public class Elemental
 		ElementalConfig.initConfigs();
 		Blocks.initBlocks();
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
+		Biomes.init();
+		Dimensions.initDimensions();
 	}
 	
 	@EventHandler
