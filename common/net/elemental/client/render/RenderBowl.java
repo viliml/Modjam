@@ -56,7 +56,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
 		System.out.println(meta);
-		Icon content = null;
+		Icon content = null; //default
 		switch (meta)
 		{
 		case 0:
@@ -66,7 +66,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		case 1:
 			//Air
 			//NOOP
-			break;
+			return true;
 		case 2:
 			//Fire
 			content = BlockFluid.func_94424_b("lava_still");
@@ -77,7 +77,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			break;
 		}
 		System.out.println(content);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 4F / 16.0F), (double)z, content);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y + 1.0F + 4F / 16.0F), (double)z, content);
 
 		return true;
 	}
