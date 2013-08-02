@@ -52,7 +52,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), icon);
 		Icon icon1 = BlockBowl.func_94375_b("inner");
 		System.out.println(icon1);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.25F), (double)z, icon1);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.75F), (double)z, icon1);
 		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
 		System.out.println(meta);
@@ -77,7 +77,7 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 			break;
 		}
 		System.out.println(content);
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y + 1.0F + 4F / 16.0F), (double)z, content);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - .1F), (double)z, content);
 
 		return true;
 	}

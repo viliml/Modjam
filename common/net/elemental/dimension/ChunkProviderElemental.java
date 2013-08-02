@@ -405,7 +405,7 @@ public class ChunkProviderElemental implements IChunkProvider
 			int var12 = var4 + this.rand.nextInt(16) + 8;
 			int var13 = this.rand.nextInt(128);
 			int var14 = var5 + this.rand.nextInt(16) + 8;
-			new WorldGenLakes(var6.getLiquidBlock()).generate(this.worldObj, this.rand, var12, var13, var14);
+			//new WorldGenLakes(var6.getLiquidBlock()).generate(this.worldObj, this.rand, var12, var13, var14);
 		}
 		var6.decorate(this.worldObj, this.rand, var4, var5);
 		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.rand);
