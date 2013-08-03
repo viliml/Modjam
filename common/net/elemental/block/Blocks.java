@@ -1,7 +1,8 @@
 package net.elemental.block;
 
 import net.elemental.itemblock.ItemBlockBowl;
-import net.elemental.itemblock.ItemBlockElementalOre;
+import net.elemental.itemblock.ItemBlockElementalOre1;
+import net.elemental.itemblock.ItemBlockElementalOre2;
 import net.elemental.itemblock.ItemBlockElementalStone;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
@@ -70,25 +71,26 @@ public class Blocks
 			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),
 					"Chiseled Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 
-		elementalOreBlock1 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK1_ID)
+		elementalOreBlock1 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK1_ID, false)
 		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME)
 		.func_111022_d(ELEMENTAL_ORE_UNLOCALIZED_NAME)
 		.setHardness(1.5F)
 		.setResistance(10.0F);
-		GameRegistry.registerBlock(elementalOreBlock1, ItemBlockElementalOre.class, ELEMENTAL_ORE_NAME + 1);
+		GameRegistry.registerBlock(elementalOreBlock1, ItemBlockElementalOre1.class, ELEMENTAL_ORE_NAME + 1);
 		int i, j;
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock1.blockID, 0, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i] + " Ore: " + GeneralHelper.ELEMENTS[j]);
 		
-		elementalOreBlock2 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK2_ID)
+		elementalOreBlock2 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK2_ID, true)
 		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME)
 		.func_111022_d(ELEMENTAL_ORE_UNLOCALIZED_NAME)
 		.setHardness(1.5F)
 		.setResistance(10.0F);
-		GameRegistry.registerBlock(elementalOreBlock2, ItemBlockElementalOre.class, ELEMENTAL_ORE_NAME + 2);
+		GameRegistry.registerBlock(elementalOreBlock2, ItemBlockElementalOre2.class, ELEMENTAL_ORE_NAME + 2);
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 0, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
+		
 	}
 }

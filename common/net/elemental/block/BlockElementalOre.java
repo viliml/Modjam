@@ -2,8 +2,6 @@ package net.elemental.block;
 
 import java.util.List;
 
-import net.elemental.client.render.RenderHandlers;
-import net.elemental.client.render.block.RenderOre;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
@@ -18,23 +16,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalOre extends Block {
 
-	public static Icon[] overlays;
+	private Icon[] icons;
+	private boolean second;
 
-	public BlockElementalOre(int id) {
+	public BlockElementalOre(int id, boolean isSecond) {
 		super(id, Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
-	}
-
-	@Override
-	public int getRenderType()
-	{
-		return RenderHandlers.RENDER_ORE_RENDER_ID;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
+		second = isSecond;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -48,21 +36,31 @@ public class BlockElementalOre extends Block {
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if (overlays != null)
-			return;
-		overlays = new Icon[8];
-		for (int i = 0; i < 7; ++i)
-			overlays[i] = iconRegister.registerIcon(
-					Reference.MOD_ID + ":" + GeneralHelper.ORES[i].toLowerCase() + "_ore_overlay");
-		overlays[7] = overlays[4];
+		icons = new Icon[16];
+		int i, j;
+		if (second)
+			for (i = 0; i < 4; ++i)
+				for (j = 0; j < 4; ++j)
+					icons[i * 4 + j] = iconRegister.registerIcon(
+						Reference.MOD_ID + ":" +
+							GeneralHelper.ELEMENTS[j].toLowerCase() + "_" +
+							GeneralHelper.ORES[i + 4].toLowerCase() + "_ore");
+		else
+			for (i = 0; i < 4; ++i)
+				for (j = 0; i < 4; ++j)
+					icons[i * 4 + j] = iconRegister.registerIcon(
+						Reference.MOD_ID + ":" +
+								GeneralHelper.ELEMENTS[j].toLowerCase() + "_" +
+								GeneralHelper.ORES[i].toLowerCase() + "_ore");
+		if (second)
+			for (i = 0; i < 4; i++) icons[12 + i] = icons[i];
 	}
 
 	@SideOnly(Side.CLIENT)
 
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
-		if (world.getBlockId(x, y, z) == Blocks.elementalOreBlock2.blockID &&
-				(world.getBlockMetadata(x, y, z) & 3) == 3)
+		if (second && (world.getBlockMetadata(x, y, z) >> 3) == 3)
 			return 15;
 		return 0;
 	}
@@ -70,17 +68,5 @@ public class BlockElementalOre extends Block {
 	public int damageDropped(int meta)
 	{
 		return meta;
-	}
-
-	@Override
-	public int getRenderBlockPass()
-	{
-		return 1;
-	}
-	@Override
-	public boolean canRenderInPass(int pass)
-	{
-		RenderOre.renderPass = pass;
-		return true;
 	}
 }

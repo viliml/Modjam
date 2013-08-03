@@ -23,6 +23,7 @@ public class BlockElementalStone extends Block
 		super(id, Material.rock);
 		
 		icons = new Icon[16];
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@Override
