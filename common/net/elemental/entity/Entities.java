@@ -24,7 +24,7 @@ public class Entities {
 				6, Elemental.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityElementalSquid.class, "elementalSquid",
 				7, Elemental.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityElementalWolf.class, "elementalWold",
+		EntityRegistry.registerModEntity(EntityElementalWolf.class, "elementalWolf",
 				8, Elemental.instance, 80, 3, true);
 	}
 }

@@ -1,6 +1,6 @@
 package net.elemental.biome;
 
-import net.elemental.block.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -23,7 +23,7 @@ public class Biomes
 	
 	public static void init()
 	{
-		MAIN_FILLER_ID =  (byte) Blocks.elementalStoneBlock.blockID;
+		MAIN_FILLER_ID =  (byte) Block.stone.blockID;
 		
 		// Initialize biomes
 		initBiomes();

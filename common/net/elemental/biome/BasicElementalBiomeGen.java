@@ -1,6 +1,7 @@
 package net.elemental.biome;
 
 import net.elemental.entity.passive.*;
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import cpw.mods.fml.relauncher.Side;
@@ -10,63 +11,71 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 {
 	private EnumBiomes biome;
 
-	public BasicElementalBiomeGen(int id, EnumBiomes biome) 
+	public BasicElementalBiomeGen(int id, EnumBiomes theBiome) 
 	{
 		super(id);
 
-		this.biomeName = biome.NAME;
-		this.color = biome.COLOR;
-		this.fillerBlock = biome.FILLER_BLOCK;
-		this.topBlock = biome.TOP_BLOCK;
-		this.waterColorMultiplier = biome.WATER_COLOR_MULTIPLIER;
+		biomeName = biome.NAME;
+		color = biome.COLOR;
+		fillerBlock = biome.FILLER_BLOCK;
+		topBlock = biome.TOP_BLOCK;
+		waterColorMultiplier = biome.WATER_COLOR_MULTIPLIER;
 
-		this.biome = biome;
+		biome = theBiome;
 
-		this.spawnableCaveCreatureList.clear();
-		this.spawnableCreatureList.clear();
-		this.spawnableMonsterList.clear();
-		this.spawnableWaterCreatureList.clear();
+		spawnableCaveCreatureList.clear();
+		spawnableCreatureList.clear();
+		spawnableMonsterList.clear();
+		spawnableWaterCreatureList.clear();
+		
+		theBiomeDecorator = createBiomeDecorator();
 
 		addCreatures();
 		addCaveCreatures();
 		addWaterCreatures();
 		addMonsters();
 
-		this.setDisableRain();
+		setDisableRain();
 	}
-
+	
+	@Override
+	public BiomeDecorator createBiomeDecorator()
+	{
+		return new ElementalBiomeDecorator(this);
+	}
+	
 	@SuppressWarnings("unchecked")
 	private void addCaveCreatures()
 	{
-        this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityElementalBat.class, 10, 8, 8));
+        spawnableCaveCreatureList.add(new SpawnListEntry(EntityElementalBat.class, 10, 8, 8));
 	}
 
 	@SuppressWarnings("unchecked")
 	private void addMonsters()
 	{
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalSpider.class, 10, 4, 4));
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalZombie.class, 10, 4, 4));
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalSkeleton.class, 10, 4, 4));
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalCreeper.class, 10, 4, 4));
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalSlime.class, 10, 4, 4));
-        //this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalEnderman.class, 1, 1, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalSpider.class, 10, 4, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalZombie.class, 10, 4, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalSkeleton.class, 10, 4, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalCreeper.class, 10, 4, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalSlime.class, 10, 4, 4));
+        //spawnableMonsterList.add(new SpawnListEntry(EntityElementalEnderman.class, 1, 1, 4));
 	}
 
 	@SuppressWarnings("unchecked")
 	private void addWaterCreatures()
 	{
-        this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityElementalSquid.class, 10, 4, 4));
+        spawnableWaterCreatureList.add(new SpawnListEntry(EntityElementalSquid.class, 10, 4, 4));
     }
 
 	@SuppressWarnings("unchecked")
 	private void addCreatures()
 	{
-		this.spawnableCreatureList.add(new SpawnListEntry(EntityElementalSheep.class, 12, 4, 4));
-		this.spawnableCreatureList.add(new SpawnListEntry(EntityElementalPig.class, 10, 4, 4));
-		this.spawnableCreatureList.add(new SpawnListEntry(EntityElementalChicken.class, 15, 4, 4));
-		this.spawnableCreatureList.add(new SpawnListEntry(EntityElementalCow.class, 8, 4, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityElementalWolf.class, 5, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityElementalOcelot.class, 2, 1, 1));
+		spawnableCreatureList.add(new SpawnListEntry(EntityElementalSheep.class, 12, 4, 4));
+		spawnableCreatureList.add(new SpawnListEntry(EntityElementalPig.class, 10, 4, 4));
+		spawnableCreatureList.add(new SpawnListEntry(EntityElementalChicken.class, 15, 4, 4));
+		spawnableCreatureList.add(new SpawnListEntry(EntityElementalCow.class, 8, 4, 4));
+        spawnableCreatureList.add(new SpawnListEntry(EntityElementalWolf.class, 5, 4, 4));
+        spawnableMonsterList.add(new SpawnListEntry(EntityElementalOcelot.class, 2, 1, 1));
 	}
 
 	@Override

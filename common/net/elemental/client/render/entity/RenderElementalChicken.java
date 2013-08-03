@@ -45,6 +45,6 @@ public class RenderElementalChicken extends RenderChicken
     
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.getTexture((EntityElementalChicken)par1Entity);
+        return getTexture((EntityElementalChicken)par1Entity);
     }
 }

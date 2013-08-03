@@ -30,19 +30,19 @@ public class TutorialTeleporter extends Teleporter
 	public TutorialTeleporter(WorldServer worldServer)
 	{
 		super(worldServer);
-		this.worldServerInstance = worldServer;
+		worldServerInstance = worldServer;
 	}
 	/**
 	 * Place an entity in a nearby portal, creating one if necessary.
 	 */
 	public void placeInPortal(Entity entity, double par2, double par4, double par6, float par8)
 	{
-		if (this.worldServerInstance.provider.dimensionId != 1)
+		if (worldServerInstance.provider.dimensionId != 1)
 		{
-			if (!this.placeInExistingPortal(entity, par2, par4, par6, par8))
+			if (!placeInExistingPortal(entity, par2, par4, par6, par8))
 			{
-				this.makePortal(entity);
-				this.placeInExistingPortal(entity, par2, par4, par6, par8);
+				makePortal(entity);
+				placeInExistingPortal(entity, par2, par4, par6, par8);
 			}
 		}
 		else
@@ -64,7 +64,7 @@ public class TutorialTeleporter extends Teleporter
 						boolean flag = j1 < 0;
 
 						/** change this block **/
-						this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.blockDiamond.blockID : 0);
+						worldServerInstance.setBlock(k1, l1, i2, flag ? Block.blockDiamond.blockID : 0);
 					}
 				}
 			}
@@ -89,14 +89,14 @@ public class TutorialTeleporter extends Teleporter
 		boolean flag = true;
 		double d4;
 		int k1;
-		if (this.destinationCoordinateCache.containsItem(j1))
+		if (destinationCoordinateCache.containsItem(j1))
 		{
-			PortalPosition portalposition = (PortalPosition)this.destinationCoordinateCache.getValueByKey(j1);
+			PortalPosition portalposition = (PortalPosition)destinationCoordinateCache.getValueByKey(j1);
 			d3 = 0.0D;
 			i = portalposition.posX;
 			j = portalposition.posY;
 			k = portalposition.posZ;
-			portalposition.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
+			portalposition.lastUpdateTime = worldServerInstance.getTotalWorldTime();
 			flag = false;
 		}
 		else
@@ -107,13 +107,13 @@ public class TutorialTeleporter extends Teleporter
 				for (int l1 = i1 - short1; l1 <= i1 + short1; ++l1)
 				{
 					double d6 = (double)l1 + 0.5D - entity.posZ;
-					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2)
+					for (int i2 = worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2)
 					{
 						/** change this block **/
-						if (this.worldServerInstance.getBlockId(k1, i2, l1) == Blocks.portalBlock.blockID)
+						if (worldServerInstance.getBlockId(k1, i2, l1) == Blocks.portalBlock.blockID)
 						{
 							/** change this block **/
-							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == Blocks.portalBlock.blockID)
+							while (worldServerInstance.getBlockId(k1, i2 - 1, l1) == Blocks.portalBlock.blockID)
 							{
 								--i2;
 							}
@@ -135,30 +135,30 @@ public class TutorialTeleporter extends Teleporter
 		{
 			if (flag)
 			{
-				this.destinationCoordinateCache.add(j1, new PortalPosition(this, i, j, k, this.worldServerInstance.getTotalWorldTime()));
-				this.destinationCoordinateKeys.add(Long.valueOf(j1));
+				destinationCoordinateCache.add(j1, new PortalPosition(this, i, j, k, worldServerInstance.getTotalWorldTime()));
+				destinationCoordinateKeys.add(Long.valueOf(j1));
 			}
 			double d8 = (double)i + 0.5D;
 			double d9 = (double)j + 0.5D;
 			d4 = (double)k + 0.5D;
 			int j2 = -1;
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i - 1, j, k) == Blocks.portalBlock.blockID)
+			if (worldServerInstance.getBlockId(i - 1, j, k) == Blocks.portalBlock.blockID)
 			{
 				j2 = 2;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i + 1, j, k) == Blocks.portalBlock.blockID)
+			if (worldServerInstance.getBlockId(i + 1, j, k) == Blocks.portalBlock.blockID)
 			{
 				j2 = 0;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k - 1) == Blocks.portalBlock.blockID)
+			if (worldServerInstance.getBlockId(i, j, k - 1) == Blocks.portalBlock.blockID)
 			{
 				j2 = 3;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k + 1) == Blocks.portalBlock.blockID)
+			if (worldServerInstance.getBlockId(i, j, k + 1) == Blocks.portalBlock.blockID)
 			{
 				j2 = 1;
 			}
@@ -170,8 +170,8 @@ public class TutorialTeleporter extends Teleporter
 				int j3 = Direction.offsetZ[j2];
 				int k3 = Direction.offsetX[l2];
 				int l3 = Direction.offsetZ[l2];
-				boolean flag1 = !this.worldServerInstance.isAirBlock(i + i3 + k3, j, k + j3 + l3) || !this.worldServerInstance.isAirBlock(i + i3 + k3, j + 1, k + j3 + l3);
-				boolean flag2 = !this.worldServerInstance.isAirBlock(i + i3, j, k + j3) || !this.worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
+				boolean flag1 = !worldServerInstance.isAirBlock(i + i3 + k3, j, k + j3 + l3) || !worldServerInstance.isAirBlock(i + i3 + k3, j + 1, k + j3 + l3);
+				boolean flag2 = !worldServerInstance.isAirBlock(i + i3, j, k + j3) || !worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
 				if (flag1 && flag2)
 				{
 					j2 = Direction.rotateOpposite[j2];
@@ -184,8 +184,8 @@ public class TutorialTeleporter extends Teleporter
 					d8 -= (double)k3;
 					int i4 = k - l3;
 					d4 -= (double)l3;
-					flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j, i4 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, i4 + j3 + l3);
-					flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, j, i4 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, j + 1, i4 + j3);
+					flag1 = !worldServerInstance.isAirBlock(k1 + i3 + k3, j, i4 + j3 + l3) || !worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, i4 + j3 + l3);
+					flag2 = !worldServerInstance.isAirBlock(k1 + i3, j, i4 + j3) || !worldServerInstance.isAirBlock(k1 + i3, j + 1, i4 + j3);
 				}
 				float f1 = 0.5F;
 				float f2 = 0.5F;
@@ -263,16 +263,16 @@ public class TutorialTeleporter extends Teleporter
 	{
 		if (par1 % 100L == 0L)
 		{
-			Iterator iterator = this.destinationCoordinateKeys.iterator();
+			Iterator iterator = destinationCoordinateKeys.iterator();
 			long j = par1 - 600L;
 			while (iterator.hasNext())
 			{
 				Long olong = (Long)iterator.next();
-				PortalPosition portalposition = (PortalPosition)this.destinationCoordinateCache.getValueByKey(olong.longValue());
+				PortalPosition portalposition = (PortalPosition)destinationCoordinateCache.getValueByKey(olong.longValue());
 				if (portalposition == null || portalposition.lastUpdateTime < j)
 				{
 					iterator.remove();
-					this.destinationCoordinateCache.remove(olong.longValue());
+					destinationCoordinateCache.remove(olong.longValue());
 				}
 			}
 		}

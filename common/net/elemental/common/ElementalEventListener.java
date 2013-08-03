@@ -2,7 +2,7 @@ package net.elemental.common;
 
 import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.block.Blocks;
-import net.elemental.entity.passive.IElementalEntity;
+import net.elemental.entity.IElementalEntity;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -71,12 +71,6 @@ public class ElementalEventListener
 		if (event.entity.worldObj.getBlockId(i, j, k) !=
 				((BasicElementalBiomeGen) event.entity.worldObj.
 						getBiomeGenForCoords((int) event.x, (int) event.z)).getBiome().TOP_BLOCK)
-		{
-			event.setResult(Result.DENY);
-			return;
-		}
-		if (event.entity.worldObj.getBlockId(i, j, k) !=
-				((IElementalEntity) event.entity).getBiome().TOP_BLOCK)
 		{
 			event.setResult(Result.DENY);
 			return;

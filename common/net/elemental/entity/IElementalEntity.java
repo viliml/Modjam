@@ -1,4 +1,4 @@
-package net.elemental.entity.passive;
+package net.elemental.entity;
 
 import net.elemental.biome.EnumBiomes;
 

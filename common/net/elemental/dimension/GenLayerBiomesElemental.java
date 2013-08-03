@@ -17,7 +17,7 @@ public class GenLayerBiomesElemental extends GenLayer {
 
 	public GenLayerBiomesElemental(long seed, GenLayer genlayer) {
 		super(seed);
-		this.parent = genlayer;
+		parent = genlayer;
 	}
 
 	public GenLayerBiomesElemental(long seed) {
@@ -33,8 +33,8 @@ public class GenLayerBiomesElemental extends GenLayer {
 		{
 			for (int dx=0; dx<width; dx++)
 			{
-				this.initChunkSeed(dx+x, dz+z);
-				dest[(dx+dz*width)] = this.allowedBiomes[nextInt(this.allowedBiomes.length)].biomeID;
+				initChunkSeed(dx+x, dz+z);
+				dest[(dx+dz*width)] = allowedBiomes[nextInt(allowedBiomes.length)].biomeID;
 			}
 		}
 		return dest;

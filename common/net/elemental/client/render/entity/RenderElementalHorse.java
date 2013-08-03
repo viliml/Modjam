@@ -45,6 +45,6 @@ public class RenderElementalHorse extends RenderHorse
     
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.getTexture((EntityElementalHorse)par1Entity);
+        return getTexture((EntityElementalHorse)par1Entity);
     }
 }

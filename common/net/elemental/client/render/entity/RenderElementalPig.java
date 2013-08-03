@@ -45,6 +45,6 @@ public class RenderElementalPig extends RenderPig
     
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.getTexture((EntityElementalPig)par1Entity);
+        return getTexture((EntityElementalPig)par1Entity);
     }
 }

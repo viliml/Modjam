@@ -56,6 +56,7 @@ public class BlockElementalStone extends Block
 		return meta;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void getSubBlocks(int id, CreativeTabs creativeTab, List list)
     {
