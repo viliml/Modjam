@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 
 public class BlockElementalStone extends Block
 {
@@ -62,5 +63,16 @@ public class BlockElementalStone extends Block
     {
         for(int i = 0; i < 16; ++i)
         	list.add(new ItemStack(id, 0, i));
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return blockID;
+    }
+
+    public int getDamageValue(World par1World, int par2, int par3, int par4)
+    {
+        return par1World.getBlockMetadata(par2, par3, par4);
     }
 }

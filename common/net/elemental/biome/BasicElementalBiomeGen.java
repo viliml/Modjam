@@ -22,6 +22,8 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 		waterColorMultiplier = theBiome.WATER_COLOR_MULTIPLIER;
 
 		biome = theBiome;
+		
+        theBiomeDecorator = createBiomeDecorator();
 
 		spawnableCaveCreatureList.clear();
 		spawnableCreatureList.clear();

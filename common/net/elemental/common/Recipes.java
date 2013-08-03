@@ -5,6 +5,7 @@ import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class Recipes 
 {
@@ -52,5 +53,14 @@ public class Recipes
 				'B', Item.bowlEmpty,
 				'W', Item.bucketWater,
 				'I', Block.ice);
+		for (int i = 0; i < 4; ++i)
+		{
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i,
+					new ItemStack(Blocks.elementalStoneBlock, 1, i + 4),
+					0.1F);
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 1, i + 8),
+					"ss", "ss",
+					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
+		}
 	}
 }

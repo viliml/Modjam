@@ -36,16 +36,6 @@ public class Biomes
 
 		//Stronghold spawning
 		addStrongholdBiomes();
-
-		registerBiomes();
-	}
-	
-	private static void registerBiomes()
-	{
-		GameRegistry.addBiome(earth_biome);
-		GameRegistry.addBiome(air_biome);
-		GameRegistry.addBiome(fire_biome);
-		GameRegistry.addBiome(water_biome);
 	}
 
 	private static void addStrongholdBiomes()
