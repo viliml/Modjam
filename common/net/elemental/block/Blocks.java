@@ -8,6 +8,7 @@ import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -91,6 +92,28 @@ public class Blocks
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 1, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
-		
+		registerBlockHarvestLevels();
+	}
+
+	private static void registerBlockHarvestLevels()
+	{
+		MinecraftForge.setBlockHarvestLevel(elementalStoneBlock, "pickaxe", 0);
+		int i;
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock1, i, "pickaxe", 1);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock1, 4 + i, "pickaxe", 1);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock1, 8 + i, "pickaxe", 2);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock1, 12 + i, "pickaxe", 1);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, i, "pickaxe", 2);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, 4 + i, "pickaxe", 2);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, 8 + i, "pickaxe", 2);
+		for (i = 0; i < 4; ++i)
+			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, 12 + i, "pickaxe", 2);
 	}
 }

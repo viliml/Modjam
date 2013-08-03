@@ -1,11 +1,30 @@
 package net.elemental.biome;
 
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.*;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.CLAY;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FLOWERS;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.LAKE;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.LILYPAD;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.PUMPKIN;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.REED;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SAND;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SAND_PASS2;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.TREE;
 import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenBigMushroom;
+import net.minecraft.world.gen.feature.WorldGenCactus;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenPumpkin;
+import net.minecraft.world.gen.feature.WorldGenReed;
+import net.minecraft.world.gen.feature.WorldGenSand;
+import net.minecraft.world.gen.feature.WorldGenWaterlily;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -176,7 +195,7 @@ public class ElementalBiomeDecorator extends BiomeDecorator {
 		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(currentWorld, randomGenerator, chunk_X, chunk_Z));
 	}
 
-	protected void changeStone()
+	private void changeStone()
 	{
 		int i, j, k;
 		for (i = chunk_X; i < chunk_X + 16; ++i)
@@ -185,11 +204,46 @@ public class ElementalBiomeDecorator extends BiomeDecorator {
 				if (currentWorld.getBiomeGenForCoords(i, k).biomeID != biome.biomeID)
 					continue;
 				for (j = 0; j < 256; ++j)
-					if (currentWorld.getBlockId(i, j, k) == Block.stone.blockID)
-					{
-						currentWorld.setBlock(i, j, k,
-								Blocks.elementalStoneBlock.blockID, enumBiome.ordinal(), 2);
-					}
+					changeIt(i, j, k);
 			}
+	}
+	
+	private void changeIt(int i, int j, int k)
+	{
+		if (currentWorld.getBlockId(i, j, k) == Block.stone.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalStoneBlock.blockID, enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreCoal.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock1.blockID, enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreIron.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock1.blockID, 4 + enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreGold.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock1.blockID, 8 + enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreLapis.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock1.blockID, 12 + enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreRedstone.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock2.blockID, enumBiome.ordinal(), 2);
+		}
+		if (currentWorld.getBlockId(i, j, k) == Block.oreDiamond.blockID)
+		{
+			currentWorld.setBlock(i, j, k,
+				Blocks.elementalOreBlock2.blockID, 8 + enumBiome.ordinal(), 2);
+		}
 	}
 }
