@@ -14,12 +14,12 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 	public BasicElementalBiomeGen(int id, EnumBiomes theBiome) 
 	{
 		super(id);
-
-		biomeName = biome.NAME;
-		color = biome.COLOR;
-		fillerBlock = biome.FILLER_BLOCK;
-		topBlock = biome.TOP_BLOCK;
-		waterColorMultiplier = biome.WATER_COLOR_MULTIPLIER;
+		
+		biomeName = theBiome.NAME;
+		color = theBiome.COLOR;
+		fillerBlock = theBiome.FILLER_BLOCK;
+		topBlock = theBiome.TOP_BLOCK;
+		waterColorMultiplier = theBiome.WATER_COLOR_MULTIPLIER;
 
 		biome = theBiome;
 
@@ -27,13 +27,11 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 		spawnableCreatureList.clear();
 		spawnableMonsterList.clear();
 		spawnableWaterCreatureList.clear();
-		
-		theBiomeDecorator = createBiomeDecorator();
 
-		addCreatures();
-		addCaveCreatures();
-		addWaterCreatures();
-		addMonsters();
+		//addCreatures();
+		//addCaveCreatures();
+		//addWaterCreatures();
+		//addMonsters();
 
 		setDisableRain();
 	}

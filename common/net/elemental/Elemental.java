@@ -51,7 +51,7 @@ public class Elemental
 		Blocks.initBlocks();
 		Biomes.init();
 		Dimensions.initDimensions();
-		Entities.init();
+		//Entities.init();
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 	}
 	

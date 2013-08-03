@@ -36,6 +36,11 @@ public class RenderHandlers
 	{
 		RENDER_BOWL_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
+		//initEntityRenderers();
+	}
+	
+	private static void initEntityRenderers()
+	{
 		//RenderingRegistry.registerEntityRenderingHandler(EntityElementalCaveSpider.class, new RenderElementalCaveSpider());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSpider.class, new RenderElementalSpider());
         RenderingRegistry.registerEntityRenderingHandler(EntityElementalPig.class, new RenderElementalPig(new ModelPig(), new ModelPig(0.5F), 0.7F));

@@ -55,8 +55,8 @@ public class Blocks
 		for (int i = 0; i < 4; ++i)
 			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 4),  "Cobblestone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 8),  "Stone brick: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 8),  "Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),  "Stone carved brick: " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),  "Stone Carved Brick: " + GeneralHelper.ELEMENTS[i]);
 	}
 }

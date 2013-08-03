@@ -18,11 +18,11 @@ public class ElementalBiomeDecorator extends BiomeDecorator {
 	protected void decorate()
 	{
 		super.decorate();
-		System.out.println(chunk_X * 16 + " " + chunk_Z * 16);
+		System.out.println(chunk_X + " " + chunk_Z);
 		int i, j, k;
-		for (i = chunk_X * 16; i < (chunk_X + 1) * 16; ++i)
+		for (i = chunk_X; i < chunk_X + 16; ++i)
 			for (j = 0; j < 256; ++j)
-				for (k = chunk_Z * 16; k < (chunk_Z * 16); ++k)
+				for (k = chunk_Z; k < chunk_Z + 16; ++k)
 				{
 					if (currentWorld.getBlockId(i, j, k) == Block.stone.blockID)
 					{
