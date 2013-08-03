@@ -91,7 +91,8 @@ public class ElementalEventListener
 		event.setResult(Result.ALLOW);
 	}
 
-	public static void getVillageBlock(GetVillageBlockID event)
+	@ForgeSubscribe
+	public void getVillageBlock(GetVillageBlockID event)
 	{
 		if (!(event.biome instanceof BasicElementalBiomeGen))
 		{
@@ -139,7 +140,8 @@ public class ElementalEventListener
 		event.setResult(Result.ALLOW);
 	}
 
-	public static void getVillageBlockMeta(GetVillageBlockMeta event)
+	@ForgeSubscribe
+	public void getVillageBlockMeta(GetVillageBlockMeta event)
 	{
 		if (!(event.biome instanceof BasicElementalBiomeGen))
 		{

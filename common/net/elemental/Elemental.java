@@ -53,6 +53,7 @@ public class Elemental
 		Dimensions.initDimensions();
 		//Entities.init();
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new ElementalEventListener());
 	}
 	
 	@EventHandler
