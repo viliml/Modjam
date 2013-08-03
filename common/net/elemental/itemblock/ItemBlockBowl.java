@@ -39,16 +39,6 @@ public class ItemBlockBowl extends ItemBlock
 		return CreativeTabs.tabBlock;
 	}
 	
-	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void getSubItems(int par1, CreativeTabs creativeTab, List list)
-	{
-		for(int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
-		{
-			list.add(new ItemStack(itemID, 0, i));
-		}
-	}
-	
 	@SideOnly(Side.CLIENT)
 	@Override
     public boolean requiresMultipleRenderPasses()

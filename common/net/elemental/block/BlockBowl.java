@@ -94,7 +94,7 @@ public class BlockBowl extends Block
 	{
 		for(int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
 		{
-			list.add(new ItemStack(blockID, 0, i));
+			list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 	

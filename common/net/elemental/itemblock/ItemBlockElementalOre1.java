@@ -41,14 +41,4 @@ public class ItemBlockElementalOre1 extends ItemBlock
 	{
 		return Block.blocksList[getBlockID()].getIcon(1, meta);
 	}
-	
-	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void getSubItems(int par1, CreativeTabs creativeTab, List list)
-	{
-		for(int i = 0; i < 16; ++i)
-		{
-			list.add(new ItemStack(getBlockID(), 0, i));
-		}
-	}
 }

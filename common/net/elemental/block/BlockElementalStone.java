@@ -63,7 +63,7 @@ public class BlockElementalStone extends Block
 	public void getSubBlocks(int id, CreativeTabs creativeTab, List list)
     {
         for(int i = 0; i < 16; ++i)
-        	list.add(new ItemStack(id, 0, i));
+        	list.add(new ItemStack(id, 1, i));
     }
 	
 	@SideOnly(Side.CLIENT)

@@ -59,16 +59,16 @@ public class Blocks
 		.setResistance(10.0F);
 		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 1, i),
 					"Elemental Stone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 4),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 1, i + 4),
 					"Elemental Cobblestone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 8),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 1, i + 8),
 					"Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 1, i + 12),
 					"Chiseled Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 
 		elementalOreBlock1 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK1_ID, false)
@@ -79,7 +79,7 @@ public class Blocks
 		GameRegistry.registerBlock(elementalOreBlock1, ItemBlockElementalOre1.class, ELEMENTAL_ORE_NAME + 1);
 		int i, j;
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
-			LanguageRegistry.addName(new ItemStack(elementalOreBlock1.blockID, 0, i * 4 + j),
+			LanguageRegistry.addName(new ItemStack(elementalOreBlock1.blockID, 1, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i] + " Ore: " + GeneralHelper.ELEMENTS[j]);
 		
 		elementalOreBlock2 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK2_ID, true)
@@ -89,7 +89,7 @@ public class Blocks
 		.setResistance(10.0F);
 		GameRegistry.registerBlock(elementalOreBlock2, ItemBlockElementalOre2.class, ELEMENTAL_ORE_NAME + 2);
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
-			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 0, i * 4 + j),
+			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 1, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
 		
 	}
