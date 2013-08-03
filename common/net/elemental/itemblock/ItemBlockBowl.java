@@ -100,32 +100,21 @@ public class ItemBlockBowl extends ItemBlock
     }
 	
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
-    {
-		if(world.isRemote)
-			return false;
-		
-		if (ForgeDirection.UP.ordinal() != side)
-			return false;
-		
-		world.setBlock(x, y + 1, z, getBlockID(), itemstack.getItemDamage(), 3);
-		
-		if (!player.capabilities.isCreativeMode)
-			--itemstack.stackSize;
-		
-		return true;
-    }
-	
-	@Override
 	public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
     {
-		if(world.isRemote)
+		System.out.println("Place");
+		
+		if (world.isRemote)
 			return false;
 		
-		if (ForgeDirection.UP.ordinal() != side)
+		System.out.println("Server");
+		
+		if (side != ForgeDirection.UP.ordinal())
 			return false;
 		
-		world.setBlock(x, y, z, getBlockID(), stack.getItemDamage(), 3);
+		System.out.println("Up");
+		
+		world.setBlock(x, y, z, getBlockID(), metadata, 3);
 		
 		if (!player.capabilities.isCreativeMode)
 			--stack.stackSize;
@@ -135,8 +124,9 @@ public class ItemBlockBowl extends ItemBlock
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean canPlaceItemBlockOnSide(World par1World, int par2, int par3, int par4, int par5, EntityPlayer par6EntityPlayer, ItemStack par7ItemStack)
+	public boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
     {
-		return ForgeDirection.UP.ordinal() == par5;
+		return super.canPlaceItemBlockOnSide(world, x, y, z, side, player, stack) &&
+				side == ForgeDirection.UP.ordinal();
     }
 }

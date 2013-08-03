@@ -17,7 +17,7 @@ public class ItemBlockElementalStone extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack)
 	{
-		return super.getUnlocalizedName() + "." + GeneralHelper.ELEMENTS[itemstack.getItemDamage() % 4] + itemstack.getItemDamage();
+		return super.getUnlocalizedName() + "_" + GeneralHelper.ELEMENTS[itemstack.getItemDamage() % 4] + itemstack.getItemDamage();
 	}
 
 	@Override
