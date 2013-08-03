@@ -15,7 +15,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks 
 {
-	public static BlockBowl bowlBlock;
+	public static Block bowlBlock;
 	public static int BOWL_BLOCK_ID = 4000;
 	public static final String BOWL_BLOCK_NAME = "bowlBlock";
 	public static final String BOWL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
@@ -41,12 +41,18 @@ public class Blocks
 
 	public static void initBlocks()
 	{
-		bowlBlock = (BlockBowl) new BlockBowl(BOWL_BLOCK_ID)
+		/*bowlBlock = (BlockBowl) new BlockBowl(BOWL_BLOCK_ID)
 		.setUnlocalizedName(BOWL_BLOCK_UNLOCALIZED_NAME)
 		.func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(bowlBlock, ItemBlockBowl.class, BOWL_BLOCK_NAME);
 		for (int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  BOWL_BLOCK_ACTUAL_NAME + ": " + GeneralHelper.ELEMENTS[i]);
+			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),  BOWL_BLOCK_ACTUAL_NAME + ": " + GeneralHelper.ELEMENTS[i]);*/
+		
+		bowlBlock = new BlockBowlNew(BOWL_BLOCK_ID)
+		.setUnlocalizedName(BOWL_BLOCK_UNLOCALIZED_NAME)
+		.func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
+		GameRegistry.registerBlock(bowlBlock, BOWL_BLOCK_NAME);
+		LanguageRegistry.addName(bowlBlock, BOWL_BLOCK_ACTUAL_NAME);
 
 		portalBlock = (BlockElementalPortal) new BlockElementalPortal(PORTAL_BLOCK_ID)
 		.setUnlocalizedName(PORTAL_BLOCK_UNLOCALIZED_NAME)

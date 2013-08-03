@@ -1,6 +1,7 @@
 package net.elemental.client.render;
 
 import net.elemental.client.render.block.RenderBowl;
+import net.elemental.client.render.block.TileEntityBowlRenderer;
 import net.elemental.client.render.entity.RenderElementalChicken;
 import net.elemental.client.render.entity.RenderElementalCow;
 import net.elemental.client.render.entity.RenderElementalHorse;
@@ -17,6 +18,7 @@ import net.elemental.entity.passive.EntityElementalPig;
 import net.elemental.entity.passive.EntityElementalSheep;
 import net.elemental.entity.passive.EntityElementalSquid;
 import net.elemental.entity.passive.EntityElementalWolf;
+import net.elemental.tileentity.TileEntityBowl;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.model.ModelHorse;
@@ -26,6 +28,7 @@ import net.minecraft.client.model.ModelSheep1;
 import net.minecraft.client.model.ModelSheep2;
 import net.minecraft.client.model.ModelSquid;
 import net.minecraft.client.model.ModelWolf;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderHandlers 
@@ -36,6 +39,7 @@ public class RenderHandlers
 	{
 		RENDER_BOWL_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBowl.class, new TileEntityBowlRenderer());
 		//initEntityRenderers();
 	}
 	

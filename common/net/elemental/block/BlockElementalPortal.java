@@ -7,7 +7,6 @@ import net.elemental.dimension.ElementalTeleporter;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
@@ -26,7 +25,6 @@ public class BlockElementalPortal extends BlockBreakable
 		setHardness(-1.0F);
 		setStepSound(soundGlassFootstep);
 		setLightValue(0.75F);
-		setCreativeTab(CreativeTabs.tabBlock);
 		setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
 	}
 	/**
