@@ -263,9 +263,9 @@ public class ElementalTeleporter extends Teleporter
 		int j = getHeight(i, k);
 		
 		ShrineHelper.buildShrine(worldServerInstance, i, j, k);
+		worldServerInstance.setBlock(i, j + 1, k, Blocks.portalBlock.blockID);
 		entity.setPosition(i, j + 1, k);
 		return true;
-
 	}
 
 	/**
