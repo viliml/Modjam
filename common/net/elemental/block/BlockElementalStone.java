@@ -70,9 +70,16 @@ public class BlockElementalStone extends Block
     {
         return blockID;
     }
-
+	
+	@Override
     public int getDamageValue(World par1World, int par2, int par3, int par4)
     {
         return par1World.getBlockMetadata(par2, par3, par4);
     }
+	
+	@Override
+	public int getRenderPass()
+	{
+		return 1;
+	}
 }

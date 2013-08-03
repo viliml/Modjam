@@ -70,4 +70,10 @@ public class BlockElementalOre extends Block {
     {
         return meta;
     }
+	
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
 }
