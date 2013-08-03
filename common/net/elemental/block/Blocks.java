@@ -54,10 +54,7 @@ public class Blocks
 		LanguageRegistry.addName(portalBlock, PORTAL_BLOCK_ACTUAL_NAME);
 
 		elementalStoneBlock = new BlockElementalStone(ELEMENTAL_STONE_BLOCK_ID)
-		.setUnlocalizedName(ELEMENTAL_STONE_UNLOCALIZED_NAME)
-		.func_111022_d(ELEMENTAL_STONE_UNLOCALIZED_NAME)
-		.setHardness(1.5F)
-		.setResistance(10.0F);
+		.setUnlocalizedName(ELEMENTAL_STONE_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
 		for (int i = 0; i < 4; ++i)
 			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 1, i),
@@ -73,10 +70,7 @@ public class Blocks
 					"Chiseled Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 
 		elementalOreBlock1 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK1_ID, false)
-		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME)
-		.func_111022_d(ELEMENTAL_ORE_UNLOCALIZED_NAME)
-		.setHardness(1.5F)
-		.setResistance(10.0F);
+		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(elementalOreBlock1, ItemBlockElementalOre1.class, ELEMENTAL_ORE_NAME + 1);
 		int i, j;
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
@@ -84,18 +78,15 @@ public class Blocks
 				"Elemental " + GeneralHelper.ORES[i] + " Ore: " + GeneralHelper.ELEMENTS[j]);
 		
 		elementalOreBlock2 = (BlockElementalOre) new BlockElementalOre(ELEMENTAL_ORE_BLOCK2_ID, true)
-		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME)
-		.func_111022_d(ELEMENTAL_ORE_UNLOCALIZED_NAME)
-		.setHardness(1.5F)
-		.setResistance(10.0F);
+		.setUnlocalizedName(ELEMENTAL_ORE_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(elementalOreBlock2, ItemBlockElementalOre2.class, ELEMENTAL_ORE_NAME + 2);
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 1, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
-		registerBlockHarvestLevels();
+		registerBlockProperties();
 	}
 
-	private static void registerBlockHarvestLevels()
+	private static void registerBlockProperties()
 	{
 		MinecraftForge.setBlockHarvestLevel(elementalStoneBlock, "pickaxe", 0);
 		int i;
