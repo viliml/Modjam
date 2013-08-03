@@ -9,4 +9,16 @@ public class GeneralHelper
 		"Fire",
 		"Water"
 	};
+	
+	public static final String[] ORES =
+	{
+		"Coal",
+		"Iron",
+		"Gold",
+		"Lapis",
+		"Redstone",
+		"Emerald",
+		"Diamond",
+		"Active Redstone"
+	};
 }

@@ -58,10 +58,7 @@ public class Recipes
 			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i + 4,
 					new ItemStack(Blocks.elementalStoneBlock, 1, i),
 					0.1F);
-			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i,
-					new ItemStack(Blocks.elementalStoneBlock, 1, i + 4),
-					0.1F);
-			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 1, i + 8),
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 4, i + 8),
 					"ss", "ss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 		}
