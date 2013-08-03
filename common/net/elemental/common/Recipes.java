@@ -1,12 +1,11 @@
 package net.elemental.common;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.elemental.block.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipes 
 {
@@ -61,26 +60,26 @@ public class Recipes
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 	}
 
-	private void initSmeltingRecipes()
+	private static void initSmeltingRecipes()
 	{
 		int i;
 		for (i = 0; i < 4; ++i)
 			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i + 4,
 					new ItemStack(Blocks.elementalStoneBlock, 1, i),
 					0.1F);
-		for (i = 0; i < 4; ++i)//
-			GameRegistry.addSmelting(Block.oreCoal.blockID, new ItemStack(Blocks.elementalOreBlock1, 1, i), .1F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreIron.blockID, new ItemStack(Blocks.elementalOreBlock1, 1, 4 + i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock1.blockID, i, new ItemStack(Block.oreCoal), .1F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreGold.blockID, new ItemStack(Blocks.elementalOreBlock1, 1, 8 + i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock1.blockID, 4 + i, new ItemStack(Block.oreIron), .7F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreLapis.blockID, new ItemStack(Blocks.elementalOreBlock1, 1, 12 + i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock1.blockID, 8 + i, new ItemStack(Block.oreGold), 1F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreRedstone.blockID, new ItemStack(Blocks.elementalOreBlock2, 1, i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock1.blockID, 12 + i, new ItemStack(Block.oreLapis), .2F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreEmerald.blockID, new ItemStack(Blocks.elementalOreBlock2, 1, 4 + i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock2.blockID, i, new ItemStack(Block.oreRedstone), .7F);
 		for (i = 0; i < 4; ++i)
-			GameRegistry.addSmelting(Block.oreDiamond.blockID, new ItemStack(Blocks.elementalOreBlock2, 1, 8 + i));
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock2.blockID, 4 + i, new ItemStack(Block.oreEmerald), 1F);
+		for (i = 0; i < 4; ++i)
+			FurnaceRecipes.smelting().addSmelting(Blocks.elementalOreBlock2.blockID, 8 + i, new ItemStack(Block.oreDiamond), 1F);
 	}
 }
