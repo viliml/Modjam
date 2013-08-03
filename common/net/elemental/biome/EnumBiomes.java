@@ -28,7 +28,7 @@ public enum EnumBiomes
 		0xFFFFFF,
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
-		(byte) Block.waterMoving.blockID,
+		(byte) Block.waterStill.blockID,
 		(byte) Block.ice.blockID
 	),
 	Fire 

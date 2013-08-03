@@ -21,6 +21,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -467,7 +468,7 @@ public class ChunkProviderElemental implements IChunkProvider {
 		BlockSand.fallInstantly = true;
 		int k = par2 * 16;
 		int l = par3 * 16;
-		this.worldObj.getBiomeGenForCoords(k + 16, l + 16);
+		BasicElementalBiomeGen biome = (BasicElementalBiomeGen) this.worldObj.getBiomeGenForCoords(k + 16, l + 16);
 		this.rand.setSeed(this.worldObj.getSeed());
 		long i1 = this.rand.nextLong() / 2L * 2L + 1L;
 		long j1 = this.rand.nextLong() / 2L * 2L + 1L;
@@ -490,18 +491,8 @@ public class ChunkProviderElemental implements IChunkProvider {
 		if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE) && !flag && this.rand.nextInt(4) == 0) {
 			k1 = k + this.rand.nextInt(16) + 8;
 			l1 = this.rand.nextInt(128);
-			i2 = l + this.rand.nextInt(16) + 8;
-			(new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
-		}
-
-		if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) && !flag && this.rand.nextInt(8) == 0) {
-			k1 = k + this.rand.nextInt(16) + 8;
-			l1 = this.rand.nextInt(this.rand.nextInt(120) + 8);
-			i2 = l + this.rand.nextInt(16) + 8;
-
-			if (l1 < 63 || this.rand.nextInt(10) == 0) {
-				(new WorldGenLakes(Block.lavaStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
-			}
+			i2 = l + this.rand.nextInt(26) + 8;
+			(new WorldGenLakes(biome.getLiquidBlock())).generate(this.worldObj, this.rand, k1, l1, i2);
 		}
 
 		boolean doGen = TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, DUNGEON);
@@ -514,6 +505,11 @@ public class ChunkProviderElemental implements IChunkProvider {
 				;
 			}
 		}
+		
+        biome.decorate(this.worldObj, this.rand, k, l);
+        SpawnerAnimals.performWorldGenSpawning(this.worldObj, biome, k + 8, l + 8, 16, 16, this.rand);
+        k += 8;
+        l += 8;
 
 		MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, rand, par2, par3, flag));
 
