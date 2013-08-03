@@ -86,7 +86,7 @@ public class Blocks
 		.setHardness(1.5F)
 		.setResistance(10.0F);
 		GameRegistry.registerBlock(elementalOreBlock2, ELEMENTAL_ORE_NAME + 2);
-		for (i = 0; i < 8; ++i) for (j = 0; j < 4; ++j)
+		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 0, i * 4 + j),
 				"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
 	}

@@ -21,6 +21,7 @@ public class BlockElementalOre extends Block {
 	
 	public BlockElementalOre(int id) {
 		super(id, Material.rock);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
 	@Override

@@ -2,9 +2,14 @@ package net.elemental.client.render.block;
 
 import net.elemental.block.BlockElementalOre;
 import net.elemental.block.Blocks;
+import net.elemental.client.render.RenderHandlers;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderOre implements ISimpleBlockRenderingHandler {
@@ -13,12 +18,7 @@ public class RenderOre implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int meta, int modelID,
 			RenderBlocks renderer)
 	{
-		renderer.setOverrideBlockTexture(Blocks.elementalStoneBlock.getIcon(1, meta & 3));
-		renderer.renderBlockAsItem(block, meta, 1F);
-		int icon = meta / 4;
-		if (block.blockID == Blocks.elementalOreBlock2.blockID)
-			icon += 4;
-		renderer.setOverrideBlockTexture(BlockElementalOre.overlays[icon]);
+		renderer.renderBlockAsItem(Blocks.elementalStoneBlock, meta & 3, 1F);
 		renderer.renderBlockAsItem(block, meta, 1F);
 	}
 
@@ -28,24 +28,28 @@ public class RenderOre implements ISimpleBlockRenderingHandler {
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		renderer.setOverrideBlockTexture(Blocks.elementalStoneBlock.getIcon(1, meta & 3));
-		renderer.renderBlockAllFaces(block, x, y, z);
+		renderer.renderAllFaces = true;
+		renderer.renderStandardBlock(block, x, y, z);
 		int icon = meta / 4;
 		if (block.blockID == Blocks.elementalOreBlock2.blockID)
 			icon += 4;
 		renderer.setOverrideBlockTexture(BlockElementalOre.overlays[icon]);
-		renderer.renderBlockAllFaces(block, x, y, z);
+		renderer.renderStandardBlock(block, x, y, z);
+		renderer.renderAllFaces = false;
+		renderer.clearOverrideBlockTexture();
 		return false;
 	}
 
 	@Override
-	public boolean shouldRender3DInInventory() {
+	public boolean shouldRender3DInInventory()
+	{
 		return true;
 	}
 
 	@Override
-	public int getRenderId() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getRenderId()
+	{
+		return RenderHandlers.RENDER_ORE_RENDER_ID;
 	}
 
 }
