@@ -47,17 +47,25 @@ public class BlockElementalOre extends Block {
 							GeneralHelper.ORES[i + 4].toLowerCase() + "_ore");
 		else
 			for (i = 0; i < 4; ++i)
-				for (j = 0; i < 4; ++j)
+				//just a sec.. wel actually more like 2 mins....
+				for (j = 0; j < 4; ++j)
 					icons[i * 4 + j] = iconRegister.registerIcon(
 						Reference.MOD_ID + ":" +
 								GeneralHelper.ELEMENTS[j].toLowerCase() + "_" +
 								GeneralHelper.ORES[i].toLowerCase() + "_ore");
+		//Register the active redstone icons. Simpler than to make an if in getIcon()
 		if (second)
 			for (i = 0; i < 4; i++) icons[12 + i] = icons[i];
 	}
+	
+	@Override
+	public Icon getIcon(int side, int meta)
+	{
+		return icons[meta];
+	}
 
 	@SideOnly(Side.CLIENT)
-
+	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
 		if (second && (world.getBlockMetadata(x, y, z) >> 3) == 3)
@@ -65,6 +73,7 @@ public class BlockElementalOre extends Block {
 		return 0;
 	}
 
+	@Override
 	public int damageDropped(int meta)
 	{
 		return meta;
