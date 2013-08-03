@@ -47,7 +47,6 @@ public class BlockElementalOre extends Block {
 							GeneralHelper.ORES[i + 4].toLowerCase() + "_ore");
 		else
 			for (i = 0; i < 4; ++i)
-				//just a sec.. wel actually more like 2 mins....
 				for (j = 0; j < 4; ++j)
 					icons[i * 4 + j] = iconRegister.registerIcon(
 						Reference.MOD_ID + ":" +
