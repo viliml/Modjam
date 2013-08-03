@@ -21,11 +21,7 @@ public class ItemBlockElementalStone extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack)
 	{
-<<<<<<< HEAD
 		return Blocks.ELEMENTAL_STONE_UNLOCALIZED_NAME + "_" + GeneralHelper.ELEMENTS[itemstack.getItemDamage() % 4] + itemstack.getItemDamage();
-=======
-		return Blocks.ELEMENTAL_STONE_UNLOCALIZED_NAME + "_" + GeneralHelper.ELEMENTS[itemstack.getItemDamage() % 4];
->>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 	}
 
 	@Override
@@ -45,7 +41,6 @@ public class ItemBlockElementalStone extends ItemBlock
 	{
 		return Block.blocksList[getBlockID()].getIcon(1, meta);
 	}
-<<<<<<< HEAD
 	
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -56,6 +51,4 @@ public class ItemBlockElementalStone extends ItemBlock
 			list.add(new ItemStack(getBlockID(), 0, i));
 		}
 	}
-=======
->>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 }

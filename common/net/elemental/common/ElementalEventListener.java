@@ -79,14 +79,11 @@ public class ElementalEventListener
 			return;
 		}
 		if (event.entity instanceof EntityAnimal && event.entity.worldObj.getFullBlockLightValue(i, j, k) < 9)
-<<<<<<< HEAD
 		{
 			event.setResult(Result.DENY);
 			return;
 		}
 		if (event.entity instanceof EntityMob && !((EntityMob) event.entity).getCanSpawnHere())
-=======
->>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 		{
 			event.setResult(Result.DENY);
 			return;

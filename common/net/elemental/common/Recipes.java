@@ -55,17 +55,13 @@ public class Recipes
 				'I', Block.ice);
 		for (int i = 0; i < 4; ++i)
 		{
-<<<<<<< HEAD
 			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i + 4,
 					new ItemStack(Blocks.elementalStoneBlock, 1, i),
 					0.1F);
-			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 4, i + 8),
-=======
 			FurnaceRecipes.smelting().addSmelting(Blocks.elementalStoneBlock.blockID, i,
 					new ItemStack(Blocks.elementalStoneBlock, 1, i + 4),
 					0.1F);
 			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 1, i + 8),
->>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 					"ss", "ss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 		}
