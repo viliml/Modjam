@@ -50,16 +50,16 @@ public class Blocks
 			.setResistance(10.0F);
 		GameRegistry.registerBlock(elementalStoneBlock, ItemBlockElementalStone.class, ELEMENTAL_STONE_NAME);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock, 1, i),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i),
 					"Elemental Stone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock, 1, i + 4),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 4),
 					"Elemental Cobblestone: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock, 1, i + 8),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 8),
 					"Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 		for (int i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalStoneBlock, 1, i + 12),
+			LanguageRegistry.addName(new ItemStack(elementalStoneBlock.blockID, 0, i + 12),
 					"Chiseled Elemental Stone Brick: " + GeneralHelper.ELEMENTS[i]);
 	}
 }

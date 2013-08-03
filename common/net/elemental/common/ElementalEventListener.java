@@ -98,6 +98,7 @@ public class ElementalEventListener
 			event.setResult(Result.ALLOW);
 			return;
 		}
+		System.out.println(event.biome + " " + event.original);
 		if (event.original == Block.wood.blockID)
 		{
 			event.replacement = Blocks.elementalStoneBlock.blockID;
