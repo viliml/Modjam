@@ -76,10 +76,4 @@ public class BlockElementalStone extends Block
     {
         return par1World.getBlockMetadata(par2, par3, par4);
     }
-	
-	@Override
-	public int getRenderPass()
-	{
-		return 1;
-	}
 }
