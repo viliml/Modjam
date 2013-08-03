@@ -21,8 +21,7 @@ public class BlockElementalStone extends Block
 	public BlockElementalStone(int id)
 	{
 		super(id, Material.rock);
-		
-		icons = new Icon[16];
+		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
@@ -37,15 +36,15 @@ public class BlockElementalStone extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconregistry)
     {
-		int temp = 0;
-		
-		for(int i = 0; i < 4; ++i, ++temp)
+		icons = new Icon[16];
+		int i, temp = 0;
+		for(i = 0; i < 4; ++i, ++temp)
 			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stone_" + GeneralHelper.ELEMENTS[i].toLowerCase());
-		for(int i = 0; i < 4; ++i, ++temp)
+		for(i = 0; i < 4; ++i, ++temp)
 			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "cobblestone_" + GeneralHelper.ELEMENTS[i].toLowerCase());
-		for(int i = 0; i < 4; ++i, ++temp)
+		for(i = 0; i < 4; ++i, ++temp)
 			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_" + GeneralHelper.ELEMENTS[i].toLowerCase());
-		for(int i = 0; i < 4; ++i, ++temp)
+		for(i = 0; i < 4; ++i, ++temp)
 			icons[temp] = iconregistry.registerIcon(Reference.MOD_ID + ":" + "stonebrick_carved_" + GeneralHelper.ELEMENTS[i].toLowerCase());
     }
 	

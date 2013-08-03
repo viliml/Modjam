@@ -9,6 +9,7 @@ import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -106,5 +107,19 @@ public class Blocks
 			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, 8 + i, "pickaxe", 2);
 		for (i = 0; i < 4; ++i)
 			MinecraftForge.setBlockHarvestLevel(elementalOreBlock2, 12 + i, "pickaxe", 2);
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreCoal", new ItemStack(elementalOreBlock1, 1, i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreIron", new ItemStack(elementalOreBlock1, 1, 4 + i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreGold", new ItemStack(elementalOreBlock1, 1, 8 + i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreLapis", new ItemStack(elementalOreBlock1, 1, 12 + i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreRedstone", new ItemStack(elementalOreBlock2, 1, i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreEmerald", new ItemStack(elementalOreBlock2, 1, 4 + i));
+		for (i = 0; i < 4; ++i)
+			OreDictionary.registerOre("oreDiamond", new ItemStack(elementalOreBlock2, 1, 8 + i));
 	}
 }

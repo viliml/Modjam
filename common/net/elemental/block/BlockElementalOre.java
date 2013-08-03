@@ -23,6 +23,9 @@ public class BlockElementalOre extends Block {
 		super(id, Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
 		second = isSecond;
+		setHardness(3F);
+		setResistance(5F);
+		setStepSound(soundStoneFootstep);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
