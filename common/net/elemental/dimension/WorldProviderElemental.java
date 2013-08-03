@@ -10,8 +10,8 @@ public class WorldProviderElemental extends WorldProvider
 	public void registerWorldChunkManager()
 	{
 		/** tells Minecraft to use our new WorldChunkManager **/
-		this.worldChunkMgr = new WorldChunkMangerElemental(worldObj.getSeed(), terrainType);
-		this.hasNoSky = false;
+		worldChunkMgr = new WorldChunkMangerElemental(worldObj.getSeed(), terrainType);
+		hasNoSky = false;
 	}
 
 	@Override

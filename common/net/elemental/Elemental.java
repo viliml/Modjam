@@ -7,6 +7,7 @@ import net.elemental.common.ElementalConfig;
 import net.elemental.common.ElementalEventListener;
 import net.elemental.common.Recipes;
 import net.elemental.dimension.Dimensions;
+import net.elemental.entity.Entities;
 import net.elemental.lib.Reference;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -50,6 +51,7 @@ public class Elemental
 		Blocks.initBlocks();
 		Biomes.init();
 		Dimensions.initDimensions();
+		//Entities.init();
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 	}
 	

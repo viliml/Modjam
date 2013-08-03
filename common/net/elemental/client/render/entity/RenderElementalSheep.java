@@ -45,6 +45,6 @@ public class RenderElementalSheep extends RenderSheep //<-- Sheep
 
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.getTexture((EntityElementalSheep)par1Entity);
+        return getTexture((EntityElementalSheep)par1Entity);
     }
 }

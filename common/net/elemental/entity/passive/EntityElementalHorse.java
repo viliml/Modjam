@@ -1,6 +1,7 @@
 package net.elemental.entity.passive;
 
 import net.elemental.biome.EnumBiomes;
+import net.elemental.entity.IElementalEntity;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 

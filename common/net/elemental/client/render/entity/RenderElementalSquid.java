@@ -45,6 +45,6 @@ public class RenderElementalSquid extends RenderSquid //Squid
 
 	protected ResourceLocation func_110775_a(Entity par1Entity)
 	{
-		return this.getTexture((EntityElementalSquid)par1Entity);
+		return getTexture((EntityElementalSquid)par1Entity);
 	}
 }

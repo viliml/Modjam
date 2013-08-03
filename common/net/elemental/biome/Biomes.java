@@ -1,11 +1,10 @@
 package net.elemental.biome;
 
-import net.elemental.block.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Biomes 
 {
@@ -23,7 +22,7 @@ public class Biomes
 	
 	public static void init()
 	{
-		MAIN_FILLER_ID =  (byte) Blocks.elementalStoneBlock.blockID;
+		MAIN_FILLER_ID =  (byte) Block.stone.blockID;
 		
 		// Initialize biomes
 		initBiomes();
@@ -36,16 +35,6 @@ public class Biomes
 
 		//Stronghold spawning
 		addStrongholdBiomes();
-
-		registerBiomes();
-	}
-	
-	private static void registerBiomes()
-	{
-		GameRegistry.addBiome(earth_biome);
-		GameRegistry.addBiome(air_biome);
-		GameRegistry.addBiome(fire_biome);
-		GameRegistry.addBiome(water_biome);
 	}
 
 	private static void addStrongholdBiomes()

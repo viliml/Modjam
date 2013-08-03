@@ -73,15 +73,15 @@ public enum EnumBiomes
 			int sky_color, int foliage_color, int grass_color,
 			byte filler_block, byte top_block, byte liquid_block, byte frozen_block)
 	{
-		this.NAME = name;
-		this.COLOR = color;
-		this.WATER_COLOR_MULTIPLIER = water_color_multiplier;
-		this.SKY_COLOR = sky_color;
-		this.FOLIAGE_COLOR = foliage_color;
-		this.GRASS_COLOR = grass_color;
-		this.FILLER_BLOCK = filler_block;
-		this.TOP_BLOCK = top_block;
-		this.LIQUID_BLOCK = liquid_block;
-		this.FROZEN_BLOCK = frozen_block;
+		NAME = name;
+		COLOR = color;
+		WATER_COLOR_MULTIPLIER = water_color_multiplier;
+		SKY_COLOR = sky_color;
+		FOLIAGE_COLOR = foliage_color;
+		GRASS_COLOR = grass_color;
+		FILLER_BLOCK = filler_block;
+		TOP_BLOCK = top_block;
+		LIQUID_BLOCK = liquid_block;
+		FROZEN_BLOCK = frozen_block;
 	}
 }

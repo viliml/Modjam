@@ -1,8 +1,17 @@
 package net.elemental.client.render;
 
+import net.elemental.client.render.block.RenderBowl;
 import net.elemental.client.render.entity.*;
 import net.elemental.entity.passive.*;
-import net.minecraft.client.model.*;
+import net.minecraft.client.model.ModelChicken;
+import net.minecraft.client.model.ModelCow;
+import net.minecraft.client.model.ModelHorse;
+import net.minecraft.client.model.ModelOcelot;
+import net.minecraft.client.model.ModelPig;
+import net.minecraft.client.model.ModelSheep1;
+import net.minecraft.client.model.ModelSheep2;
+import net.minecraft.client.model.ModelSquid;
+import net.minecraft.client.model.ModelWolf;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderHandlers 
@@ -13,6 +22,11 @@ public class RenderHandlers
 	{
 		RENDER_BOWL_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
+		//initEntityRenderers();
+	}
+	
+	private static void initEntityRenderers()
+	{
 		//RenderingRegistry.registerEntityRenderingHandler(EntityElementalCaveSpider.class, new RenderElementalCaveSpider());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSpider.class, new RenderElementalSpider());
         RenderingRegistry.registerEntityRenderingHandler(EntityElementalPig.class, new RenderElementalPig(new ModelPig(), new ModelPig(0.5F), 0.7F));

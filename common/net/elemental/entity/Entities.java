@@ -2,7 +2,6 @@ package net.elemental.entity;
 
 import net.elemental.Elemental;
 import net.elemental.entity.passive.*;
-import net.elemental.entity.passive.EntityElementalChicken;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class Entities {
@@ -24,7 +23,7 @@ public class Entities {
 				6, Elemental.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityElementalSquid.class, "elementalSquid",
 				7, Elemental.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityElementalWolf.class, "elementalWold",
+		EntityRegistry.registerModEntity(EntityElementalWolf.class, "elementalWolf",
 				8, Elemental.instance, 80, 3, true);
 	}
 }

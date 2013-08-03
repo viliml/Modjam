@@ -45,6 +45,6 @@ public class RenderElementalOcelot extends RenderOcelot
     
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.getTexture((EntityElementalOcelot)par1Entity);
+        return getTexture((EntityElementalOcelot)par1Entity);
     }
 }
