@@ -8,7 +8,7 @@ import net.minecraftforge.common.BiomeManager;
 
 public class Biomes 
 {
-	public static byte MAIN_FILLER_ID;
+	public static byte MAIN_FILLER_BLOCK;
 	
 	public static int EARTH_BIOME_ID = 128;
 	public static int AIR_BIOME_ID = 129;
@@ -22,7 +22,7 @@ public class Biomes
 	
 	public static void init()
 	{
-		MAIN_FILLER_ID =  (byte) Block.stone.blockID;
+		MAIN_FILLER_BLOCK =  (byte) Block.stone.blockID;
 		
 		// Initialize biomes
 		initBiomes();
