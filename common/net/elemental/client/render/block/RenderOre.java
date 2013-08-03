@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class RenderOre implements ISimpleBlockRenderingHandler {
-
+public class RenderOre implements ISimpleBlockRenderingHandler 
+{
 	public static int renderPass;
 
 	@Override
@@ -20,6 +20,7 @@ public class RenderOre implements ISimpleBlockRenderingHandler {
 		{
 			renderer.setOverrideBlockTexture(Blocks.elementalStoneBlock.getIcon(1, meta & 3));
 			renderer.renderBlockAsItem(Blocks.elementalStoneBlock, meta & 3, 1F);
+			renderer.clearOverrideBlockTexture();
 		}
 		else
 		{
@@ -37,14 +38,16 @@ public class RenderOre implements ISimpleBlockRenderingHandler {
 			Block block, int modelId, RenderBlocks renderer)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (renderPass == 0)
+		//!!!!!!!!! Look at the console output!
+		/*if (renderPass == 0)
 		{
 			renderer.setOverrideBlockTexture(Blocks.elementalStoneBlock.getIcon(1, meta & 3));
 			System.out.println(Blocks.elementalStoneBlock.getIcon(1, meta & 3));
 			renderer.renderAllFaces = true;
-			renderer.renderStandardBlock(block, x, y, z);
+			//renderer.renderStandardBlock(block, x, y, z);
+			renderer.clearOverrideBlockTexture();
 		}
-		else
+		else*/
 		{
 			int icon = meta / 4;
 			if (block.blockID == Blocks.elementalOreBlock2.blockID)
@@ -69,5 +72,4 @@ public class RenderOre implements ISimpleBlockRenderingHandler {
 	{
 		return RenderHandlers.RENDER_ORE_RENDER_ID;
 	}
-
 }
