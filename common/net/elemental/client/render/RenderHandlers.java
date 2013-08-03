@@ -1,8 +1,27 @@
 package net.elemental.client.render;
 
 import net.elemental.client.render.block.RenderBowl;
+<<<<<<< HEAD
 import net.elemental.client.render.entity.*;
 import net.elemental.entity.passive.*;
+=======
+import net.elemental.client.render.entity.RenderElementalChicken;
+import net.elemental.client.render.entity.RenderElementalCow;
+import net.elemental.client.render.entity.RenderElementalHorse;
+import net.elemental.client.render.entity.RenderElementalOcelot;
+import net.elemental.client.render.entity.RenderElementalPig;
+import net.elemental.client.render.entity.RenderElementalSheep;
+import net.elemental.client.render.entity.RenderElementalSquid;
+import net.elemental.client.render.entity.RenderElementalWolf;
+import net.elemental.entity.passive.EntityElementalChicken;
+import net.elemental.entity.passive.EntityElementalCow;
+import net.elemental.entity.passive.EntityElementalHorse;
+import net.elemental.entity.passive.EntityElementalOcelot;
+import net.elemental.entity.passive.EntityElementalPig;
+import net.elemental.entity.passive.EntityElementalSheep;
+import net.elemental.entity.passive.EntityElementalSquid;
+import net.elemental.entity.passive.EntityElementalWolf;
+>>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.model.ModelHorse;
@@ -23,8 +42,11 @@ public class RenderHandlers
 	{
 		RENDER_BOWL_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
+<<<<<<< HEAD
 		RENDER_ORE_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
+=======
+>>>>>>> 4852e48dc3f783573ccadf8358b8f291e4da0ed8
 		//initEntityRenderers();
 	}
 	
