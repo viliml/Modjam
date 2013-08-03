@@ -16,7 +16,7 @@ public enum EnumBiomes
 		(byte) Block.grass.blockID,
 		//TODO make these some kind of mud
 		(byte) Block.waterStill.blockID,
-		(byte) Block.stone.blockID
+		(byte) Block.ice.blockID
 	),
 	Air 
 	(
@@ -26,10 +26,10 @@ public enum EnumBiomes
 		0xFFFFFF,
 		0xFFFFFF,
 		0xFFFFFF,
-		(byte) 0,
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
-		(byte) Block.waterMoving.blockID
+		(byte) Block.waterMoving.blockID,
+		(byte) Block.ice.blockID
 	),
 	Fire 
 	(
@@ -42,7 +42,7 @@ public enum EnumBiomes
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
 		(byte) Block.lavaStill.blockID,
-		(byte) Block.stone.blockID
+		(byte) Block.obsidian.blockID
 	),
 	Water 
 	(
@@ -55,7 +55,7 @@ public enum EnumBiomes
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
 		(byte) Block.waterStill.blockID,
-		(byte) Block.stone.blockID
+		(byte) Block.ice.blockID
 	);
 	
 	public final String NAME;
