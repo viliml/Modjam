@@ -52,7 +52,7 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 	@Override
 	public BiomeDecorator createBiomeDecorator()
 	{
-		return new ElementalBiomeDecorator(this);
+		return new BiomeDecorator(this);
 	}
 
 	@Override
