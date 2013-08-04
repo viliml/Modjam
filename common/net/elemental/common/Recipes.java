@@ -54,10 +54,25 @@ public class Recipes
 				'B', Item.bowlEmpty,
 				'W', Item.bucketWater,
 				'I', Block.ice);
-		for (int i = 0; i < 4; ++i)
-			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 4, i + 8),
+		int i;
+		for (i = 0; i < 4; ++i)
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalStoneBlock, 4, 8 + i),
 					"ss", "ss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
+		for (i = 0; i < 4; ++i)
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSlabBlock, 6, i),
+					"sss",
+					's', new ItemStack(Blocks.elementalStoneBlock, 1, 4 + i));
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSlabBlock, 6, 4 + i),
+					"sss",
+					's', new ItemStack(Blocks.elementalStoneBlock, 1, 8 + i));
+		}
+		for (i = 0; i < 4; ++i)
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalWallBlock, 6, i),
+					"sss", "sss",
+					's', new ItemStack(Blocks.elementalStoneBlock, 1, 4 + i));
+		
 	}
 
 	private static void initSmeltingRecipes()

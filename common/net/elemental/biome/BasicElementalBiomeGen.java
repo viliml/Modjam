@@ -3,14 +3,9 @@ package net.elemental.biome;
 import java.util.Random;
 
 import net.elemental.block.Blocks;
-import net.elemental.entity.passive.EntityElementalBat;
-import net.elemental.entity.passive.EntityElementalChicken;
-import net.elemental.entity.passive.EntityElementalCow;
-import net.elemental.entity.passive.EntityElementalOcelot;
-import net.elemental.entity.passive.EntityElementalPig;
-import net.elemental.entity.passive.EntityElementalSheep;
-import net.elemental.entity.passive.EntityElementalSquid;
-import net.elemental.entity.passive.EntityElementalWolf;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -22,6 +17,7 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 {
 	private EnumBiomes biome;
 
+	@SuppressWarnings("unchecked")
 	public BasicElementalBiomeGen(int id, EnumBiomes theBiome) 
 	{
 		super(id);
@@ -31,22 +27,23 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 		fillerBlock = theBiome.FILLER_BLOCK;
 		topBlock = theBiome.TOP_BLOCK;
 		waterColorMultiplier = theBiome.WATER_COLOR_MULTIPLIER;
+		setTemperatureRainfall(theBiome.TEMPERATURE, theBiome.RAINFALL);
 
 		biome = theBiome;
 		
         theBiomeDecorator = createBiomeDecorator();
-
-		spawnableCaveCreatureList.clear();
-		spawnableCreatureList.clear();
-		spawnableMonsterList.clear();
-		spawnableWaterCreatureList.clear();
+        
+        //The Wisdom of the Elements banished all evil thousands of years ago
+        spawnableMonsterList.clear();
+		spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
+        spawnableCreatureList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 
 		//addCreatures();
 		//addCaveCreatures();
 		//addWaterCreatures();
 		//addMonsters();
 
-		setDisableRain();
 	}
 	
 	@Override
@@ -120,7 +117,7 @@ public class BasicElementalBiomeGen extends BiomeGenBase
         }
     }
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	private void addCaveCreatures()
 	{
         spawnableCaveCreatureList.add(new SpawnListEntry(EntityElementalBat.class, 10, 8, 8));
@@ -152,5 +149,5 @@ public class BasicElementalBiomeGen extends BiomeGenBase
 		spawnableCreatureList.add(new SpawnListEntry(EntityElementalCow.class, 8, 4, 4));
         spawnableCreatureList.add(new SpawnListEntry(EntityElementalWolf.class, 5, 4, 4));
         spawnableMonsterList.add(new SpawnListEntry(EntityElementalOcelot.class, 2, 1, 1));
-	}
+	}*/
 }

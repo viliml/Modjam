@@ -8,20 +8,19 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class ItemBlockElementalOre2 extends ItemBlock
-{
-	public ItemBlockElementalOre2(int id)
-	{
-		super(id);
+public class ItemBlockElementalSlab extends ItemBlock {
+
+	public ItemBlockElementalSlab(int par1) {
+		super(par1);
 		hasSubtypes = true;
 	}
-
+	
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack)
 	{
-		return Blocks.ELEMENTAL_ORE_UNLOCALIZED_NAME + "_" +
+		return Blocks.ELEMENTAL_SLAB_UNLOCALIZED_NAME + "_" +
 				GeneralHelper.ELEMENTS[itemstack.getItemDamage() % 4] +
-				itemstack.getItemDamage() + 4;
+				(itemstack.getItemDamage() & 7);
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class ItemBlockElementalOre2 extends ItemBlock
 	@Override
 	public int getMetadata(int meta)
 	{
-		return meta;
+		return meta & 7;
 	}
 
 	@Override

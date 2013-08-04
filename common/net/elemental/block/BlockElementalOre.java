@@ -18,12 +18,14 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockElementalOre extends Block {
+public class BlockElementalOre extends Block
+{
 
 	private Icon[] icons;
 	private boolean second;
 
-	public BlockElementalOre(int id, boolean isSecond) {
+	public BlockElementalOre(int id, boolean isSecond)
+	{
 		super(id, Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
 		second = isSecond;

@@ -1,34 +1,6 @@
 package net.elemental.client.render;
 
 import net.elemental.client.render.block.RenderBowl;
-import net.elemental.client.render.block.TileEntityBowlRenderer;
-import net.elemental.client.render.entity.RenderElementalChicken;
-import net.elemental.client.render.entity.RenderElementalCow;
-import net.elemental.client.render.entity.RenderElementalHorse;
-import net.elemental.client.render.entity.RenderElementalOcelot;
-import net.elemental.client.render.entity.RenderElementalPig;
-import net.elemental.client.render.entity.RenderElementalSheep;
-import net.elemental.client.render.entity.RenderElementalSquid;
-import net.elemental.client.render.entity.RenderElementalWolf;
-import net.elemental.entity.passive.EntityElementalChicken;
-import net.elemental.entity.passive.EntityElementalCow;
-import net.elemental.entity.passive.EntityElementalHorse;
-import net.elemental.entity.passive.EntityElementalOcelot;
-import net.elemental.entity.passive.EntityElementalPig;
-import net.elemental.entity.passive.EntityElementalSheep;
-import net.elemental.entity.passive.EntityElementalSquid;
-import net.elemental.entity.passive.EntityElementalWolf;
-import net.elemental.tileentity.TileEntityBowl;
-import net.minecraft.client.model.ModelChicken;
-import net.minecraft.client.model.ModelCow;
-import net.minecraft.client.model.ModelHorse;
-import net.minecraft.client.model.ModelOcelot;
-import net.minecraft.client.model.ModelPig;
-import net.minecraft.client.model.ModelSheep1;
-import net.minecraft.client.model.ModelSheep2;
-import net.minecraft.client.model.ModelSquid;
-import net.minecraft.client.model.ModelWolf;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderHandlers 
@@ -39,11 +11,10 @@ public class RenderHandlers
 	{
 		RENDER_BOWL_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderBowl());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBowl.class, new TileEntityBowlRenderer());
 		//initEntityRenderers();
 	}
 	
-	private static void initEntityRenderers()
+	/*private static void initEntityRenderers()
 	{
 		//RenderingRegistry.registerEntityRenderingHandler(EntityElementalCaveSpider.class, new RenderElementalCaveSpider());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalSpider.class, new RenderElementalSpider());
@@ -73,5 +44,5 @@ public class RenderHandlers
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalEnderCrystal.class, new RenderElementalEnderCrystal());
         //RenderingRegistry.registerEntityRenderingHandler(EntityElementalWither.class, new RenderElementalWither());
         RenderingRegistry.registerEntityRenderingHandler(EntityElementalHorse.class, new RenderElementalHorse(new ModelHorse(), 0.75F));
-	}
+	}*/
 }

@@ -16,7 +16,9 @@ public enum EnumBiomes
 		(byte) Block.grass.blockID,
 		//TODO make these some kind of mud
 		(byte) Block.waterStill.blockID,
-		(byte) Block.ice.blockID
+		(byte) Block.ice.blockID,
+		.5F,
+		.4F
 	),
 	Air 
 	(
@@ -29,7 +31,9 @@ public enum EnumBiomes
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
 		(byte) Block.waterStill.blockID,
-		(byte) Block.ice.blockID
+		(byte) Block.ice.blockID,
+		.4F,
+		.4F
 	),
 	Fire 
 	(
@@ -42,7 +46,9 @@ public enum EnumBiomes
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
 		(byte) Block.lavaStill.blockID,
-		(byte) Block.obsidian.blockID
+		(byte) Block.obsidian.blockID,
+		2F,
+		0F
 	),
 	Water 
 	(
@@ -55,7 +61,9 @@ public enum EnumBiomes
 		(byte) Block.stone.blockID,
 		(byte) Block.grass.blockID,
 		(byte) Block.waterStill.blockID,
-		(byte) Block.ice.blockID
+		(byte) Block.ice.blockID,
+		.6F,
+		1F
 	);
 	
 	public final String NAME;
@@ -68,10 +76,13 @@ public enum EnumBiomes
 	public final byte TOP_BLOCK;
 	public final byte LIQUID_BLOCK;
 	public final byte FROZEN_BLOCK;
+	public final float TEMPERATURE;
+	public final float RAINFALL;
 	
 	EnumBiomes(String name, int color, int water_color_multiplier,
 			int sky_color, int foliage_color, int grass_color,
-			byte filler_block, byte top_block, byte liquid_block, byte frozen_block)
+			byte filler_block, byte top_block, byte liquid_block, byte frozen_block,
+			float temperature, float rainfall)
 	{
 		NAME = name;
 		COLOR = color;
@@ -83,5 +94,7 @@ public enum EnumBiomes
 		TOP_BLOCK = top_block;
 		LIQUID_BLOCK = liquid_block;
 		FROZEN_BLOCK = frozen_block;
+		TEMPERATURE = temperature;
+		RAINFALL = rainfall;
 	}
 }

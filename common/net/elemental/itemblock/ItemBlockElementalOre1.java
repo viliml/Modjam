@@ -1,7 +1,5 @@
 package net.elemental.itemblock;
 
-import java.util.List;
-
 import net.elemental.block.Blocks;
 import net.elemental.lib.GeneralHelper;
 import net.minecraft.block.Block;

@@ -4,17 +4,12 @@ import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
 import net.elemental.dimension.Dimensions;
-import net.elemental.entity.IElementalEntity;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.util.MathHelper;
+import net.minecraft.block.BlockFluid;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent.SpecialSpawn;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.terraingen.BiomeEvent.GetVillageBlockID;
@@ -43,59 +38,6 @@ public class ElementalEventListener
 	}
 
 	@ForgeSubscribe
-	public void elementalSpawn(SpecialSpawn event)
-	{
-		if (!(event.entity instanceof IElementalEntity))
-			return;
-		if (!(event.entity.worldObj.
-				getBiomeGenForCoords((int) event.x, (int) event.z) instanceof BasicElementalBiomeGen))
-		{
-			event.setCanceled(true);
-			return;
-		}
-		((IElementalEntity)event.entity).setBiome(((BasicElementalBiomeGen)event.entity.worldObj.
-				getBiomeGenForCoords((int) event.x, (int) event.z)).getBiome());
-		event.setCanceled(false);
-	}
-
-	@ForgeSubscribe
-	public void canElementalSpawn(CheckSpawn event)
-	{
-		if (!(event.entity instanceof IElementalEntity))
-		{
-			event.setResult(Result.DEFAULT);
-			return;
-		}
-		if (!(event.entity.worldObj.
-				getBiomeGenForCoords((int) event.x, (int) event.z) instanceof BasicElementalBiomeGen))
-		{
-			event.setResult(Result.DENY);
-			return;
-		}
-		int i = MathHelper.floor_double(event.entity.posX);
-		int j = MathHelper.floor_double(event.entity.boundingBox.minY);
-		int k = MathHelper.floor_double(event.entity.posZ);
-		if (event.entity.worldObj.getBlockId(i, j, k) !=
-				((BasicElementalBiomeGen) event.entity.worldObj.
-						getBiomeGenForCoords((int) event.x, (int) event.z)).getBiome().TOP_BLOCK)
-		{
-			event.setResult(Result.DENY);
-			return;
-		}
-		if (event.entity instanceof EntityAnimal && event.entity.worldObj.getFullBlockLightValue(i, j, k) < 9)
-		{
-			event.setResult(Result.DENY);
-			return;
-		}
-		if (event.entity instanceof EntityMob && !((EntityMob) event.entity).getCanSpawnHere())
-		{
-			event.setResult(Result.DENY);
-			return;
-		}
-		event.setResult(Result.ALLOW);
-	}
-
-	@ForgeSubscribe
 	public void getVillageBlock(GetVillageBlockID event)
 	{
 		if (!(event.biome instanceof BasicElementalBiomeGen))
@@ -103,7 +45,7 @@ public class ElementalEventListener
 			event.setResult(Result.ALLOW);
 			return;
 		}
-		System.out.println(event.biome + " " + event.original);
+		EnumBiomes biome = ((BasicElementalBiomeGen) event.biome).getBiome();
 		if (event.original == Block.wood.blockID)
 		{
 			event.replacement = Blocks.elementalStoneBlock.blockID;
@@ -122,22 +64,39 @@ public class ElementalEventListener
 			event.setResult(Result.DENY);
 			return;
 		}
-		//TODO add elemental stairs
-		/*if (event.original == Block.stairsWoodOak.blockID)
+		if (event.original == Block.stairsWoodOak.blockID)
 		{
-			event.replacement = Block.stairsSandStone.blockID;
+			event.replacement = Blocks.elementalStairsBlocks[1][biome.ordinal()].blockID;
 			event.setResult(Result.DENY);
 			return;
 		}
 		if (event.original == Block.stairsCobblestone.blockID)
 		{
-			event.replacement = Block.stairsSandStone.blockID;
+			event.replacement = Blocks.elementalStairsBlocks[0][biome.ordinal()].blockID;
 			event.setResult(Result.DENY);
 			return;
-		}*/
+		}
 		if (event.original == Block.gravel.blockID)
 		{
 			event.replacement = Blocks.elementalStoneBlock.blockID;
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.stoneSingleSlab.blockID)
+		{
+			event.replacement = Blocks.elementalSlabBlock.blockID;
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.stoneDoubleSlab.blockID)
+		{
+			event.replacement = Blocks.elementalStoneBlock.blockID;
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.fence.blockID)
+		{
+			event.replacement = Blocks.elementalWallBlock.blockID;
 			event.setResult(Result.DENY);
 			return;
 		}
@@ -153,27 +112,51 @@ public class ElementalEventListener
 			return;
 		}
 		EnumBiomes biome = ((BasicElementalBiomeGen) event.biome).getBiome();
+		System.out.println(event.biome + " " + event.original);
 		if (event.original == Block.wood.blockID)
 		{
 			event.replacement = biome.ordinal();
+			System.out.println(event.replacement);
 			event.setResult(Result.DENY);
 			return;
 		}
 		if (event.original == Block.cobblestone.blockID)
 		{
-			event.replacement = biome.ordinal() + 4;
+			event.replacement = 4 + biome.ordinal();
+			System.out.println(event.replacement);
 			event.setResult(Result.DENY);
 			return;
 		}
 		if (event.original == Block.planks.blockID)
 		{
-			event.replacement = biome.ordinal() + 12;
+			event.replacement = 8 + biome.ordinal();
+			System.out.println(event.replacement);
 			event.setResult(Result.DENY);
 			return;
 		}
 		if (event.original == Block.gravel.blockID)
 		{
-			event.replacement = biome.ordinal() + 8;
+			event.replacement = 8 + biome.ordinal();
+			System.out.println(event.replacement);
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.stoneSingleSlab.blockID)
+		{
+			event.replacement = 4 + biome.ordinal();
+			System.out.println(event.replacement);
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.stoneDoubleSlab.blockID)
+		{
+			event.replacement = 12 + biome.ordinal();
+			event.setResult(Result.DENY);
+			return;
+		}
+		if (event.original == Block.fence.blockID)
+		{
+			event.replacement = biome.ordinal();
 			event.setResult(Result.DENY);
 			return;
 		}
@@ -199,39 +182,28 @@ public class ElementalEventListener
 	private void changeIt(World world, int i, int j, int k, EnumBiomes enumBiome)
 	{
 		if (world.getBlockId(i, j, k) == Block.stone.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalStoneBlock.blockID, enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreCoal.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock1.blockID, enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreIron.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock1.blockID, 4 + enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreGold.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock1.blockID, 8 + enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreLapis.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock1.blockID, 12 + enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreRedstone.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock2.blockID, enumBiome.ordinal(), 2);
-		}
 		if (world.getBlockId(i, j, k) == Block.oreDiamond.blockID)
-		{
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock2.blockID, 8 + enumBiome.ordinal(), 2);
-		}
+		if (Block.blocksList[world.getBlockId(i, j, k)] instanceof BlockFluid)
+			world.setBlock(i, j, k,
+					enumBiome.LIQUID_BLOCK, world.getBlockMetadata(i, j, k), 2);
 	}
 }
