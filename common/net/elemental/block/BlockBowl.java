@@ -81,12 +81,12 @@ public class BlockBowl extends Block
         blockIcon = iconRegister.registerIcon(func_111023_E() + "_side");
 	}
 	
-	@SideOnly(Side.CLIENT)
+	/*@SideOnly(Side.CLIENT)
     public static Icon func_94375_b(String par0Str)
     {
         return par0Str.equals("inner") ? Blocks.bowlBlock.innerIcon :
         	(par0Str.equals("bottom") ? Blocks.bowlBlock.bottomIcon : null);
-    }
+    }*/
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)

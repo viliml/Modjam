@@ -50,10 +50,10 @@ public class RenderBowl implements ISimpleBlockRenderingHandler
 		renderer.renderFaceXNeg(block, (double)((float)x + 1F - f4), (double)y, (double)z, icon);
 		renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1F + f4), icon);
 		renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1F - f4), icon);
-		Icon icon1 = BlockBowl.func_94375_b("inner");
+		//Icon icon1 = BlockBowl.func_94375_b("inner");
 		
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + .25F), (double)z, icon1);
-		renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1F - .75F), (double)z, icon1);
+		//renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + .25F), (double)z, icon1);
+		//renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1F - .75F), (double)z, icon1);
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		Icon content = null;

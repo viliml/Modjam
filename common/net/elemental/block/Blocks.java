@@ -3,6 +3,7 @@ package net.elemental.block;
 import net.elemental.itemblock.ItemBlockBowl;
 import net.elemental.itemblock.ItemBlockElementalOre1;
 import net.elemental.itemblock.ItemBlockElementalOre2;
+import net.elemental.itemblock.ItemBlockElementalPressurePlate;
 import net.elemental.itemblock.ItemBlockElementalSlab;
 import net.elemental.itemblock.ItemBlockElementalStone;
 import net.elemental.itemblock.ItemBlockElementalWall;
@@ -17,7 +18,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks 
 {
-	public static BlockBowl bowlBlock;
+	public static Block/*Bowl*/ bowlBlock;
 	public static int BOWL_BLOCK_ID = 4000;
 	public static final String BOWL_BLOCK_NAME = "bowlBlock";
 	public static final String BOWL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + BOWL_BLOCK_NAME;
@@ -54,27 +55,37 @@ public class Blocks
 	public static BlockElementalStairs[][] elementalStairsBlocks;
 	public static int[][] ELEMENTAL_STAIRS_BLOCK_IDS =
 		{
-			{
-				4007, 4008, 4009, 4010
-			},
-			{
-				4011, 4012, 4013, 4014
-			}
+		{
+			4007, 4008, 4009, 4010
+		},
+		{
+			4011, 4012, 4013, 4014
+		}
 		};
 	public static final String ELEMENTAL_STAIRS_NAME = "elementalStairsBlock";
 	public static final String ELEMENTAL_STAIRS_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_STAIRS_NAME;
+
+	public static BlockElementalPressurePlate elementalPressurePlateBlock;
+	public static int ELEMENTAL_PRESSURE_PLATE_BLOCK_ID = 4015;
+	public static final String ELEMENTAL_PRESSURE_PLATE_NAME = "elementalPressurePlateBlock";
+	public static final String ELEMENTAL_PRESSURE_PLATE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_PRESSURE_PLATE_NAME;
 
 	public static void initBlocks()
 	{
 		int i, j;
 
-		bowlBlock = (BlockBowl) new BlockBowl(BOWL_BLOCK_ID)
+		/*bowlBlock = (BlockBowl) new BlockBowl(BOWL_BLOCK_ID)
 		.setUnlocalizedName(BOWL_BLOCK_UNLOCALIZED_NAME)
 		.func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(bowlBlock, ItemBlockBowl.class, BOWL_BLOCK_NAME);
-		for (i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
-			LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i),
-					BOWL_BLOCK_ACTUAL_NAME + ": " + GeneralHelper.ELEMENTS[i]);
+		for (int i = 0; i < GeneralHelper.ELEMENTS.length; ++i)
+		LanguageRegistry.addName(new ItemStack(bowlBlock.blockID, 0, i), BOWL_BLOCK_ACTUAL_NAME + ": " + GeneralHelper.ELEMENTS[i]);*/
+
+		bowlBlock = new BlockBowlNew(BOWL_BLOCK_ID)
+		.setUnlocalizedName(BOWL_BLOCK_UNLOCALIZED_NAME)
+		.func_111022_d(BOWL_BLOCK_UNLOCALIZED_NAME);
+		GameRegistry.registerBlock(bowlBlock, BOWL_BLOCK_NAME);
+		LanguageRegistry.addName(bowlBlock, BOWL_BLOCK_ACTUAL_NAME);
 
 
 		portalBlock = (BlockElementalPortal) new BlockElementalPortal(PORTAL_BLOCK_ID)
@@ -149,6 +160,15 @@ public class Blocks
 			LanguageRegistry.addName(elementalStairsBlocks[1][i],
 					"Elemental Stone Bricks Stairs: " + GeneralHelper.ELEMENTS[i]);
 		}
+
+		elementalPressurePlateBlock = (BlockElementalPressurePlate)
+				new BlockElementalPressurePlate(ELEMENTAL_PRESSURE_PLATE_BLOCK_ID)
+		.setUnlocalizedName(ELEMENTAL_PRESSURE_PLATE_UNLOCALIZED_NAME);
+		GameRegistry.registerBlock(elementalPressurePlateBlock, ItemBlockElementalPressurePlate.class, ELEMENTAL_PRESSURE_PLATE_NAME);
+		for (i = 0; i < 4; ++i)
+			LanguageRegistry.addName(new ItemStack(elementalPressurePlateBlock.blockID, 1, i),
+					"Elemental Stone Pressure Plate: " + GeneralHelper.ELEMENTS[i]);
+
 		registerBlockProperties();
 	}
 

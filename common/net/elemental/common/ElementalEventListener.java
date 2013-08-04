@@ -6,7 +6,7 @@ import net.elemental.block.Blocks;
 import net.elemental.dimension.Dimensions;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFluid;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -27,14 +27,22 @@ public class ElementalEventListener
 			return;
 		if (event.entityPlayer.getCurrentEquippedItem() == null)
 			return;
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID !=
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				ShrineHelper.ACTIVATOR_ITEM_ID)
-			return;
-		if (event.entityPlayer.capabilities.isCreativeMode)
-			ShrineHelper.buildShrine(event.entityPlayer.worldObj, event.x, event.y, event.z);
-		if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
-			return;
-		event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
+		{
+			if (event.entityPlayer.capabilities.isCreativeMode)
+				ShrineHelper.buildShrine(event.entityPlayer.worldObj, event.x, event.y, event.z);
+			if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
+				return;
+			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
+		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+				Item.bowlEmpty.itemID)
+		{
+			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.bowlBlock.blockID);
+			if (!event.entityPlayer.capabilities.isCreativeMode)
+				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
 	}
 
 	@ForgeSubscribe
@@ -202,8 +210,5 @@ public class ElementalEventListener
 		if (world.getBlockId(i, j, k) == Block.oreDiamond.blockID)
 			world.setBlock(i, j, k,
 					Blocks.elementalOreBlock2.blockID, 8 + enumBiome.ordinal(), 2);
-		if (Block.blocksList[world.getBlockId(i, j, k)] instanceof BlockFluid)
-			world.setBlock(i, j, k,
-					enumBiome.LIQUID_BLOCK, world.getBlockMetadata(i, j, k), 2);
 	}
 }
