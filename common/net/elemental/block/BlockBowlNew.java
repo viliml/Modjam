@@ -68,7 +68,7 @@ public class BlockBowlNew extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitXx, float hitY, float hitZ)
 	{
-		if (world.isRemote)
+		if (world.getBlockMetadata(x, y, z) != 0)
 			return false;
 		
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.dirt.blockID ||
