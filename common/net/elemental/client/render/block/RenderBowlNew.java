@@ -45,7 +45,22 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 			break;
 		}
 		renderer.enableAO = false;
-		renderer.color
+		
+		renderer.colorRedBottomLeft = 1F;
+		renderer.colorRedBottomRight = 1F;
+		renderer.colorRedTopLeft = 1F;
+		renderer.colorRedTopRight = 1F;
+		
+		renderer.colorGreenBottomLeft = 1F;
+		renderer.colorGreenBottomRight = 1F;
+		renderer.colorGreenTopLeft = 1F;
+		renderer.colorGreenTopRight = 1F;
+		
+		renderer.colorBlueBottomLeft = 1F;
+		renderer.colorBlueBottomRight = 1F;
+		renderer.colorBlueTopLeft = 1F;
+		renderer.colorBlueTopRight = 1F;
+		
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
 
 		return true;

@@ -68,6 +68,9 @@ public class BlockBowlNew extends BlockContainer
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitXx, float hitY, float hitZ)
 	{
+		if (world.isRemote)
+			return false;
+		
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.dirt.blockID ||
 				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.grass.blockID ||
 				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.mycelium.blockID)
@@ -75,6 +78,8 @@ public class BlockBowlNew extends BlockContainer
 			world.setBlockMetadataWithNotify(x, y, z, 1, 3); //earth
 			if (!entityPlayer.capabilities.isCreativeMode)
 				entityPlayer.getCurrentEquippedItem().stackSize--;//
+			
+			return true;
 		}
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Block.blockNetherQuartz.blockID)
@@ -82,6 +87,8 @@ public class BlockBowlNew extends BlockContainer
 			world.setBlockMetadataWithNotify(x, y, z, 2, 3); //air
 			if (!entityPlayer.capabilities.isCreativeMode)
 				entityPlayer.getCurrentEquippedItem().stackSize--;
+			
+			return true;
 		}
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
 				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID ||
@@ -96,6 +103,8 @@ public class BlockBowlNew extends BlockContainer
 				else
 					entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
+			
+			return true;
 		}
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
 				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
@@ -107,11 +116,12 @@ public class BlockBowlNew extends BlockContainer
 			{
 				if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID)
 					entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.bucketEmpty));
-				if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
-					entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.glassBottle));
 				else
 					entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
+			
+			entityPlayer.swingItem();
+			return true;
 		}
 	
 		return false;
