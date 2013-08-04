@@ -120,7 +120,7 @@ public class BlockBowlNew extends BlockContainer
 					entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
 			
-			entityPlayer.swingItem();
+			entityPlayer.setEating(false);
 			return true;
 		}
 	
