@@ -79,10 +79,10 @@ public class Recipes
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 		GameRegistry.addShapedRecipe(new ItemStack(Items.itemWing),
 				"WWW", " WW", "  W",
-				'W', Block.cloth);
+				'W', new ItemStack(Block.cloth, 1, 14));
 		GameRegistry.addShapedRecipe(new ItemStack(Items.itemWing),
 				"WWW", "WW ", "W  ",
-				'W', Block.cloth);
+				'W', new ItemStack(Block.cloth, 1, 14));
 		GameRegistry.addShapedRecipe(new ItemStack(Items.itemStaff),
 				" s ", "wsw", " s ",
 				's', Item.stick,
