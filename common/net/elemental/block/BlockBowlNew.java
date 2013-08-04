@@ -49,7 +49,7 @@ public class BlockBowlNew extends BlockContainer
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("bowlBlock_bottom");
+		blockIcon = iconRegister.registerIcon("elemental:bowlBlock_bottom");
 	}
 
 	@Override
@@ -120,7 +120,6 @@ public class BlockBowlNew extends BlockContainer
 					entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
 			
-			entityPlayer.setEating(false);
 			return true;
 		}
 	
