@@ -45,6 +45,7 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 			break;
 		}
 		renderer.enableAO = false;
+		renderer.color
 		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
 
 		return true;

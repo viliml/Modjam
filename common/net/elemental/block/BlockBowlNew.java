@@ -3,11 +3,14 @@ package net.elemental.block;
 import java.util.Random;
 
 import net.elemental.client.render.RenderHandlers;
-import net.elemental.lib.GeneralHelper;
 import net.elemental.tileentity.TileEntityBowl;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -48,7 +51,7 @@ public class BlockBowlNew extends BlockContainer
 	{
 		blockIcon = iconRegister.registerIcon("bowlBlock_bottom");
 	}
-	
+
 	@Override
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand)
 	{
@@ -60,5 +63,57 @@ public class BlockBowlNew extends BlockContainer
 		{
 			world.spawnParticle("flame", x + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), y + 0.375D, z + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), 0D, 0D, 0D);
 		}
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitXx, float hitY, float hitZ)
+	{
+		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.dirt.blockID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.grass.blockID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.mycelium.blockID)
+		{
+			world.setBlockMetadataWithNotify(x, y, z, 1, 3); //earth
+			if (!entityPlayer.capabilities.isCreativeMode)
+				entityPlayer.getCurrentEquippedItem().stackSize--;//
+		}
+		if (entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+				Block.blockNetherQuartz.blockID)
+		{
+			world.setBlockMetadataWithNotify(x, y, z, 2, 3); //air
+			if (!entityPlayer.capabilities.isCreativeMode)
+				entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
+		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.fireballCharge.itemID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.torchWood.blockID)
+		{
+			world.setBlockMetadataWithNotify(x, y, z, 3, 3); //fire
+			if (!entityPlayer.capabilities.isCreativeMode)
+			{
+				if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID)
+					entityPlayer.getCurrentEquippedItem().damageItem(1, entityPlayer);
+				else
+					entityPlayer.getCurrentEquippedItem().stackSize--;
+			}
+		}
+		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID ||
+				entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
+		{
+			entityPlayer.worldObj.setBlockMetadataWithNotify(x, y, z, 4, 3); //water
+			if (!entityPlayer.capabilities.isCreativeMode)
+			{
+				if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID)
+					entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.bucketEmpty));
+				if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
+					entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.glassBottle));
+				else
+					entityPlayer.getCurrentEquippedItem().stackSize--;
+			}
+		}
+	
+		return false;
 	}
 }

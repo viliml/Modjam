@@ -48,56 +48,6 @@ public class ElementalEventListener
 			
 			event.setCanceled(true);
 		}
-		if(event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) != Blocks.bowlBlock.blockID ||
-				event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z) != 0)
-			return;
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.dirt.blockID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.grass.blockID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.mycelium.blockID)
-		{
-			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 1, 3); //earth
-			if (!event.entityPlayer.capabilities.isCreativeMode)
-				event.entityPlayer.getCurrentEquippedItem().stackSize--;
-
-			event.setCanceled(true);
-		}
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
-				Block.blockNetherQuartz.blockID)
-		{
-			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 2, 3); //air
-			if (!event.entityPlayer.capabilities.isCreativeMode)
-				event.entityPlayer.getCurrentEquippedItem().stackSize--;
-		}
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.fireballCharge.itemID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.torchWood.blockID)
-		{
-			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 3, 3); //fire
-			if (!event.entityPlayer.capabilities.isCreativeMode)
-			{
-				if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID)
-					event.entityPlayer.getCurrentEquippedItem().damageItem(1, event.entityPlayer);
-				else
-					event.entityPlayer.getCurrentEquippedItem().stackSize--;
-			}
-		}
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID ||
-				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
-		{
-			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 4, 3); //water
-			if (!event.entityPlayer.capabilities.isCreativeMode)
-			{
-				if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID)
-					event.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.bucketEmpty));
-				if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
-					event.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(Item.glassBottle));
-				else
-					event.entityPlayer.getCurrentEquippedItem().stackSize--;
-			}
-		}
 	}
 
 	@ForgeSubscribe
