@@ -43,6 +43,13 @@ public class ElementalEventListener
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
 		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+				Item.bowlEmpty.itemID)
+		{
+			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.entityPlayer.worldObj, event.x, event.y, event.z, 1, 3); //earth
+			if (!event.entityPlayer.capabilities.isCreativeMode)
+				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
 	}
 
 	@ForgeSubscribe
@@ -84,12 +91,12 @@ public class ElementalEventListener
 			event.setResult(Result.DENY);
 			return;
 		}
-		if (event.original == Block.gravel.blockID)
+		/*if (event.original == Block.gravel.blockID)
 		{
 			event.replacement = Blocks.elementalStoneBlock.blockID;
 			event.setResult(Result.DENY);
 			return;
-		}
+		}*/
 		if (event.original == Block.stoneSingleSlab.blockID)
 		{
 			event.replacement = Blocks.elementalSlabBlock.blockID;
@@ -142,13 +149,13 @@ public class ElementalEventListener
 			event.setResult(Result.DENY);
 			return;
 		}
-		if (event.original == Block.gravel.blockID)
+		/*if (event.original == Block.gravel.blockID)
 		{
 			event.replacement = 8 + biome.ordinal();
 			System.out.println(event.replacement);
 			event.setResult(Result.DENY);
 			return;
-		}
+		}*/
 		if (event.original == Block.stoneSingleSlab.blockID)
 		{
 			event.replacement = 4 + biome.ordinal();

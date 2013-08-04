@@ -1,7 +1,5 @@
 package net.elemental.lib;
 
-import java.util.Random;
-
 public class GeneralHelper 
 {
 	public static final String[] ELEMENTS = 
@@ -23,9 +21,4 @@ public class GeneralHelper
 		"Diamond",
 		"Active Redstone"
 	};
-	
-	public static double nextDouble(Random rand, double min, double max)
-	{
-		return min + rand.nextDouble() * (max - min);
-	}
 }
