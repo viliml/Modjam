@@ -105,9 +105,6 @@ public class ShrineHelper
 			Block.fence.blockID, 0
 		},
 		{
-			Blocks.bowlBlock.blockID, 0
-		},
-		{
 			Blocks.bowlBlock.blockID, 1
 		},
 		{
@@ -115,6 +112,9 @@ public class ShrineHelper
 		},
 		{
 			Blocks.bowlBlock.blockID, 3
+		},
+		{
+			Blocks.bowlBlock.blockID, 4
 		}
 	};
 	
