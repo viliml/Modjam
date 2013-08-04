@@ -6,6 +6,9 @@ import net.minecraft.block.BlockFluid;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderBowlNew implements ISimpleBlockRenderingHandler
@@ -61,7 +64,12 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 		renderer.colorBlueTopLeft = 1F;
 		renderer.colorBlueTopRight = 1F;
 		
-		//renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);
+		GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);
+		
+		GL11.glDisable(GL11.GL_BLEND);
 
 		return true;
 	}
