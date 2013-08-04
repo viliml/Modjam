@@ -7,13 +7,12 @@ import net.elemental.dimension.Dimensions;
 import net.elemental.item.Items;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.terraingen.BiomeEvent.GetVillageBlockID;
@@ -196,11 +195,20 @@ public class ElementalEventListener
 	}
 	
 	@ForgeSubscribe
-	public void onFall(LivingFallEvent event)
+	public void onUpdate(LivingUpdateEvent event)
 	{
-		if (event.entityLiving instanceof EntityPlayer)
-			if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID == Items.itemStaff.itemID)
-				((EntityPlayer) event.entityLiving).capabilities.allowFlying = true;
+		if (!(event.entityLiving instanceof EntityPlayer))
+			return;
+		if (event.entityLiving.worldObj.getBlockId((int) event.entityLiving.posX, (int) event.entityLiving.posY - 2, (int) event.entityLiving.posZ) != 0)
+		{
+			if(!((EntityPlayer) event.entityLiving).capabilities.isCreativeMode)
+				((EntityPlayer) event.entityLiving).capabilities.allowFlying = false;
+			
+			return;
+		}
+		
+		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID == Items.itemStaff.itemID)
+			((EntityPlayer) event.entityLiving).capabilities.allowFlying = true;
 	}
 
 	private void changeIt(World world, int i, int j, int k, EnumBiomes enumBiome)
