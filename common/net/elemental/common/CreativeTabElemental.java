@@ -1,17 +1,23 @@
 package net.elemental.common;
 
+import net.elemental.lib.ShrineHelper;
 import net.minecraft.creativetab.CreativeTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CreativeTabElemental extends CreativeTabs {
 
 	public CreativeTabElemental(String label) {
 		super(label);
-		// TODO Auto-generated constructor stub
 	}
 
 	public CreativeTabElemental(int par1, String par2Str) {
 		super(par1, par2Str);
-		// TODO Auto-generated constructor stub
 	}
-
+	
+	@SideOnly(Side.CLIENT)
+    public int getTabIconItemIndex()
+    {
+        return ShrineHelper.ACTIVATOR_ITEM_ID;
+    }
 }
