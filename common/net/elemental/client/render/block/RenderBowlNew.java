@@ -23,8 +23,11 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == 0)
+			return true;
 		
 		Icon content = null;
+		
 		switch (meta - 1)
 		{
 		case 0:
@@ -38,13 +41,13 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 		case 2:
 			//Fire
 			//Flame particles
-			break;
+			return true;
 		case 3:
 			//Water
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F), (double)z, content);
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);
 
 		return true;
 	}
