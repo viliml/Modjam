@@ -20,4 +20,10 @@ public class CreativeTabElemental extends CreativeTabs {
     {
         return ShrineHelper.ACTIVATOR_ITEM_ID;
     }
+	
+	@SideOnly(Side.CLIENT)
+    public String getTranslatedTabLabel()
+    {
+        return getTabLabel();
+    }
 }
