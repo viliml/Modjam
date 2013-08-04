@@ -4,12 +4,16 @@ import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
 import net.elemental.dimension.Dimensions;
+import net.elemental.item.Items;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.terraingen.BiomeEvent.GetVillageBlockID;
@@ -189,6 +193,14 @@ public class ElementalEventListener
 				for (j = 0; j < 256; ++j)
 					changeIt(event.world, i, j, k, enumBiome);
 			}
+	}
+	
+	@ForgeSubscribe
+	public void onFall(LivingFallEvent event)
+	{
+		if (event.entityLiving instanceof EntityPlayer)
+			if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID == Items.itemStaff.itemID)
+				((EntityPlayer) event.entityLiving).capabilities.allowFlying = true;
 	}
 
 	private void changeIt(World world, int i, int j, int k, EnumBiomes enumBiome)
