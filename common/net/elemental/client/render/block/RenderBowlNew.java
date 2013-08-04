@@ -44,7 +44,7 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
-		/*renderer.enableAO = false;
+		renderer.enableAO = false;
 		
 		renderer.colorRedBottomLeft = 1F;
 		renderer.colorRedBottomRight = 1F;
@@ -59,9 +59,9 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 		renderer.colorBlueBottomLeft = 1F;
 		renderer.colorBlueBottomRight = 1F;
 		renderer.colorBlueTopLeft = 1F;
-		renderer.colorBlueTopRight = 1F;*/
+		renderer.colorBlueTopRight = 1F;
 		
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.51F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
+		//renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);
 
 		return true;
 	}
