@@ -1,12 +1,9 @@
 package net.elemental.client.render.block;
 
-import net.elemental.block.BlockBowl;
 import net.elemental.client.render.RenderHandlers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFluid;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -47,7 +44,8 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);
+		//For debugging render it above
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 1.01F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
 
 		return true;
 	}

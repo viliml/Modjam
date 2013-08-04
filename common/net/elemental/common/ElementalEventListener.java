@@ -36,6 +36,8 @@ public class ElementalEventListener
 			if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
 				return;
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
+			
+			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Item.bowlEmpty.itemID)
@@ -43,6 +45,8 @@ public class ElementalEventListener
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.bowlBlock.blockID);
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+			
+			event.setCanceled(true);
 		}
 		if(event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) != Blocks.bowlBlock.blockID ||
 				event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z) != 0)
@@ -54,6 +58,8 @@ public class ElementalEventListener
 			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 1, 3); //earth
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+
+			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Block.blockNetherQuartz.blockID)
@@ -61,6 +67,8 @@ public class ElementalEventListener
 			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 2, 3); //air
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+
+			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
 				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID ||
@@ -75,6 +83,8 @@ public class ElementalEventListener
 				else
 					event.entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
+
+			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
 				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
@@ -91,6 +101,8 @@ public class ElementalEventListener
 				else
 					event.entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
+			
+			event.setCanceled(true);
 		}
 	}
 
