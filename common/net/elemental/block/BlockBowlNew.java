@@ -2,11 +2,11 @@ package net.elemental.block;
 
 import java.util.Random;
 
+import net.elemental.lib.GeneralHelper;
 import net.elemental.tileentity.TileEntityBowl;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -43,16 +43,17 @@ public class BlockBowlNew extends BlockContainer
 	}
 
 	@Override
-	public void registerIcons(IconRegister icon)
+	public void registerIcons(IconRegister iconRegister)
 	{
+		blockIcon = iconRegister.registerIcon("bowlBlock_bottom");
 	}
 	
 	@Override
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand)
 	{
 		if(world.getBlockMetadata(x, y, z) == 0)
-		{
-			world.spawnParticle("flame", x + rand.nextDouble(), y + rand.nextDouble(), z + rand.nextDouble(), 0D, 0D, 0D);
+		{System.out.println(GeneralHelper.nextDouble(rand, 2 / 16, 14 / 16));
+			world.spawnParticle("flame", x + GeneralHelper.nextDouble(rand, 2 / 16, 14 / 16), y + 0.25D, z + GeneralHelper.nextDouble(rand, 2 / 16, 14 / 16), 0D, 0D, 0D);
 		}
 	}
 }
