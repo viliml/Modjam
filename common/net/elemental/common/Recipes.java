@@ -18,38 +18,38 @@ public class Recipes
 	private static void initCraftingRecipes()
 	{
 		//Earth
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 0),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 1),
 				" D ", "SBS", " D ",
 				'B', Item.bowlEmpty,
 				'D', Block.dirt,
 				'S', Block.sand);
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 0),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 1),
 				" S ", "DBD", " S ",
 				'B', Item.bowlEmpty,
 				'D', Block.dirt,
 				'S', Block.sand);
 		//Air
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 1),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 2),
 				"   ", " B ", "   ",
 				'B', Item.bowlEmpty);
 		//Fire
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 2),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 3),
 				" S ", "CBC", " S ",
 				'B', Item.bowlEmpty,
 				'S', Item.flintAndSteel,
 				'C', Item.fireballCharge);
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 2),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 3),
 				" C ", "SBS", " C ",
 				'B', Item.bowlEmpty,
 				'S', Item.flintAndSteel,
 				'C', Item.fireballCharge);
 		//Water
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 3),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 4),
 				" W ", "IBI", " W ",
 				'B', Item.bowlEmpty,
 				'W', Item.bucketWater,
 				'I', Block.ice);
-		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 3),
+		GameRegistry.addShapedRecipe(new ItemStack(Blocks.bowlBlock, 1, 4),
 				" I ", "WBW", " I ",
 				'B', Item.bowlEmpty,
 				'W', Item.bucketWater,
@@ -72,6 +72,10 @@ public class Recipes
 			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalWallBlock, 6, i),
 					"sss", "sss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, 4 + i));
+		for (i = 0; i < 4; ++i)
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalPressurePlateBlock, 1, i),
+					"ss",
+					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 		
 	}
 

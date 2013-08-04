@@ -7,7 +7,6 @@ import net.elemental.dimension.Dimensions;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -36,7 +35,7 @@ public class ElementalEventListener
 			if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
 				return;
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
-			
+
 			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
@@ -45,7 +44,7 @@ public class ElementalEventListener
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.bowlBlock.blockID);
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
-			
+
 			event.setCanceled(true);
 		}
 	}
