@@ -67,8 +67,6 @@ public class ElementalEventListener
 			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 2, 3); //air
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
-
-			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
 				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID ||
@@ -83,8 +81,6 @@ public class ElementalEventListener
 				else
 					event.entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
-
-			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
 				event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
@@ -101,8 +97,6 @@ public class ElementalEventListener
 				else
 					event.entityPlayer.getCurrentEquippedItem().stackSize--;
 			}
-			
-			event.setCanceled(true);
 		}
 	}
 

@@ -44,8 +44,8 @@ public class RenderBowlNew implements ISimpleBlockRenderingHandler
 			content = BlockFluid.func_94424_b("water_still");
 			break;
 		}
-		//For debugging render it above
-		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 1.01F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
+		renderer.enableAO = false;
+		renderer.renderFaceYPos(block, (double)x, (double)((float)y - 5F / 16F + 4F / 16F + 0.01F), (double)z, content);//+0.01F is so it doesn't conflict with the model btw :P
 
 		return true;
 	}
