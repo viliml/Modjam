@@ -1,6 +1,7 @@
 package net.elemental.common;
 
 import net.elemental.block.Blocks;
+import net.elemental.item.Items;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -76,6 +77,16 @@ public class Recipes
 			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalPressurePlateBlock, 1, i),
 					"ss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
+		GameRegistry.addShapedRecipe(new ItemStack(Items.itemWing),
+				"WWW", " WW", "  W",
+				'W', Block.cloth);
+		GameRegistry.addShapedRecipe(new ItemStack(Items.itemWing),
+				"WWW", "WW ", "W  ",
+				'W', Block.cloth);
+		GameRegistry.addShapedRecipe(new ItemStack(Items.itemStaff),
+				" s ", "wsw", " s ",
+				's', Item.stick,
+				'w', Items.itemWing);
 		
 	}
 

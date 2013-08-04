@@ -3,6 +3,7 @@ package net.elemental.block;
 import java.util.List;
 import java.util.Random;
 
+import net.elemental.Elemental;
 import net.elemental.client.render.RenderHandlers;
 import net.elemental.lib.GeneralHelper;
 import net.minecraft.block.Block;
@@ -32,7 +33,7 @@ public class BlockBowl extends Block
 	public BlockBowl(int id) 
 	{
 		super(id, Material.wood);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Elemental.creativeTabElemental);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 5F / 16F, 1.0F);
 	}
 

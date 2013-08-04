@@ -1,14 +1,14 @@
 package net.elemental.lib;
 
 import net.elemental.block.Blocks;
+import net.elemental.item.Items;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class ShrineHelper 
 {
 	// Activator
-	public static final int ACTIVATOR_ITEM_ID = Item.stick.itemID;
+	public static final int ACTIVATOR_ITEM_ID = Items.itemStaff.itemID;
 	public static final int ACTIVATOR_ITEM_META = 0;
 	
 	// Center block on which you use the activator to activate

@@ -2,9 +2,7 @@ package net.elemental.block;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
+import net.elemental.Elemental;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -14,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalSlab extends Block
 {
@@ -21,7 +21,7 @@ public class BlockElementalSlab extends Block
 	public BlockElementalSlab(int id)
 	{
 		super(id, Material.rock);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Elemental.creativeTabElemental);
 	}
 
 	@Override

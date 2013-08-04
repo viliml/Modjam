@@ -2,8 +2,7 @@ package net.elemental.block;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.elemental.Elemental;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
@@ -13,6 +12,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalStone extends Block
 {
@@ -22,7 +23,7 @@ public class BlockElementalStone extends Block
 	{
 		super(id, Material.rock);
 		setStepSound(soundStoneFootstep);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Elemental.creativeTabElemental);
 	}
 	
 	@Override

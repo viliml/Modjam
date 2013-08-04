@@ -2,6 +2,7 @@ package net.elemental.block;
 
 import java.util.List;
 
+import net.elemental.Elemental;
 import net.minecraft.block.BlockWall;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,7 @@ public class BlockElementalWall extends BlockWall
 	public BlockElementalWall(int id)
 	{
 		super(id, Blocks.elementalStoneBlock);
+		setCreativeTab(Elemental.creativeTabElemental);
 	}
 	
 	@SideOnly(Side.CLIENT)

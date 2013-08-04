@@ -3,6 +3,7 @@ package net.elemental.block;
 import java.util.List;
 import java.util.Random;
 
+import net.elemental.Elemental;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
@@ -27,7 +28,7 @@ public class BlockElementalOre extends Block
 	public BlockElementalOre(int id, boolean isSecond)
 	{
 		super(id, Material.rock);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Elemental.creativeTabElemental);
 		second = isSecond;
 		setHardness(3F);
 		setResistance(5F);

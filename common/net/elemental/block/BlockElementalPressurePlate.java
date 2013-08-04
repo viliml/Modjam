@@ -2,6 +2,7 @@ package net.elemental.block;
 
 import java.util.List;
 
+import net.elemental.Elemental;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
@@ -14,6 +15,7 @@ public class BlockElementalPressurePlate extends BlockPressurePlate {
 
 	public BlockElementalPressurePlate(int id) {
 		super(id, null, Material.rock, EnumMobType.players);
+		setCreativeTab(Elemental.creativeTabElemental);
 	}
 	
 	@Override
