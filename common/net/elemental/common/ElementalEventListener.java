@@ -43,10 +43,36 @@ public class ElementalEventListener
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
 		}
+		if(event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) != Blocks.bowlBlock.blockID ||
+		   event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z) != 0)
+			return;
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
-				Item.bowlEmpty.itemID)
+				Block.dirt.blockID)
 		{
-			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.entityPlayer.worldObj, event.x, event.y, event.z, 1, 3); //earth
+			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 1, 3); //earth
+			if (!event.entityPlayer.capabilities.isCreativeMode)
+				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+				Block.blockNetherQuartz.blockID)
+		{
+			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 2, 3); //air
+			if (!event.entityPlayer.capabilities.isCreativeMode)
+				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.flintAndSteel.itemID ||
+			event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.fire.blockID)
+		{
+			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 3, 3); //fire
+			if (!event.entityPlayer.capabilities.isCreativeMode)
+				event.entityPlayer.getCurrentEquippedItem().stackSize--;
+		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.ice.blockID ||
+			event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.snow.blockID ||
+			event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.bucketWater.itemID ||
+			event.entityPlayer.getCurrentEquippedItem().getItem().itemID == Item.potion.itemID)
+		{
+			event.entityPlayer.worldObj.setBlockMetadataWithNotify(event.x, event.y, event.z, 4, 3); //water
 			if (!event.entityPlayer.capabilities.isCreativeMode)
 				event.entityPlayer.getCurrentEquippedItem().stackSize--;
 		}

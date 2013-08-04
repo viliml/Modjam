@@ -2,6 +2,7 @@ package net.elemental.block;
 
 import java.util.Random;
 
+import net.elemental.client.render.RenderHandlers;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.tileentity.TileEntityBowl;
 import net.minecraft.block.BlockContainer;
@@ -27,7 +28,7 @@ public class BlockBowlNew extends BlockContainer
 	@Override
 	public int getRenderType()
 	{
-		return -1;
+		return RenderHandlers.RENDER_BOWL_RENDER_ID;
 	}
 
 	@Override
