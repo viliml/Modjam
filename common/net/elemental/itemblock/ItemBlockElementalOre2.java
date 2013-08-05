@@ -1,5 +1,6 @@
 package net.elemental.itemblock;
 
+import net.elemental.Elemental;
 import net.elemental.block.Blocks;
 import net.elemental.lib.GeneralHelper;
 import net.minecraft.block.Block;
@@ -27,7 +28,7 @@ public class ItemBlockElementalOre2 extends ItemBlock
 	@Override
 	public CreativeTabs getCreativeTab()
 	{
-		return CreativeTabs.tabBlock;
+		return Elemental.creativeTabElemental;
 	}
 
 	@Override

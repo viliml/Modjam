@@ -6,6 +6,7 @@ import net.elemental.Elemental;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -89,6 +90,11 @@ public class BlockElementalPressurePlate extends BlockPressurePlate {
             world.scheduleBlockUpdate(x, y, z, blockID, tickRate(world));
         }
     }
+	
+	@Override
+	public void registerIcons(IconRegister icon)
+	{
+	}
 	
 	@Override
 	public Icon getIcon(int side, int meta)

@@ -49,12 +49,21 @@ public class BlockElementalOre extends Block
 		icons = new Icon[16];
 		int i, j;
 		if (second)
+		{
 			for (i = 0; i < 4; ++i)
+			{
 				for (j = 0; j < 4; ++j)
+				{
+					if ((i + 4) == 7)
+						continue;
+					
 					icons[i * 4 + j] = iconRegister.registerIcon(
 							Reference.MOD_ID + ":" +
 									GeneralHelper.ELEMENTS[j].toLowerCase() + "_" +
 									GeneralHelper.ORES[i + 4].toLowerCase() + "_ore");
+				}
+			}
+		}
 		else
 			for (i = 0; i < 4; ++i)
 				for (j = 0; j < 4; ++j)
