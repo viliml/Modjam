@@ -1,5 +1,9 @@
 package net.elemental.common;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
 import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
@@ -28,7 +32,6 @@ public class ElementalEventListener
 	{
 		if (event.action != Action.RIGHT_CLICK_BLOCK)
 			return;
-		System.out.println(event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) + ":" + event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z));
 		if (event.face != 1)
 			return;
 		if (event.entityPlayer.getCurrentEquippedItem() == null)
@@ -44,6 +47,12 @@ public class ElementalEventListener
 			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+				Items.itemWing.itemID)
+		{
+			printStuff(event.entityPlayer.worldObj, event.x, event.y, event.z);
+			event.setCanceled(true);
+		}
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Item.bowlEmpty.itemID &&
 			!event.entityPlayer.worldObj.isRemote)
 		{
@@ -53,6 +62,38 @@ public class ElementalEventListener
 
 			event.setCanceled(true);
 		}
+	}
+
+	private void printStuff(World world, int x, int y, int z)
+	{
+		int i, j, k;
+		try {
+			System.setOut(new PrintStream(new File("C:/Users/Vilim/Desktop/thingy.txt")));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("\n\n\n\n\n{");
+		for (i = x; i < x + 37; ++i)
+		{
+			System.out.println("\t{");
+			for (j = y; j < y + 34; ++j)
+			{
+				System.out.println("\t\t{");
+				for (k = z; k < z + 37; ++k)
+				{
+					System.out.print("\t\t\t{" + world.getBlockId(i, j, k) + ", " + world.getBlockMetadata(i, j, k) + "}");
+					if (k < z + 33) System.out.println(",");
+					else System.out.println();
+				}
+				System.out.print("\t\t}");
+				if (j < y + 33) System.out.println(",");
+				else System.out.println();
+			}
+			System.out.print("\t}");
+			if (i < x + 33) System.out.println(",");
+			else System.out.println();
+		}
+		System.out.println("}\n\n\n\n\n");
 	}
 
 	@ForgeSubscribe
