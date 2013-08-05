@@ -45,10 +45,10 @@ public class GeneralHelper
 		}
 		
 		Random rand = new Random();
-		
-		for(int i = 0; i < rand.nextInt(20); ++i)
+		System.out.println(particleName);
+		for(int i = 0; i < (rand.nextInt(20) + 6); ++i)
 		{
-			world.spawnParticle(particleName, x + rand.nextDouble(), y + rand.nextDouble(), z + rand.nextDouble(), rand.nextDouble(), rand.nextDouble(), rand.nextDouble());
+			world.spawnParticle(particleName, x + rand.nextDouble(), y + rand.nextDouble(), z + rand.nextDouble(), 0F, 0F, 0F);
 		}
 	}
 }

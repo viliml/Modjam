@@ -143,7 +143,7 @@ public class ShrineHelper
 					current = SHRINE_BLUEPRINT[i][j][k];
 					
 					if (current == 0)
-					{System.out.println(world.isAirBlock(tempX, tempY, tempZ));
+					{
 						if (!world.isAirBlock(tempX, tempY, tempZ))
 						{
 							world.setBlockToAir(tempX, tempY, tempZ);
@@ -151,9 +151,9 @@ public class ShrineHelper
 							return true;
 						}
 					}
-					if (current == -1)
+					else if (current == -1)
 						continue;
-					if (current == -2)
+					else if (current == -2)
 					{
 						if (!(world.getBlockId(tempX, tempY, tempZ) == CENTER_BLOCK_ID &&
 							 world.getBlockMetadata(tempX, tempY, tempZ) == CENTER_BLOCK_META))
