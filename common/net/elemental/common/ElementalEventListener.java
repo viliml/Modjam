@@ -1,13 +1,10 @@
 package net.elemental.common;
 
-import java.util.Random;
-
 import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
 import net.elemental.dimension.Dimensions;
 import net.elemental.item.Items;
-import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,12 +32,11 @@ public class ElementalEventListener
 			return;
 		if (event.entityPlayer.getCurrentEquippedItem() == null)
 			return;
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
-				ShrineHelper.ACTIVATOR_ITEM_ID)
+		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID == ShrineHelper.ACTIVATOR_ITEM_ID &&
+		   !event.entityPlayer.worldObj.isRemote)
 		{
-			if (event.entityPlayer.capabilities.isCreativeMode)
-				ShrineHelper.buildNextBlock(event.entityPlayer.worldObj, event.x, event.y, event.z, GeneralHelper.PARTICLES[(new Random()).nextInt(4)]);
-			if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
+			if (event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) != ShrineHelper.CENTER_BLOCK_ID ||
+				event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z) != ShrineHelper.CENTER_BLOCK_META)
 				return;
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
 
