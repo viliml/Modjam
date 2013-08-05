@@ -143,35 +143,35 @@ public class ShrineHelper
 					current = SHRINE_BLUEPRINT[i][j][k];
 					
 					if (current == 0)
-					{
-						if (world.isAirBlock(tempX, tempY, tempZ))
-							continue;
-						
-						world.setBlockToAir(tempX, tempY, tempZ);
-						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-						return true;
+					{System.out.println(world.isAirBlock(tempX, tempY, tempZ));
+						if (!world.isAirBlock(tempX, tempY, tempZ))
+						{
+							world.setBlockToAir(tempX, tempY, tempZ);
+							GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+							return true;
+						}
 					}
 					if (current == -1)
 						continue;
 					if (current == -2)
 					{
-						if (world.getBlockId(tempX, tempY, tempZ) == CENTER_BLOCK_ID &&
-							world.getBlockMetadata(tempX, tempY, tempZ) == CENTER_BLOCK_META)
-							continue;
-						
-						world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
-						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-						return true;
+						if (!(world.getBlockId(tempX, tempY, tempZ) == CENTER_BLOCK_ID &&
+							 world.getBlockMetadata(tempX, tempY, tempZ) == CENTER_BLOCK_META))
+						{
+							world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
+							GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+							return true;
+						}
 					}
 					else
 					{
-						if (world.getBlockId(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][0] &&
-							world.getBlockMetadata(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][1])
-							continue;
-						
-						world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
-						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-						continue;
+						if (!(world.getBlockId(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][0] &&
+							 world.getBlockMetadata(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][1]))
+						{
+							world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
+							GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+							return true;
+						}
 					}
 				}
 			}
