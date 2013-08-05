@@ -47,7 +47,7 @@ public class GeneralHelper
 				world.spawnParticle(particleName, x + rand.nextDouble(), y + rand.nextDouble(), z + rand.nextDouble(), 0F, 0F, 0F);
 			}
 		}
-		//else
-		//	Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(x, y, z, Block.dirt.blockID, 0);
+		else
+			Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(x, y, z, Block.dirt.blockID, 0);
 	}
 }
