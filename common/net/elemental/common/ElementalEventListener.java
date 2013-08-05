@@ -205,18 +205,20 @@ public class ElementalEventListener
 			return;
 		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID != Items.itemStaff.itemID)
 			return;
+		if (((EntityPlayer) event.entityLiving).capabilities.isCreativeMode)
+			return;
 		if (event.entityLiving.fallDistance == 0F)
 			return;
 		
 		Vec3 playerFacing = ((EntityPlayer) event.entityLiving).getLookVec();
+		double motionYchange = Math.min(0.08, -0.1 - ((EntityPlayer) event.entityLiving).motionY);
 		
 		playerFacing.yCoord = 0;
         playerFacing.normalize();
         
-        double motionYchange = Math.min(0.08, -0.1 - ((EntityPlayer) event.entityLiving).motionY);
         ((EntityPlayer) event.entityLiving).motionY += motionYchange;
-        ((EntityPlayer) event.entityLiving).motionX += playerFacing.xCoord * motionYchange;
-        ((EntityPlayer) event.entityLiving).motionZ += playerFacing.zCoord * motionYchange;
+        ((EntityPlayer) event.entityLiving).motionX += (playerFacing.xCoord * motionYchange) / 2;
+        ((EntityPlayer) event.entityLiving).motionZ += (playerFacing.zCoord * motionYchange) / 2;
 	}
 	
 	@ForgeSubscribe
