@@ -20,21 +20,17 @@ public class ShrineHelper
 	public static final int CENTER_BLOCK_Y_OFFSET = 0;
 	public static final int CENTER_BLOCK_Z_OFFSET = 18;
 	
-	// Blueprint of the shrine
-	public static final int[][][] SHRINE_BLUEPRINT =
-	{ // 0 = must be air, -1 = doesn't matter, -2 = center block
+	// Blueprint of the shrine // 0 = must be air, -1 = doesn't matter, -2 = center block
+	public static final int[][][] SHRINE_BLUEPRINT;
+	
+	public static final int[][][] SHRINE_BLUEPRINT_CORNER = 
+	{
 		{
 			{
-				7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
+				1, 2, 3, 4, 5
 			},
 			{
-				2, 0, 0, 0, 2
-			},
-			{
-				2, 0, 0, 0, 2
-			},
-			{
-				3, 0, 0, 0, 4
+				2, 3, 4, 5, 1
 			}
 		}
 	};
@@ -64,6 +60,35 @@ public class ShrineHelper
 			Block.woodSingleSlab.blockID, 2
 		}
 	};
+	
+	static
+	{
+		SHRINE_BLUEPRINT = new int[SHRINE_BLUEPRINT_CORNER.length * 4][SHRINE_BLUEPRINT_CORNER[0].length * 4][SHRINE_BLUEPRINT_CORNER[0][0].length * 4];
+		
+		int i, j, k;
+		
+		for(i = 0; i < SHRINE_BLUEPRINT_CORNER.length; ++i)
+		{
+			for(j = 0; j < SHRINE_BLUEPRINT_CORNER[0].length; ++j)
+			{
+				for(k = 0; k < SHRINE_BLUEPRINT_CORNER[0][0].length; ++k)
+				{
+					SHRINE_BLUEPRINT[i][j][k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
+				}
+			}
+		}
+		
+		for(i = 0; i < SHRINE_BLUEPRINT_CORNER.length; ++i)
+		{
+			for(j = 0; j < SHRINE_BLUEPRINT_CORNER[0].length; ++j)
+			{
+				for(k = 0; k < SHRINE_BLUEPRINT_CORNER[0][0].length; ++k)
+				{
+					SHRINE_BLUEPRINT[i][j][k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
+				}
+			}
+		}
+	}
 	
 	public static boolean buildNextBlock(World world, int x, int y, int z, String particleName)
 	{

@@ -10,6 +10,7 @@ import net.elemental.common.Recipes;
 import net.elemental.dimension.Dimensions;
 import net.elemental.item.Items;
 import net.elemental.lib.Reference;
+import net.elemental.lib.ShrineHelper;
 import net.elemental.tileentity.TileEntities;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,6 +60,7 @@ public class Elemental
 		Biomes.init();
 		Dimensions.initDimensions();
 		//Entities.init();
+		if (ShrineHelper.CENTER_BLOCK_ID == ShrineHelper.CENTER_BLOCK_ID);
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new ElementalEventListener());
 	}
