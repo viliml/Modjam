@@ -134,46 +134,46 @@ public class ShrineHelper
 		{
 			for (j = 0; j < SHRINE_BLUEPRINT[i].length; ++j)
 			{
-                for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
-                {
-                	tempX = x + i;
-                	tempY = y + j;
-                	tempZ = z + k;
-                	
-                	current = SHRINE_BLUEPRINT[i][j][k];
-                	
-                	if (current == 0)
-                	{
-                		if (world.isAirBlock(tempX, tempY, tempZ))
-                			continue;
-                		
-                		world.setBlockToAir(tempX, tempY, tempZ);
-                		GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-                		return true;
-                	}
-                	if (current == -1)
-                		continue;
-                	if (current == -2)
-                	{
-                		if (world.getBlockId(tempX, tempY, tempZ) == CENTER_BLOCK_ID &&
-                			world.getBlockMetadata(tempX, tempY, tempZ) == CENTER_BLOCK_META)
-                			continue;
-                		
-                		world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
-                		GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-                		return true;
-                	}
-                	else
-                	{
-                		if (world.getBlockId(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][0] &&
-                			world.getBlockMetadata(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][1])
-                			continue;
-                		
-                		world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
-                		GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
-                		continue;
-                	}
-                }
+				for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
+				{
+					tempX = x + i;
+					tempY = y + j;
+					tempZ = z + k;
+					
+					current = SHRINE_BLUEPRINT[i][j][k];
+					
+					if (current == 0)
+					{
+						if (world.isAirBlock(tempX, tempY, tempZ))
+							continue;
+						
+						world.setBlockToAir(tempX, tempY, tempZ);
+						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+						return true;
+					}
+					if (current == -1)
+						continue;
+					if (current == -2)
+					{
+						if (world.getBlockId(tempX, tempY, tempZ) == CENTER_BLOCK_ID &&
+							world.getBlockMetadata(tempX, tempY, tempZ) == CENTER_BLOCK_META)
+							continue;
+						
+						world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
+						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+						return true;
+					}
+					else
+					{
+						if (world.getBlockId(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][0] &&
+							world.getBlockMetadata(tempX, tempY, tempZ) == SHRINE_BUILDING_BLOCKS[current - 1][1])
+							continue;
+						
+						world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
+						GeneralHelper.spawnParticles(particleName, world, tempX, tempY, tempZ);
+						continue;
+					}
+				}
 			}
 		}
 		
@@ -193,26 +193,26 @@ public class ShrineHelper
 		{
 			for (j = 0; j < SHRINE_BLUEPRINT[i].length; ++j)
 			{
-                for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
-                {
-                	tempX = x + i;
-                	tempY = y + j;
-                	tempZ = z + k;
-                	
-                	current = SHRINE_BLUEPRINT[i][j][k];
-                	
-                	if (current == 0)
-                	{
-                		world.setBlockToAir(tempX, tempY, tempZ);
-                		continue;
-                	}
-                	if (current == -1)
-                		continue;
-                	if (current == -2)
-                		world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
-                	else
-                		world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
-                }
+				for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
+				{
+					tempX = x + i;
+					tempY = y + j;
+					tempZ = z + k;
+					
+					current = SHRINE_BLUEPRINT[i][j][k];
+					
+					if (current == 0)
+					{
+						world.setBlockToAir(tempX, tempY, tempZ);
+						continue;
+					}
+					if (current == -1)
+						continue;
+					if (current == -2)
+						world.setBlock(tempX, tempY, tempZ, CENTER_BLOCK_ID, CENTER_BLOCK_META, 3);
+					else
+						world.setBlock(tempX, tempY, tempZ, SHRINE_BUILDING_BLOCKS[current - 1][0], SHRINE_BUILDING_BLOCKS[current - 1][1], 3);
+				}
 			}
 		}
 	}
@@ -230,31 +230,31 @@ public class ShrineHelper
 		{
 			for (j = 0; j < SHRINE_BLUEPRINT[i].length; ++j)
 			{
-                for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
-                {
-                	tempX = x + i;
-                	tempY = y + j;
-                	tempZ = z + k;
-                	
-                	current = SHRINE_BLUEPRINT[i][j][k];
-                	
-                	if (current == 0 &&
-                	   !world.isAirBlock(tempX, tempY, tempZ))
-                		return false;
-                	else if (current == 0)
-                		continue;
-                	else if (current == -1)
-                		continue;
-                	else if (current == -2 &&
-                	   (world.getBlockId(tempX, tempY, tempZ) != CENTER_BLOCK_ID ||
-                	    world.getBlockMetadata(tempX, tempY, tempZ) != CENTER_BLOCK_META))
-                		return false;
-                	else if (current == -2)
-                		continue;
-                	else if (world.getBlockId(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][0] ||
-                			world.getBlockMetadata(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][1])
-                		return false;
-                }
+				for (k = 0; k < SHRINE_BLUEPRINT[i][j].length; ++k)
+				{
+					tempX = x + i;
+					tempY = y + j;
+					tempZ = z + k;
+					
+					current = SHRINE_BLUEPRINT[i][j][k];
+	
+					if (current == 0 &&
+					   !world.isAirBlock(tempX, tempY, tempZ))
+						return false;
+					else if (current == 0)
+						continue;
+					else if (current == -1)
+						continue;
+					else if (current == -2 &&
+					   (world.getBlockId(tempX, tempY, tempZ) != CENTER_BLOCK_ID ||
+					world.getBlockMetadata(tempX, tempY, tempZ) != CENTER_BLOCK_META))
+						return false;
+					else if (current == -2)
+						continue;
+					else if (world.getBlockId(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][0] ||
+						world.getBlockMetadata(tempX, tempY, tempZ) != SHRINE_BUILDING_BLOCKS[current - 1][1])
+						return false;
+				}
 			}
 		}
 		

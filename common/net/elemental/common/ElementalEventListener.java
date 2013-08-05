@@ -1,10 +1,13 @@
 package net.elemental.common;
 
+import java.util.Random;
+
 import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
 import net.elemental.dimension.Dimensions;
 import net.elemental.item.Items;
+import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.ShrineHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,7 +41,7 @@ public class ElementalEventListener
 				ShrineHelper.ACTIVATOR_ITEM_ID)
 		{
 			if (event.entityPlayer.capabilities.isCreativeMode)
-				ShrineHelper.buildShrine(event.entityPlayer.worldObj, event.x, event.y, event.z);
+				ShrineHelper.buildNextBlock(event.entityPlayer.worldObj, event.x, event.y, event.z, GeneralHelper.PARTICLES[(new Random()).nextInt(4)]);
 			if (!ShrineHelper.canMakePortal(event.entityPlayer.worldObj, event.x, event.y, event.z))
 				return;
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.portalBlock.blockID);
