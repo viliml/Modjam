@@ -187,7 +187,13 @@ public class BlockElementalPortal extends BlockContainer
 	@Override
 	public void registerIcons(IconRegister iconregister)
 	{
-		icons[0] = iconregister.registerIcon(getUnlocalizedName() + "_inactive");
-		icons[1] = iconregister.registerIcon(getUnlocalizedName());
+		icons[0] = iconregister.registerIcon(Blocks.PORTAL_BLOCK_UNLOCALIZED_NAME + "_inactive");
+		icons[1] = iconregister.registerIcon(Blocks.PORTAL_BLOCK_UNLOCALIZED_NAME);
+	}
+	
+	@Override
+	public Icon getIcon(int side, int meta)
+	{
+		return icons[meta];
 	}
 }
