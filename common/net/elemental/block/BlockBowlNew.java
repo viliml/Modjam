@@ -57,7 +57,7 @@ public class BlockBowlNew extends BlockContainer
 	{
 		if(world.getBlockMetadata(x, y, z) == 2)
 		{
-			world.spawnParticle("smoke", x + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), y + 0.375D, z + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), 0D, 0D, 0D);
+			world.spawnParticle("splash", x + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), y + 0.375D, z + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), 0D, 0D, 0D);
 		}
 		if(world.getBlockMetadata(x, y, z) == 3)
 		{
@@ -69,6 +69,8 @@ public class BlockBowlNew extends BlockContainer
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitXx, float hitY, float hitZ)
 	{
 		if (world.getBlockMetadata(x, y, z) != 0)
+			return false;
+		if (entityPlayer.getCurrentEquippedItem() == null)
 			return false;
 		
 		if (entityPlayer.getCurrentEquippedItem().getItem().itemID == Block.dirt.blockID ||

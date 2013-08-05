@@ -26,6 +26,8 @@ public class ElementalEventListener
 	@ForgeSubscribe
 	public void playerInteractListener(PlayerInteractEvent event)
 	{
+		if (event.entityPlayer.worldObj.isRemote)
+			return;
 		if (event.action != Action.RIGHT_CLICK_BLOCK)
 			return;
 		if (event.face != 1)
