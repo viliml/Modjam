@@ -199,6 +199,8 @@ public class ElementalEventListener
 	@ForgeSubscribe
 	public void onUpdate(LivingUpdateEvent event)
 	{
+		if (event.entityLiving.dimension != Dimensions.ELEMENTAL_DIMENSION_ID)
+			return;
 		if (!(event.entityLiving instanceof EntityPlayer))
 			return;
 		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem() == null)
@@ -224,6 +226,8 @@ public class ElementalEventListener
 	@ForgeSubscribe
 	public void onFall(LivingFallEvent event)
 	{
+		if (event.entityLiving.dimension != Dimensions.ELEMENTAL_DIMENSION_ID)
+			return;
 		if (!(event.entityLiving instanceof EntityPlayer))
 			return;
 		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem() == null)
