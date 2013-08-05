@@ -27,10 +27,10 @@ public class ShrineHelper
 	{
 		{
 			{
-				1, 2, 3, 4, 5
+				1, 1, 1, 1, 1
 			},
 			{
-				2, 3, 4, 5, 1
+				2, 0, 1, 0, 2
 			}
 		}
 	};
@@ -63,7 +63,7 @@ public class ShrineHelper
 	
 	static
 	{
-		SHRINE_BLUEPRINT = new int[SHRINE_BLUEPRINT_CORNER.length * 4][SHRINE_BLUEPRINT_CORNER[0].length * 4][SHRINE_BLUEPRINT_CORNER[0][0].length * 4];
+		SHRINE_BLUEPRINT = new int[SHRINE_BLUEPRINT_CORNER.length * 2][SHRINE_BLUEPRINT_CORNER[0].length * 2][SHRINE_BLUEPRINT_CORNER[0][0].length * 2];
 		
 		int i, j, k;
 		
@@ -84,7 +84,29 @@ public class ShrineHelper
 			{
 				for(k = 0; k < SHRINE_BLUEPRINT_CORNER[0][0].length; ++k)
 				{
-					SHRINE_BLUEPRINT[i][j][k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
+					SHRINE_BLUEPRINT[SHRINE_BLUEPRINT.length - 1 - i][j][k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
+				}
+			}
+		}
+		
+		for(i = 0; i < SHRINE_BLUEPRINT_CORNER.length; ++i)
+		{
+			for(j = 0; j < SHRINE_BLUEPRINT_CORNER[0].length; ++j)
+			{
+				for(k = 0; k < SHRINE_BLUEPRINT_CORNER[0][0].length; ++k)
+				{
+					SHRINE_BLUEPRINT[SHRINE_BLUEPRINT.length][j][SHRINE_BLUEPRINT[0][0].length - 1 - k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
+				}
+			}
+		}
+		
+		for(i = 0; i < SHRINE_BLUEPRINT_CORNER.length; ++i)
+		{
+			for(j = 0; j < SHRINE_BLUEPRINT_CORNER[0].length; ++j)
+			{
+				for(k = 0; k < SHRINE_BLUEPRINT_CORNER[0][0].length; ++k)
+				{
+					SHRINE_BLUEPRINT[SHRINE_BLUEPRINT.length - 1 - i][j][SHRINE_BLUEPRINT[0][0].length - 1 - k] = SHRINE_BLUEPRINT_CORNER[i][j][k];
 				}
 			}
 		}

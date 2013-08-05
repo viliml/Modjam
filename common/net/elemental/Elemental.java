@@ -60,7 +60,7 @@ public class Elemental
 		Biomes.init();
 		Dimensions.initDimensions();
 		//Entities.init();
-		if (ShrineHelper.CENTER_BLOCK_ID == ShrineHelper.CENTER_BLOCK_ID);
+		if (ShrineHelper.CENTER_BLOCK_ID == 1) System.out.println(">.>");
 		MinecraftForge.EVENT_BUS.register(new ElementalEventListener());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new ElementalEventListener());
 	}
