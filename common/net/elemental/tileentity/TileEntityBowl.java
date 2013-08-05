@@ -8,7 +8,12 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityBowl extends TileEntity
 {
-	private int timer = 50;
+	private int timer;
+	
+	public TileEntityBowl()
+	{
+		timer = 50;
+	}
 	
 	@Override
 	public void updateEntity() 
