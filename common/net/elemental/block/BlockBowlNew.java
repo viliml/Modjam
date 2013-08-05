@@ -57,7 +57,7 @@ public class BlockBowlNew extends BlockContainer
 	{
 		if(world.getBlockMetadata(x, y, z) == 2)
 		{
-			world.spawnParticle("splash", x + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), y + 0.375D, z + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), 0D, 0D, 0D);
+			world.spawnParticle("smoke", x + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), y + 0.375D, z + 2. / 16. + rand.nextDouble() * (14. / 16. - 2. / 16.), 0D, 0D, 0D);
 		}
 		if(world.getBlockMetadata(x, y, z) == 3)
 		{
