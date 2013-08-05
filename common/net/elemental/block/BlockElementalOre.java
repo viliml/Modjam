@@ -21,7 +21,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalOre extends Block
 {
-
 	private Icon[] icons;
 	private boolean second;
 
@@ -94,6 +93,10 @@ public class BlockElementalOre extends Block
 	@Override
 	public int damageDropped(int meta)
 	{
+		if (second)
+			if(meta > 11)
+				return meta - 12;
+		
 		return meta;
 	}
 
@@ -106,21 +109,30 @@ public class BlockElementalOre extends Block
 	@Override
 	public void onBlockClicked(World world, int x, int y, int z, EntityPlayer player)
 	{
-		glow(world, x, y, z);
+		if (second)
+			if (world.getBlockMetadata(x, y, z) < 4 ||
+				world.getBlockMetadata(x, y, z) > 12)
+				glow(world, x, y, z);
 		super.onBlockClicked(world, x, y, z, player);
 	}
 
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity par5Entity)
 	{
-		glow(world, x, y, z);
+		if (second)
+			if (world.getBlockMetadata(x, y, z) < 4 ||
+				world.getBlockMetadata(x, y, z) > 12)
+				glow(world, x, y, z);
 		super.onEntityWalking(world, x, y, z, par5Entity);
 	}
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float par7, float par8, float par9)
 	{
-		glow(world, x, y, z);
+		if (second)
+			if (world.getBlockMetadata(x, y, z) < 4 ||
+				world.getBlockMetadata(x, y, z) > 12)
+				glow(world, x, y, z);
 		return super.onBlockActivated(world, x, y, z, player, side, par7, par8, par9);
 	}
 

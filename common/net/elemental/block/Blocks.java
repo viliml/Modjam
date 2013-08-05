@@ -1,6 +1,5 @@
 package net.elemental.block;
 
-import net.elemental.itemblock.ItemBlockBowl;
 import net.elemental.itemblock.ItemBlockElementalOre1;
 import net.elemental.itemblock.ItemBlockElementalOre2;
 import net.elemental.itemblock.ItemBlockElementalPressurePlate;
