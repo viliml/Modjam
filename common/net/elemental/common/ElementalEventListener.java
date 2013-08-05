@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.terraingen.BiomeEvent.GetVillageBlockID;
@@ -200,22 +201,35 @@ public class ElementalEventListener
 	{
 		if (!(event.entityLiving instanceof EntityPlayer))
 			return;
+		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem() == null)
+			return;
+		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID != Items.itemStaff.itemID)
+			return;
+		if (event.entityLiving.fallDistance == 0F)
+			return;
+		
+		Vec3 playerFacing = ((EntityPlayer) event.entityLiving).getLookVec();
+		
+		playerFacing.yCoord = 0;
+        playerFacing.normalize();
+        
+        double motionYchange = Math.min(0.08, -0.1 - ((EntityPlayer) event.entityLiving).motionY);
+        ((EntityPlayer) event.entityLiving).motionY += motionYchange;
+        ((EntityPlayer) event.entityLiving).motionX += playerFacing.xCoord * motionYchange;
+        ((EntityPlayer) event.entityLiving).motionZ += playerFacing.zCoord * motionYchange;
+	}
+	
+	@ForgeSubscribe
+	public void onFall(LivingFallEvent event)
+	{
+		if (!(event.entityLiving instanceof EntityPlayer))
+			return;
+		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem() == null)
+			return;
 		if (((EntityPlayer) event.entityLiving).getCurrentEquippedItem().itemID != Items.itemStaff.itemID)
 			return;
 		
-		event.entityLiving.fallDistance = 0;
-		event.entityLiving.moveForward = 0.1F;
-		event.entityLiving.posY =+ 0.01F;
-		
-		/*if (event.entityLiving.worldObj.getBlockId((int) event.entityLiving.posX, (int) event.entityLiving.posY - 2, (int) event.entityLiving.posZ) != 0)
-		{
-			if(!((EntityPlayer) event.entityLiving).capabilities.isCreativeMode)
-				((EntityPlayer) event.entityLiving).capabilities.allowFlying = false;
-			
-			return;
-		}*/
-		
-		//((EntityPlayer) event.entityLiving).capabilities.allowFlying = true;
+		event.setCanceled(true);
 	}
 
 	private void changeIt(World world, int i, int j, int k, EnumBiomes enumBiome)
