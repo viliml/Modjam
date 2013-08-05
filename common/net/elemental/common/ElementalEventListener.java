@@ -29,8 +29,6 @@ public class ElementalEventListener
 	@ForgeSubscribe
 	public void playerInteractListener(PlayerInteractEvent event)
 	{
-		if (event.entityPlayer.worldObj.isRemote)
-			return;
 		if (event.action != Action.RIGHT_CLICK_BLOCK)
 			return;
 		if (event.face != 1)
@@ -49,7 +47,8 @@ public class ElementalEventListener
 			event.setCanceled(true);
 		}
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
-				Item.bowlEmpty.itemID)
+				Item.bowlEmpty.itemID &&
+			!event.entityPlayer.worldObj.isRemote)
 		{
 			event.entityPlayer.worldObj.setBlock(event.x, event.y + 1, event.z, Blocks.bowlBlock.blockID);
 			if (!event.entityPlayer.capabilities.isCreativeMode)
