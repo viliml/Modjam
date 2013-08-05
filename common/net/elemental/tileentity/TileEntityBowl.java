@@ -26,7 +26,7 @@ public class TileEntityBowl extends TileEntity
 		else
 		{
 			ShrineHelper.buildNextBlock(this.worldObj, this.xCoord, this.yCoord, this.zCoord, GeneralHelper.PARTICLES[(new Random()).nextInt(4)]);
-			timer = 100;
+			timer = 50;
 		}
 	}
 	
