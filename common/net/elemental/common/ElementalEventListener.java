@@ -28,6 +28,7 @@ public class ElementalEventListener
 	{
 		if (event.action != Action.RIGHT_CLICK_BLOCK)
 			return;
+		System.out.println(event.entityPlayer.worldObj.getBlockId(event.x, event.y, event.z) + ":" + event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z));
 		if (event.face != 1)
 			return;
 		if (event.entityPlayer.getCurrentEquippedItem() == null)

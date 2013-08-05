@@ -16,16 +16,16 @@ public class ShrineHelper
 	public static final int CENTER_BLOCK_META = 0;
 	
 	// Offset from the edge of the shrine
-	public static final int CENTER_BLOCK_X_OFFSET = 2;
+	public static final int CENTER_BLOCK_X_OFFSET = 18;
 	public static final int CENTER_BLOCK_Y_OFFSET = 0;
-	public static final int CENTER_BLOCK_Z_OFFSET = 2;
+	public static final int CENTER_BLOCK_Z_OFFSET = 18;
 	
 	// Blueprint of the shrine
 	public static final int[][][] SHRINE_BLUEPRINT =
 	{ // 0 = must be air, -1 = doesn't matter, -2 = center block
 		{
 			{
-				1, 1, 1, 1, 1
+				7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 			},
 			{
 				2, 0, 0, 0, 2
