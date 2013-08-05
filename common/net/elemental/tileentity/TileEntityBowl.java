@@ -12,7 +12,7 @@ public class TileEntityBowl extends TileEntity
 	
 	public TileEntityBowl()
 	{
-		timer = 50;
+		timer = 25;
 	}
 	
 	@Override
@@ -20,13 +20,12 @@ public class TileEntityBowl extends TileEntity
 	{
 		if (this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord) != 0)
 			return;
-		System.out.println(timer);
 		if (timer > 0)
 			--timer;
 		else
 		{
 			ShrineHelper.buildNextBlock(this.worldObj, this.xCoord, this.yCoord, this.zCoord, GeneralHelper.PARTICLES[(new Random()).nextInt(4)]);
-			timer = 50;
+			timer = 25;
 		}
 	}
 	
