@@ -12,7 +12,7 @@ public class TileEntityElementalPortal extends TileEntity
 	
 	public TileEntityElementalPortal()
 	{
-		timer = 20;
+		timer = 0;
 	}
 	
 	@Override
@@ -25,7 +25,7 @@ public class TileEntityElementalPortal extends TileEntity
 		else
 		{
 			ShrineHelper.buildNextBlock(worldObj, xCoord, yCoord - 1, zCoord, GeneralHelper.PARTICLES[(new Random()).nextInt(4)]);
-			timer = 20;
+			timer = 0;
 		}
 		if (ShrineHelper.canMakePortal(worldObj, xCoord, yCoord - 1, zCoord))
 			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 3);
