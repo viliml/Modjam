@@ -5,28 +5,31 @@ import java.util.Random;
 import net.elemental.dimension.Dimensions;
 import net.elemental.dimension.ElementalTeleporter;
 import net.elemental.lib.ShrineHelper;
-import net.minecraft.block.BlockBreakable;
+import net.elemental.tileentity.TileEntityElementalPortal;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockElementalPortal extends BlockBreakable
+public class BlockElementalPortal extends BlockContainer
 {
 	public BlockElementalPortal(int par1)
 	{
-		super(par1, "elemental:portalElemental", Material.portal, false);
+		super(par1, Material.portal);
 		setTickRandomly(true);
 		setHardness(-1.0F);
 		setStepSound(soundGlassFootstep);
 		setLightValue(0.75F);
 		setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
 	}
+	
 	/**
 	 * Ticks the block if it's been scheduled
 	 */
@@ -50,6 +53,7 @@ public class BlockElementalPortal extends BlockBreakable
 			}
 		}
 	}
+	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
 	 * cleared to be reused)
@@ -91,7 +95,8 @@ public class BlockElementalPortal extends BlockBreakable
 	 */
 	public void onNeighborBlockChange(World world, int x, int y, int z, int par5)
 	{
-		if (!ShrineHelper.canMakePortal(world, x, y - 1, z)) world.setBlockToAir(x, y, z);
+		if (world.getBlockId(x, y - 1, z) != ShrineHelper.CENTER_BLOCK_ID)
+			world.setBlockToAir(x, y, z);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -115,8 +120,10 @@ public class BlockElementalPortal extends BlockBreakable
 	/**
 	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
 	 */
-	public void onEntityCollidedWithBlock(World world, int par2, int par3, int par4, Entity par5Entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity par5Entity)
 	{
+		if (world.getBlockMetadata(x, y, z) == 0)
+			return;
 		if ((par5Entity.ridingEntity == null) && (par5Entity.riddenByEntity == null) && ((par5Entity instanceof EntityPlayerMP)))
 		{
 			EntityPlayerMP thePlayer = (EntityPlayerMP)par5Entity;
@@ -188,5 +195,10 @@ public class BlockElementalPortal extends BlockBreakable
 	public int idPicked(World world, int par2, int par3, int par4)
 	{
 		return 0;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		return new TileEntityElementalPortal();
 	}
 }
