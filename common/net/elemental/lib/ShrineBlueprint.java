@@ -1,6 +1,9 @@
+package net.elemental.lib;
+
 public class ShrineBlueprint
 {
-	{
+	public static final int[][][][] BLUEPRINT = 
+	{{
 		{
 			{2, 0},
 			{2, 0},
@@ -49136,5 +49139,5 @@ public class ShrineBlueprint
 			{0, 0}
 		}
 	}
-}
+};
 }
