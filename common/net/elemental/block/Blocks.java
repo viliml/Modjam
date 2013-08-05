@@ -25,7 +25,7 @@ public class Blocks
 
 	public static BlockElementalPortal portalBlock;
 	public static int PORTAL_BLOCK_ID = 4001;
-	public static final String PORTAL_BLOCK_NAME = "portalBlockElemental";
+	public static final String PORTAL_BLOCK_NAME = "portalElemental";
 	public static final String PORTAL_BLOCK_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + PORTAL_BLOCK_NAME;
 	public static final String PORTAL_BLOCK_ACTUAL_NAME = "Elemental Portal Block";
 

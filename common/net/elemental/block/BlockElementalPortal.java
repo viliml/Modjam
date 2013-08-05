@@ -4,15 +4,17 @@ import java.util.Random;
 
 import net.elemental.dimension.Dimensions;
 import net.elemental.dimension.ElementalTeleporter;
+import net.elemental.lib.Reference;
 import net.elemental.lib.ShrineHelper;
 import net.elemental.tileentity.TileEntityElementalPortal;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
@@ -20,6 +22,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockElementalPortal extends BlockContainer
 {
+	private static Icon[] icons;
+	
 	public BlockElementalPortal(int par1)
 	{
 		super(par1, Material.portal);
@@ -28,30 +32,8 @@ public class BlockElementalPortal extends BlockContainer
 		setStepSound(soundGlassFootstep);
 		setLightValue(0.75F);
 		setBlockBounds(0F, 0F, 0F, 1F, 0.5F, 1F);
-	}
-	
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
-	public void updateTick(World world, int par2, int par3, int par4, Random par5Random)
-	{
-		super.updateTick(world, par2, par3, par4, par5Random);
-		if (world.provider.isSurfaceWorld() && par5Random.nextInt(2000) < world.difficultySetting)
-		{
-			int l;
-			for (l = par3; !world.doesBlockHaveSolidTopSurface(par2, l, par4) && l > 0; --l)
-			{
-				;
-			}
-			if (l > 0 && !world.isBlockNormalCube(par2, l + 1, par4))
-			{
-				Entity entity = ItemMonsterPlacer.spawnCreature(world, 57, (double)par2 + 0.5D, (double)l + 1.1D, (double)par4 + 0.5D);
-				if (entity != null)
-				{
-					entity.timeUntilPortal = entity.getPortalCooldown();
-				}
-			}
-		}
+		
+		icons = new Icon[2];
 	}
 	
 	/**
@@ -200,5 +182,12 @@ public class BlockElementalPortal extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		return new TileEntityElementalPortal();
+	}
+	
+	@Override
+	public void registerIcons(IconRegister iconregister)
+	{
+		icons[0] = iconregister.registerIcon(getUnlocalizedName() + "_inactive");
+		icons[1] = iconregister.registerIcon(getUnlocalizedName());
 	}
 }
