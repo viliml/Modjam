@@ -129,7 +129,6 @@ public class ElementalEventListener
 			return;
 		}
 		EnumBiomes biome = ((BasicElementalBiomeGen) event.biome).getBiome();
-		System.out.println(event.biome + " " + event.original);
 		if (event.original == Block.wood.blockID)
 		{
 			event.replacement = biome.ordinal();
