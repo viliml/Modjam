@@ -1,9 +1,5 @@
 package net.elemental.common;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-
 import net.elemental.biome.BasicElementalBiomeGen;
 import net.elemental.biome.EnumBiomes;
 import net.elemental.block.Blocks;
@@ -64,7 +60,7 @@ public class ElementalEventListener
 		}
 	}
 
-	private void printStuff(World world, int x, int y, int z)
+	/*private void printStuff(World world, int x, int y, int z)
 	{
 		int i, j, k;
 		try {
@@ -94,7 +90,7 @@ public class ElementalEventListener
 			else System.out.println();
 		}
 		System.out.println("}\n\n\n\n\n");
-	}
+	}*/
 
 	@ForgeSubscribe
 	public void getVillageBlock(GetVillageBlockID event)

@@ -2,7 +2,6 @@ package net.elemental.client.render.block;
 
 import net.elemental.client.model.block.ModelBowl;
 import net.elemental.lib.Reference;
-import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;

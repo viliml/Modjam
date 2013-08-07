@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.elemental.dimension.Dimensions;
 import net.elemental.dimension.ElementalTeleporter;
-import net.elemental.lib.Reference;
 import net.elemental.lib.ShrineHelper;
 import net.elemental.tileentity.TileEntityElementalPortal;
 import net.minecraft.block.BlockContainer;

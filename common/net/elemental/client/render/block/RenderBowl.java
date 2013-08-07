@@ -1,6 +1,5 @@
 package net.elemental.client.render.block;
 
-import net.elemental.block.BlockBowl;
 import net.elemental.client.render.RenderHandlers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFluid;

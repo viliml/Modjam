@@ -1,7 +1,6 @@
 package net.elemental.block;
 
 import java.util.List;
-import java.util.Random;
 
 import net.elemental.Elemental;
 import net.minecraft.block.Block;
