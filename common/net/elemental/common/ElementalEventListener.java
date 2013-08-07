@@ -46,12 +46,12 @@ public class ElementalEventListener
 
 			event.setCanceled(true);
 		}
-		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
+		/*if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Items.itemWing.itemID)
 		{
 			printStuff(event.entityPlayer.worldObj, event.x, event.y, event.z);
 			event.setCanceled(true);
-		}
+		}*/
 		if (event.entityPlayer.getCurrentEquippedItem().getItem().itemID ==
 				Item.bowlEmpty.itemID &&
 			!event.entityPlayer.worldObj.isRemote)
