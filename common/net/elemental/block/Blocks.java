@@ -1,9 +1,10 @@
 package net.elemental.block;
 
+import net.elemental.itemblock.ItemBlockElementalDoubleSlab;
 import net.elemental.itemblock.ItemBlockElementalOre1;
 import net.elemental.itemblock.ItemBlockElementalOre2;
 import net.elemental.itemblock.ItemBlockElementalPressurePlate;
-import net.elemental.itemblock.ItemBlockElementalSlab;
+import net.elemental.itemblock.ItemBlockElementalSingleSlab;
 import net.elemental.itemblock.ItemBlockElementalStone;
 import net.elemental.itemblock.ItemBlockElementalWall;
 import net.elemental.lib.GeneralHelper;
@@ -41,13 +42,18 @@ public class Blocks
 	public static final String ELEMENTAL_ORE_NAME = "oreBlockElemental";
 	public static final String ELEMENTAL_ORE_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + PORTAL_BLOCK_NAME;
 
-	public static BlockElementalSlab elementalSlabBlock;
-	public static int ELEMENTAL_SLAB_BLOCK_ID = 4005;
-	public static final String ELEMENTAL_SLAB_NAME = "elementalSlabBlock";
-	public static final String ELEMENTAL_SLAB_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_SLAB_NAME;
-
+	public static BlockElementalSlab elementalSingleSlabBlock;
+	public static int ELEMENTAL_SINGLE_SLAB_BLOCK_ID = 4005;
+	public static final String ELEMENTAL_SINGLE_SLAB_NAME = "elementalSingleSlabBlock";
+	public static final String ELEMENTAL_SINGLE_SLAB_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_SINGLE_SLAB_NAME;
+	
+	public static BlockElementalSlab elementalDoubleSlabBlock;
+	public static int ELEMENTAL_DOUBLE_SLAB_BLOCK_ID = 4006;
+	public static final String ELEMENTAL_DOUBLE_SLAB_NAME = "elementalDoubleSlabBlock";
+	public static final String ELEMENTAL_DOUBLE_SLAB_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_DOUBLE_SLAB_NAME;
+	
 	public static BlockElementalWall elementalWallBlock;
-	public static int ELEMENTAL_WALL_BLOCK_ID = 4006;
+	public static int ELEMENTAL_WALL_BLOCK_ID = 4007;
 	public static final String ELEMENTAL_WALL_NAME = "elementalWallBlock";
 	public static final String ELEMENTAL_WALL_UNLOCALIZED_NAME = Reference.MOD_ID + ":" + ELEMENTAL_WALL_NAME;
 
@@ -55,10 +61,10 @@ public class Blocks
 	public static int[][] ELEMENTAL_STAIRS_BLOCK_IDS =
 		{
 		{
-			4007, 4008, 4009, 4010
+			4008, 4009, 4010, 4011
 		},
 		{
-			4011, 4012, 4013, 4014
+			4012, 4013, 4014, 4015
 		}
 		};
 	public static final String ELEMENTAL_STAIRS_NAME = "elementalStairsBlock";
@@ -122,17 +128,21 @@ public class Blocks
 		for (i = 0; i < 4; ++i) for (j = 0; j < 4; ++j)
 			LanguageRegistry.addName(new ItemStack(elementalOreBlock2.blockID, 1, i * 4 + j),
 					"Elemental " + GeneralHelper.ORES[i + 4] + " Ore: " + GeneralHelper.ELEMENTS[j]);
-
-		elementalSlabBlock = (BlockElementalSlab) new BlockElementalSlab(ELEMENTAL_SLAB_BLOCK_ID)
-		.setUnlocalizedName(ELEMENTAL_SLAB_UNLOCALIZED_NAME);
-		GameRegistry.registerBlock(elementalSlabBlock, ItemBlockElementalSlab.class, ELEMENTAL_SLAB_NAME);
+		
+		elementalSingleSlabBlock = (BlockElementalSlab) new BlockElementalSlab(ELEMENTAL_SINGLE_SLAB_BLOCK_ID, false)
+		.setUnlocalizedName(ELEMENTAL_SINGLE_SLAB_UNLOCALIZED_NAME);
+		elementalDoubleSlabBlock = (BlockElementalSlab) new BlockElementalSlab(ELEMENTAL_DOUBLE_SLAB_BLOCK_ID, true)
+		.setUnlocalizedName(ELEMENTAL_DOUBLE_SLAB_UNLOCALIZED_NAME);
+		
+		GameRegistry.registerBlock(elementalSingleSlabBlock, ItemBlockElementalSingleSlab.class, ELEMENTAL_SINGLE_SLAB_NAME);
+		GameRegistry.registerBlock(elementalDoubleSlabBlock, ItemBlockElementalDoubleSlab.class, ELEMENTAL_DOUBLE_SLAB_NAME);
 		for (i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalSlabBlock.blockID, 1, i),
+			LanguageRegistry.addName(new ItemStack(elementalSingleSlabBlock.blockID, 1, i),
 					"Elemental Cobblestone Slab: " + GeneralHelper.ELEMENTS[i]);
 		for (i = 0; i < 4; ++i)
-			LanguageRegistry.addName(new ItemStack(elementalSlabBlock.blockID, 1, i + 4),
+			LanguageRegistry.addName(new ItemStack(elementalSingleSlabBlock.blockID, 1, i + 4),
 					"Elemental Stone Bricks Slab: " + GeneralHelper.ELEMENTS[i]);
-
+		
 		elementalWallBlock = (BlockElementalWall) new BlockElementalWall(ELEMENTAL_WALL_BLOCK_ID)
 		.setUnlocalizedName(ELEMENTAL_WALL_UNLOCALIZED_NAME);
 		GameRegistry.registerBlock(elementalWallBlock, ItemBlockElementalWall.class, ELEMENTAL_WALL_NAME);

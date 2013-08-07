@@ -25,10 +25,10 @@ public class Recipes
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, i));
 		for (i = 0; i < 4; ++i)
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSlabBlock, 6, i),
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSingleSlabBlock, 6, i),
 					"sss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, 4 + i));
-			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSlabBlock, 6, 4 + i),
+			GameRegistry.addShapedRecipe(new ItemStack(Blocks.elementalSingleSlabBlock, 6, 4 + i),
 					"sss",
 					's', new ItemStack(Blocks.elementalStoneBlock, 1, 8 + i));
 		}

@@ -139,7 +139,7 @@ public class ElementalEventListener
 		}*/
 		if (event.original == Block.stoneSingleSlab.blockID)
 		{
-			event.replacement = Blocks.elementalSlabBlock.blockID;
+			event.replacement = Blocks.elementalSingleSlabBlock.blockID;
 			event.setResult(Result.DENY);
 			return;
 		}

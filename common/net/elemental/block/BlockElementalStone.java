@@ -1,12 +1,13 @@
 package net.elemental.block;
 
 import java.util.List;
+import java.util.Random;
 
 import net.elemental.Elemental;
 import net.elemental.lib.GeneralHelper;
 import net.elemental.lib.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockStone;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -15,15 +16,16 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockElementalStone extends Block
+public class BlockElementalStone extends BlockStone
 {
 	private Icon[] icons;
 	
 	public BlockElementalStone(int id)
 	{
-		super(id, Material.rock);
+		super(id);
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(Elemental.creativeTabElemental);
+		setResistance(10.0F);
 	}
 	
 	@Override
@@ -76,5 +78,18 @@ public class BlockElementalStone extends Block
     public int getDamageValue(World par1World, int par2, int par3, int par4)
     {
         return par1World.getBlockMetadata(par2, par3, par4);
+    }
+	
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return blockID;
+    }
+	
+	@Override
+	public float getBlockHardness(World world, int x, int y, int z)
+    {
+		int meta = world.getBlockMetadata(x, y, z);
+        return meta < 4 ? Block.stone.blockHardness : (meta < 8 ? Block.cobblestone.blockHardness : Block.stoneBrick.blockHardness);
     }
 }

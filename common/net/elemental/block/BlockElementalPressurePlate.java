@@ -17,6 +17,7 @@ public class BlockElementalPressurePlate extends BlockPressurePlate {
 	public BlockElementalPressurePlate(int id) {
 		super(id, null, Material.rock, EnumMobType.players);
 		setCreativeTab(Elemental.creativeTabElemental);
+		setHardness(0.5F);
 	}
 	
 	@Override
