@@ -27,7 +27,7 @@ public class TileEntityBowlRenderer extends TileEntitySpecialRenderer
 
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-		func_110628_a(new ResourceLocation(Reference.MOD_ID, "/textures/blocks/bowl.png"));
+		func_110628_a(new ResourceLocation(Reference.MOD_ID, "textures/blocks/bowl.png"));
 
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);

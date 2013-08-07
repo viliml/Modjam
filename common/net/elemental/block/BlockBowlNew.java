@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class BlockBowlNew extends BlockContainer
@@ -127,4 +128,22 @@ public class BlockBowlNew extends BlockContainer
 	
 		return false;
 	}
+	
+	@Override
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
+    {
+        return new ItemStack(Item.bowlEmpty);
+    }
+	
+	@Override
+	public int idDropped(int meta, Random rand, int fortune)
+    {
+        return Item.bowlEmpty.itemID;
+    }
+	
+	@Override
+	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int meta)
+    {
+		return false;
+    }
 }
