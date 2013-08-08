@@ -1,6 +1,7 @@
 package net.elemental.block;
 
 import java.util.List;
+import java.util.Random;
 
 import net.elemental.Elemental;
 import net.minecraft.block.Block;
@@ -66,4 +67,10 @@ public class BlockElementalSlab extends BlockHalfSlab
 		int meta = world.getBlockMetadata(x, y, z) & 7;
         return meta < 4 ? Block.cobblestone.blockHardness : Block.stoneBrick.blockHardness;
     }
+	
+	@Override
+	public int idDropped(int meta, Random rand, int fortune)
+	{
+		return Blocks.elementalSingleSlabBlock.blockID;
+	}
 }
